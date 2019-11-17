@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Масса - проект по обучению с возможностью стажировки в Израиле</title>
+  <title>Маса - проект по обучению с возможностью стажировки в Израиле</title>
   <link rel="preload" href="../fonts/fira-sans-500.woff2" as="font" crossorigin="anonymous">
   <link rel="preload" href="../fonts/fira-sans-700.woff2" as="font" crossorigin="anonymous">
   <link rel="preload" href="../fonts/fira-sans-regular.woff2" as="font" crossorigin="anonymous">
@@ -13,19 +14,648 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
   <link rel="stylesheet" href="css/style.min.css">
 </head>
+
 <body>
-<header class="page-header"></header>
-<main class="page-main">
-  <section class="main-info"></section>
-  <section class="programs"></section>
-  <section class="phone-contact"></section>
-  <section class="conditions"></section>
-  <section class="advantages"></section>
-  <section class="blog-contact"></section>
-  <section class="questions"></section>
-  <section class="reviews"></section>
-  <section class="details"></section>
-</main>
-<footer class="page-footer"></footer>
+  <header class="page-header">
+    <div class="page-header__holder">
+      <a class="page-header__phone-number" href="tel:+97226216581">+ (972) 2 – 621 – 6581</a>
+      <a class="page-header__logo" href="#">
+        <picture>
+          <source type="image/webp" media="(max-width: 767px)" srcset="./img/logo-header--mobile@1x.webp 1x, ./img/logo-header--mobile@2x.webp 2x">
+          <source type="image/webp" srcset="./img/logo-header--desktop@1x.webp 1x, ./img/logo-header--desktop@2x.webp 2x">
+
+          <!-- 1х: 120x; 2x: 240px -->
+          <source media="(max-width: 767px)" srcset="./img/logo-header--mobile@1x.png 1x, ./img/logo-header--mobile@2x.png 2x">
+          <!-- 1х: 137px; 2x: 274px -->
+          <img src="./img/logo-header--desktop@1x.png" srcset="./img/logo-header--desktop@2x.png 2x" alt="Логотип Masa">
+        </picture>
+      </a>
+      <a class="page-header__call" href="#">Заказать звонок</a>
+    </div>
+    <div class="page-header__box">
+      <p class="page-header__text">Учёба, путешествие и карьера для еврейской молодёжи</p>
+      <span class="page-header__icon page-header__icon--scroll" aria-label="подсказка скролл вниз"></span>
+    </div>
+  </header>
+
+  <main class="page-main">
+    <article>
+      <h1 class="visually-hidden">Маса - проект для еврейской молодёжи по обучению с возможностью стажировки в Израиле
+      </h1>
+
+      <div class="main-info">
+        <p class="main-info__title">О программе</p>
+        <h2 class="visually-hidden">Основая информация о программе Маса</h2>
+        <div class="main-info__holder">
+          <p class="main-info__text">«Маса» — совместный проект правительства Израиля и Еврейского агентства Сохнут.
+          </p>
+          <p class="main-info__text">Более 250 учебных программ (60 на русском) и возможность стажировки в Израиле.</p>
+          <p class="main-info__text">В течение освоения программ предусмотрен грант от 4200 до 8400$.</p>
+        </div>
+        <div class="main-info__box">
+          <button class="main-info__video-btn" type="button">
+            <span class="visually-hidden">Запустить видео</span>
+          </button>
+        </div>
+      </div>
+
+
+      <section class="programs">
+        <h2 class="visually-hidden">Программы, реализованные в проекте Маса</h2>
+        <p class="programs__title">Программы</p>
+        <div class="programs__holder">
+          <ul class="programs__nav">
+            <li class="programs__nav-tem">
+              <input class="programs__nav-radio visually-hidden" type="radio" name="programs-item" id="programs-common" value="common">
+              <label for="programs-common" class="programs__nav-label">
+                <span class="programs__nav-icon" aria-label="Иконка текущего пункта меню"></span>
+                <span class="programs__nav-title">Общие</span>
+              </label>
+            </li>
+            <li class="programs__item-preview">
+              <input class="programs__nav-radio visually-hidden" type="radio" name="programs-item" id="programs-academic" value="academic">
+              <label for="programs-academic" class="programs__nav-label">
+                <span class="programs__nav-icon" aria-label="Иконка текущего пункта меню"></span>
+                <span class="programs__nav-title">Академические</span>
+              </label>
+            </li>
+            <li class="programs__item-preview">
+              <input class="programs__nav-radio visually-hidden" type="radio" name="programs-item" id="programs-internship" value="internship">
+              <label for="programs-internship" class="programs__nav-label">
+                <span class="programs__nav-icon" aria-label="Иконка текущего пункта меню"></span>
+                <span class="programs__nav-title">Стажировки</span>
+              </label>
+            </li>
+            <li class="programs__item-preview">
+              <input class="programs__nav-radio visually-hidden" type="radio" name="programs-item" id="programs-volunteering" value="volunteering">
+              <label for="programs-volunteering" class="programs__nav-label">
+                <span class="programs__nav-icon" aria-label="Иконка текущего пункта меню"></span>
+                <span class="programs__nav-title">Волонтёрство</span>
+              </label>
+            </li>
+            <li class="programs__item-preview">
+              <input class="programs__nav-radio visually-hidden" type="radio" name="programs-item" id="programs-religious" value="religious">
+              <label for="programs-religious" class="programs__nav-label">
+                <span class="programs__nav-icon" aria-label="Иконка текущего пункта меню"></span>
+                <span class="programs__nav-title">Религиозные</span>
+              </label>
+            </li>
+          </ul>
+          <ul class="programs__list-basic">
+            <li class="programs__item-basic programs__item-basic--disable">
+              <p class="programs__title-basic">Общие</p>
+              <div class="programs__box-basic">
+                <p class="programs__text-basic">Провести семестр или год за рубежом, знакомясь с различными культурами и
+                  идеями, традициями и стилем жизни — вот что такое учеба за границей! Израиль — это не только центр
+                  религиозного мира, это также академический центр, живая лаборатория идей и творческого исследования.
+                </p>
+                <p class="programs__text-basic">Может быть, Вы заинтересованы в изучении социологии, мира,
+                  юриспруденции,
+                  биологии, сравнительной религии, законодательного и делового администрирования или искусства? Здесь, в
+                  Израиле, Вы сможете изучить все это в удивительной университетской среде.</p>
+                <p class="programs__text-basic">Провести семестр или год за рубежом, знакомясь с различными культурами и
+                  идеями, традициями и стилем жизни — вот что такое учеба за границей! Израиль — это не только центр
+                  религиозного мира, это также академический центр, живая лаборатория идей и творческого исследования.
+                </p>
+              </div>
+            </li>
+            <li class="programs__item-basic programs__item-basic--active">
+              <p class="programs__title-basic">Академические</p>
+              <div class="programs__box-basic">
+                <p class="programs__text-basic">Провести семестр или год за рубежом, знакомясь с различными культурами и
+                  идеями, традициями и стилем жизни — вот что такое учеба за границей! Израиль — это не только центр
+                  религиозного мира, это также академический центр, живая лаборатория идей и творческого исследования.
+                </p>
+                <p class="programs__text-basic">Может быть, Вы заинтересованы в изучении социологии, мира,
+                  юриспруденции,
+                  биологии, сравнительной религии, законодательного и делового администрирования или искусства? Здесь, в
+                  Израиле, Вы сможете изучить все это в удивительной университетской среде.</p>
+              </div>
+              <p class="programs__text-basic">Волонтёрство</p>
+            </li>
+            <li class="programs__item-basic programs__item-basic--disable">
+              <p class="programs__title-basic">Стажировки</p>
+              <div class="programs__box-basic">
+                <p class="programs__text-basic">Провести семестр или год за рубежом, знакомясь с различными культурами и
+                  идеями, традициями и стилем жизни — вот что такое учеба за границей! </p>
+                <p class="programs__text-basic">Здесь, в Израиле, Вы сможете изучить все это в удивительной
+                  университетской среде.</p>
+              </div>
+            </li>
+            <li class="programs__item-basic programs__item-basic--disable">
+              <p class="programs__title-basic">Волонтёрство</p>
+              <div class="programs__box-basic">
+                <p class="programs__text-basic">Провести семестр или год за рубежом, знакомясь с различными культурами и
+                  идеями, традициями и стилем жизни — вот что такое учеба за границей! Израиль — это не только центр
+                  религиозного мира, это также академический центр, живая лаборатория идей и творческого исследования.
+                </p>
+              </div>
+            </li>
+            <li class="programs__item-basic programs__item-basic--disable">
+              <p class="programs__title-basic">Религиозные</p>
+              <div class="programs__box-basic">
+                <p class="programs__text-basic">Религия!</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <div class="phone-contact">
+        <h2 class="visually-hidden">Форма заказа обратного звонка</h2>
+        <p class="phone-contact__title">Хочу поехать!</p>
+        <p class="phone-contact__text">Оставьте свой телефон и мы свяжемся с вами, подберём куратора и ответим на все
+          вопросы!</p>
+        <div class="phone-contact__form">
+          <form name="contact-form" method="post" autocomplete="off">
+            <label for="user-phone">Номер телефона</label>
+            <input id="user-phone" type="tel" name="contact-phone" value="" placeholder="Телефон" required="">
+            <button type="submit" id="contact-submit">Перезвоните мне</button>
+          </form>
+        </div>
+      </div>
+
+      <section class="conditions">
+        <h2 class="visually-hidden">Условия для участия в программе Маса</h2>
+        <div class="conditions__inner">
+          <p class="conditions__title">Как поехать</p>
+          <p class="conditions__text">Чтобы узнать подробнее о программе, свяжитесь с координатором в вашем городе. Вы
+            получите актуальные сведения о доступных программах и городах, в которых можете пройти программу.</p>
+          <p class="conditions__subtitle">Чтобы иметь возможность получить грант на обучение от 4200 до 8400$, вы
+            должны:
+          </p>
+          <ul class="conditions__list">
+            <li class="conditions__item">
+              <span class="conditions__item-index">1</span>
+              <p class="conditions__item-text">Быть в возрасте от 16 до 30 лет</p>
+            </li>
+            <li class="conditions__item">
+              <span class="conditions__item-index">2</span>
+              <p class="conditions__item-text">Иметь оконченное среднее образование</p>
+            </li>
+            <li class="conditions__item">
+              <span class="conditions__item-index">3</span>
+              <p class="conditions__item-text">Иметь документально подтверждённые еврейские корни и пройти консульскую
+                проверку</p>
+            </li>
+            <li class="conditions__item">
+              <span class="conditions__item-index">4</span>
+              <p class="conditions__item-text">За последние 2 года быть не больше 3х месяцев подряд непрерывно в
+                Израиле.
+              </p>
+            </li>
+          </ul>
+          <p class="conditions__note">Если вы не подходите по этим правилам, вы всё равно можете принять участие в
+            программе «Маса», оплатив её полную стоимость</p>
+        </div>
+      </section>
+
+      <section class="advantages">
+        <h2 class="visually-hidden">Преимущества участия в программе Маса</h2>
+        <p class="advantages__title">Жизнь в Израиле</p>
+        <p class="advantages__text">Помимо учёбы, в рамках программе у вас будет возможность путешествовать по стране и
+          познакомиться с богатой культурно-исторической жизнью Израиля и его жителей.</p>
+        <div class="advantages__slider">
+          <div class="advantages__box">
+            <ul class="advantages__slides">
+              <li class="advantages__slide advantages__slide--active advantages__slide--exursion">
+                <p class="advantages__slide-text">Экскурсии по Израилю и знакомство с его историей</p>
+              </li>
+              <li class="advantages__slide advantages__slide--studying">
+                <p class="advantages__slide-text">Изучение иврита</p>
+              </li>
+              <li class="advantages__slide advantages__slide--training">
+                <p class="advantages__slide-text">Обучение современным навыкам и профессиям</p>
+              </li>
+              <li class="advantages__slide advantages__slide--creative">
+                <p class="advantages__slide-text">Совместные творческие проекты с израильской молодёжью</p>
+              </li>
+              <li class="advantages__slide advantages__slide--lead">
+                <p class="advantages__slide-text">Развитие лидерства</p>
+              </li>
+            </ul>
+          </div>
+          <fieldset class="advantages__nav">
+            <ul class="advantages__nav-list">
+              <li class="advantages__nav-item">
+                <input class="advantages__nav-radio visually-hidden" type="radio" name="advantages-item" id="advantages-exursion" value="exursion">
+                <label for="advantages-exursion" class="advantages__nav-label">
+                  <span class="visually-hidden">Экскурсии по Израилю и знакомство с его историей</span>
+                </label>
+              </li>
+              <li class="advantages__nav-item">
+                <input class="advantages__nav-radio visually-hidden" type="radio" name="advantages-item" id="advantages-studying" value="studying">
+                <label for="advantages-studying" class="advantages__nav-label">
+                  <span class="visually-hidden">Изучение иврита</span>
+                </label>
+              </li>
+              <li class="advantages__nav-item">
+                <input class="advantages__nav-radio visually-hidden" type="radio" name="advantages-item" id="advantages-training" value="training">
+                <label for="advantages-training" class="advantages__nav-label">
+                  <span class="visually-hidden">Обучение современным навыкам и профессиям</span>
+                </label>
+              </li>
+              <li class="advantages__nav-item">
+                <input class="advantages__nav-radio visually-hidden" type="radio" name="advantages-item" id="advantages-creative" value="creative">
+                <label for="advantages-creative" class="advantages__nav-label">
+                  <span class="visually-hidden">Совместные творческие проекты с израильской молодёжью</span>
+                </label>
+              </li>
+              <li class="advantages__nav-item">
+                <input class="advantages__nav-radio visually-hidden" type="radio" name="advantages-item" id="advantages-lead" value="lead">
+                <label for="advantages-lead" class="advantages__nav-label">
+                  <span class="visually-hidden">Развитие лидерства</span>
+                </label>
+              </li>
+            </ul>
+          </fieldset>
+        </div>
+      </section>
+
+      <section class="blog-contact">
+        <h2 class="visually-hidden">Ссылка на блоги участников программы Маса</h2>
+        <div class="blog-contact__inner">
+          <p class="blog-contact__title">#masaisrael</p>
+          <p class="blog-contact__text">Познакомьтесь с программой от первого лица! Многие участники ведут блоги и
+            фотодневники о жизни, учёбе и путешествиях в Израиле.</p>
+          <a class="blog-contact__link" href="#">
+            <span class="blog-contact__link-text">Смотреть фото</span>
+          </a>
+        </div>
+      </section>
+
+      <section class="questions">
+        <div class="questions__inner">
+          <h2 class="questions__title">Частые вопросы</h2>
+          <fieldset class="questions__box">
+            <ul class="questions__list">
+              <li class="questions__item">
+                <input class="questions__radio visually-hidden" type="radio" name="questions-item" id="questions-organizing" value="organizing">
+                <label for="questions-organizing" class="questions__label">
+                  Кто организатор? Какие сроки у программы?
+                  <span class="questions__icon questions__icon--down" aria-label="Иконка-стрелочка"></span>
+                </label>
+                <p class="question__text visually-hidden">
+                  Полная стоимость определяется организаторами в зависимости от направления. В большинстве случаев грант
+                  «Маса» не покрывает полную стоимость программы, и поэтому предусматривается определённая доля личного
+                  участия.
+                </p>
+              </li>
+              <li class="questions__item">
+                <input class="questions__radio visually-hidden" type="radio" name="questions-item" id="questions-grant" value="grant">
+                <label for="questions-grant" class="questions__label">
+                  Что такое грант на обучение?
+                  <span class="questions__icon questions__icon--down" aria-label="Иконка-стрелочка"></span>
+                </label>
+                <p class="question__text visually-hidden">
+                  Полная стоимость определяется организаторами в зависимости от направления. В большинстве случаев грант
+                  «Маса» не покрывает полную стоимость программы, и поэтому предусматривается определённая доля личного
+                  участия.
+                </p>
+              </li>
+              <li class="questions__item">
+                <input class="questions__radio visually-hidden" type="radio" name="questions-item" id="questions-cost" value="cost">
+                <label for="questions-cost" class="questions__label">
+                  Как определяется стоимость программы?
+                  <span class="questions__icon questions__icon--up" aria-label="Иконка-стрелочка"></span>
+                </label>
+                <p class="question__text">
+                  Полная стоимость определяется организаторами в зависимости от направления. В большинстве случаев грант
+                  «Маса» не покрывает полную стоимость программы, и поэтому предусматривается определённая доля личного
+                  участия.
+                </p>
+              </li>
+              <li class="questions__item">
+                <input class="questions__radio visually-hidden" type="radio" name="questions-item" id="questions-grants" value="grants">
+                <label for="questions-grants" class="questions__label">
+                  Что такое грант на обучение?
+                  <span class="questions__icon questions__icon--down" aria-label="Иконка-стрелочка"></span>
+                </label>
+                <p class="question__text visually-hidden">
+                  Полная стоимость определяется организаторами в зависимости от направления. В большинстве случаев грант
+                  «Маса» не покрывает полную стоимость программы, и поэтому предусматривается определённая доля личного
+                  участия.
+                </p>
+              </li>
+              <li class="questions__item">
+                <input class="questions__radio visually-hidden" type="radio" name="questions-item" id="questions-study" value="study">
+                <label for="questions-study" class="questions__label">
+                  Признаётся ли учеба в рамках проекта для дальнейшего обучения?
+                  <span class="questions__icon questions__icon--down" aria-label="Иконка-стрелочка"></span>
+                </label>
+                <p class="question__text visually-hidden">
+                  Полная стоимость определяется организаторами в зависимости от направления. В большинстве случаев грант
+                  «Маса» не покрывает полную стоимость программы, и поэтому предусматривается определённая доля личного
+                  участия.
+                </p>
+              </li>
+              <li class="questions__item">
+                <input class="questions__radio visually-hidden" type="radio" name="questions-item" id="questions-registry" value="registry">
+                <label for="questions-registry" class="questions__label">
+                  Как выглядит полный процесс регистрации на программу «Маса»?
+                  <span class="questions__icon questions__icon--down" aria-label="Иконка-стрелочка"></span>
+                </label>
+                <p class="question__text visually-hidden">
+                  Полная стоимость определяется организаторами в зависимости от направления. В большинстве случаев грант
+                  «Маса» не покрывает полную стоимость программы, и поэтому предусматривается определённая доля личного
+                  участия.
+                </p>
+              </li>
+
+            </ul>
+          </fieldset>
+        </div>
+      </section>
+
+      <section class="reviews">
+        <h2 class="reviews__title">Отзывы</h2>
+        <div class="reviews__inner">
+          <p class="reviews__photo">
+            <picture>
+              <source type="image/webp" media="(max-width: 767px)" srcset="./img/reviews--mobile@1x.webp 1x, ./img/reviews--mobile@2x.webp 2x">
+              <source type="image/webp" srcset="./img/reviews--desktop@1x.webp 1x, ./img/reviews--desktop@2x.webp 2x">
+
+              <!-- 1х: 240px; 2x: 480px -->
+              <source media="(max-width: 767px)" srcset="./img/reviews--mobile@1x.png 1x, ./img/reviews--mobile@2x.png 2x">
+              <!-- 1х: 364px; 2x: 728px -->
+              <img src="./img/reviews--desktop@1x.png" srcset="./img/reviews--desktop@2x.png 2x" alt="Логотип Masa">
+            </picture>
+          </p>
+          <div class="reviews__holder">
+            <ul class="reviews__list">
+              <li class="reviews__point">
+                <blockquote class="reviews__item">
+                  <cite class="reviews__author-name">Ладони хрустальной пустоты</cite>
+                  <p class="reviews__author-program"><span>Программа:</span> Арт-Тель, февраль-сетнябрь 2017</p>
+                  <p class="reviews__text">Ложка дает больше, чем берет: в ней есть естественная любовь к
+                    самопожертвованию. Ни над кем так не смеется Ложка, как над «хозяевами жизни». Пусть Ложка сияет
+                    здоровьем. Будьте бдительны, водители – впереди Ложка. Спасительной силой в нашем мире является
+                    Ложка – над ней по-прежнему реет флаг оптимизма. </p>
+                  <p class="reviews__text">Ложка – это то что немцы на видео снимают, а русские делом доказывают.
+                    Завершена реализация региональной программы «Ложка – в каждую школу». Теперь на очереди разработка и
+                    внедрение новой программы, которая, стараниями чиновников, несомненно будет выполнена. Она
+                    называется «Ложка – в каждый дом». Давайте немного спокойнее вести нашу беседу. </p>
+                  <p class="reviews__text">Ведь торопиться нам некуда. В прошлый раз, мы уже выяснили, что Ложка
+                    отличается универсальностью и хорошим дизайном. Проводя зиму в Индии, а потом прилетая в Россию,
+                    Ложка как бы протягивает воздушный мост между двумя странами. А вот «Акжол» – это Ложка наоборот.
+                  </p>
+                  <a class="reviews__link" href="#">Читать подробнее</a>
+                </blockquote>
+              </li>
+              <li class="reviews__point">
+                <blockquote class="reviews__item">
+                  <cite class="reviews__author-name">Смех из под земли</cite>
+                  <p class="reviews__author-program"><span>Программа:</span> Арт-Тель, февраль-сетнябрь 2017</p>
+                  <p class="reviews__text">Школы прекращают учить детей своим обычным основам обучения (чтение, письмо,
+                    арифметика), и, вместо этого, обращаются к странноватым и противоречивым вопросам Смех. В
+                    результате, все вырастают в той или иной степени «с приветом». Но ведь когда-нибудь, скажете вы,
+                    этот угар кончится.</p>
+                  <p class="reviews__text">Вдруг лет через десять-пятнадцать люди скажут: все, наелись. Глупости, нет.
+                    Потом появится новый Смех. Иногда от Смех рождается мысль. Поэтому, когда ты будешь манипулировать
+                    Смех в темноте, твоя девушка увидит впечатляющее шоу. Образ жизни Смех не отличается в корне от
+                    вашего – Смех просто быстрее. </p>
+                  <a class="reviews__link" href="#">Читать подробнее</a>
+                </blockquote>
+              </li>
+              <li class="reviews__point">
+                <blockquote class="reviews__item">
+                  <cite class="reviews__author-name">Ольга Михайлова</cite>
+                  <p class="reviews__author-program"><span>Программа:</span> Арт-Тель, февраль-сетнябрь 2017</p>
+                  <p class="reviews__text">Долго выбирая программу, на которую ехать - я определилась, взяла на 5
+                    месяцев «иврит как культура». Мне очень повезло оказаться в надежных и заботливых руках Анны, Юлии и
+                    Олега.</p>
+                  <p class="reviews__text">С первой же встречи тебе дают понять - что ты не один, у тебя есть
+                    практически круглосуточная поддержка по любым вопросам. Тебе предоставляют готовое удобное
+                    расписание, жилье, приятные встречи, языковой курс, а еще и поездки всей программой в разные уголки
+                    страны.</p>
+                  <a class="reviews__link" href="#">Читать подробнее</a>
+                </blockquote>
+              </li>
+              <li class="reviews__point">
+                <blockquote class="reviews__item">
+                  <cite class="reviews__author-name">Секретарь всемогущего чудовища</cite>
+                  <p class="reviews__author-program"><span>Программа:</span> Арт-Тель, февраль-сетнябрь 2017</p>
+                  <p class="reviews__text">Самое большое счастье в жизни – это уверенность в том, что Укроп тебя любит.
+                    Хочешь увидеть реальный мир? Посмотри в глаза Укроп. А потом – открой свои. Укроп... Ну да, а в
+                    другие места граждане уже не ходят, денег нет... После всего того, что мы сделали с Укроп, мы просто
+                    обязаны на нем жениться. Россия – это Укроп в снегу. </p>
+                  <a class="reviews__link" href="#">Читать подробнее</a>
+                </blockquote>
+              </li>
+              <li class="reviews__point">
+                <blockquote class="reviews__item">
+                  <cite class="reviews__author-name">Маг еды</cite>
+                  <p class="reviews__author-program"><span>Программа:</span> Арт-Тель, февраль-сетнябрь 2017</p>
+                  <p class="reviews__text">Если у Окно сильная светлая энергия, которая уравновешивает его «черную
+                    дыру», оно становится для вас настоящим Окно – другом, помощником, медсестрой и домохозяйкой.
+                    Окно-тред стартует здесь.</p>
+                  <p class="reviews__text">Если тебе мешает Окно, то жить незачем. Уходить от Окно – это
+                    самоубийство. Окно не обязано быть великим. Важно, чтобы оно было Вашим. Про отношения человека и
+                    Окно можно сказать то же, что и про любые другие отношения: отсутствие диалога убивает все чувства.
+                    Не правда ли, приятно общаться с Окно, которое вызывает у тебя искреннюю улыбку или раскатистый
+                    смех. Как лучше всего познакомиться с девушкой? Воспользуйтесь одним маленьким психологическим
+                    фокусом. Просто подойдите к девушке, и скажите: «Окно». Со временем, вы обнаружите, что это у вас
+                    начинает получаться автоматически.</p>
+                  <a class="reviews__link" href="#">Читать подробнее</a>
+                </blockquote>
+              </li>
+              <li class="reviews__point">
+                <blockquote class="reviews__item">
+                  <cite class="reviews__author-name">Нянька для ненавистного злодея</cite>
+                  <p class="reviews__author-program"><span>Программа:</span> Арт-Тель, февраль-сетнябрь 2017</p>
+                  <p class="reviews__text">Парламентарии не прекращают попыток законодательно урегулировать Излишек и
+                    деятельность Излишек. И вправду, что это за такие вольности? Правда, объяснить, что такое Излишек,
+                    депутаты постеснялись. Если хочется Излишек: ляг, поспи – и всё пройдет.</p>
+                  <a class="reviews__link" href="#">Читать подробнее</a>
+                </blockquote>
+              </li>
+            </ul>
+          </div>
+          <div class="reviews__holder">
+            <p class="reviews__counts">
+              <span class="reviews__count-this">3</span>/<span class="reviews__count-all">6</span>
+            </p>
+            <div class="reviews__buttons">
+              <button class="reviews__bth reviews__bth--left" type="button">
+                <span class="visually-hidden">Предыдущий отзыв</span></button>
+              <button class="reviews__bth reviews__bth--right" type="button">
+                <span class="visually-hidden">Следующий отзыв</span></button>
+            </div>
+          </div>
+          <ul class="reviews__socials socials">
+            <li class="socials__item">
+              <a class="socials__link socials__link--facebook" href="#">
+                <span class="visually-hidden">Отзывы в Фейсбуке</span>
+                <svg width="11" height="21">
+                  <use xlink:href="img/sprite.svg#icon-facebook"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="socials__item">
+              <a class="socials__link socials__link--twitter" href="#">
+                <span class="visually-hidden">Отзывы в Твитере</span>
+                <svg width="23" height="18">
+                  <use xlink:href="img/sprite.svg#icon-twitter"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="socials__item">
+              <a class="socials__link socials__link--instagram" href="#">
+                <span class="visually-hidden">Отзывы в Инстаграме</span>
+                <svg width="20" height="20">
+                  <use xlink:href="img/sprite.svg#icon-instagram"></use>
+                </svg>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="details">
+        <h2 class="visually-hidden">Контактная информация</h2>
+        <div class="details__info">
+          <p class="details__city">Ваш город: <span class="details__city-yours">Новосибирск</span></p>
+          <div class="details__curator">
+            <p class="details__curator-name"><span>Ваш куратор:</span> Анна Горелик</p>
+            <p class="details__curator-adress">Новосибирск, ул. Щетинкина 68, культурный центр «Бейт Менахем»</p>
+            <ul class="details__socials socials">
+              <li class="socials__item">
+                <a class="socials__link socials__link--facebook" href="#">
+                  <span class="visually-hidden">Контакт куратора Фейсбук</span>
+                  <svg width="11" height="21">
+                    <use xlink:href="img/sprite.svg#icon-facebook"></use>
+                  </svg>
+                </a>
+              </li>
+              <li class="socials__item">
+                <a class="socials__link socials__link--whatsapp" href="#">
+                  <span class="visually-hidden">Контакт куратора Вотсап</span>
+                  <svg width="20" height="20">
+                    <use xlink:href="img/sprite.svg#icon-whatsapp"></use>
+                  </svg>
+                </a>
+              </li>
+              <li class="socials__item">
+                <a class="socials__link socials__link--telegram" href="#">
+                  <span class="visually-hidden">Контакт куратора Телеграм</span>
+                  <svg width="22" height="18">
+                    <use xlink:href="img/sprite.svg#icon-telegram"></use>
+                  </svg>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <p class="details__info-text">Куратор является опытным специалистом агентства Сохнут<br> и знает о проекте
+            «Маса» всё! Свяжитесь с куратором,<br> узнайте подробнее о программах и выберите свою !</p>
+        </div>
+        <div class="details__map">
+          <span class="details__map-marker" aria-label="Маркер-показатель нахождения наставника на карте города"></span>
+        </div>
+        <div class="details__form">
+          <p class="details__form-title">Оставьте ваши контакты, если у вас остались вопросы — мы на них ответим!</p>
+          <p class="details__form-text">Мы не передаём данные третьим лицам. Ваши данные будут в безопасности и вам не
+            придёт спам от нас!</p>
+          <form name="details-form" method="post" autocomplete="off">
+            <label for="client-name">ФИО</label>
+            <input id="client-name" type="text" name="details-name" value="" placeholder="Имя" required="">
+            <label for="client-phone">Номер телефона</label>
+            <input id="client-phone" type="tel" name="details-phone" value="" placeholder="Телефон" required="">
+
+            <button type="submit" id="details-submit">Перезвоните мне</button>
+          </form>
+        </div>
+      </section>
+
+    </article>
+  </main>
+
+  <footer class="page-footer">
+    <a class="page-footer__logo" href="#">
+      <picture>
+        <source type="image/webp" media="(max-width: 767px)" srcset="./img/logo-footer--mobile@1x.webp 1x, ./img/logo-footer--mobile@2x.webp 2x">
+        <source type="image/webp" srcset="./img/logo-footer--desktop@1x.webp 1x, ./img/logo-footer--desktop@2x.webp 2x">
+
+        <!-- 1х: 99x; 2x: 198px -->
+        <source media="(max-width: 767px)" srcset="./img/logo-footer--mobile@1x.png 1x, ./img/logo-footer--mobile@2x.png 2x">
+        <!-- 1х: 85px; 2x: 170px -->
+        <img src="./img/logo-footer--desktop@1x.png" srcset="./img/logo-footer--desktop@2x.png 2x" alt="Логотип Masa">
+      </picture>
+    </a>
+    <a class="page-footer__copyright" href="#">Copyright someDesignCompany ©2019</a>
+    <ul class="page-footer__socials socials">
+      <li class="socials__item">
+        <a class="socials__link socials__link--facebook" href="#">
+          <span class="visually-hidden">О проекте Маса в Фейсбуке</span>
+          <svg>
+            <use xlink:href="img/sprite.svg#icon-facebook"></use>
+          </svg>
+        </a>
+      </li>
+      <li class="socials__item">
+        <a class="socials__link socials__link--twitter" href="#">
+          <span class="visually-hidden">О проекте Маса в Твитере</span>
+          <svg>
+            <use xlink:href="img/sprite.svg#icon-twitter"></use>
+          </svg>
+        </a>
+      </li>
+      <li class="socials__item">
+        <a class="socials__link socials__link--instagram" href="#">
+          <span class="visually-hidden">О проекте Маса в Инстаграме</span>
+          <svg>
+            <use xlink:href="img/sprite.svg#icon-instagram"></use>
+          </svg>
+        </a>
+      </li>
+    </ul>
+  </footer>
+
+  <!-- Модальное окно -->
+  <div class="modal-form visually-hidden">
+    <button type="reset" class="modal-form__button-close" id="modal-close">
+      <span class="visually-hidden">Закрыть окно</span></button>
+    <p class="modal-form__title">Заказать звонок</p>
+    <p class="modal-form__text">Оставьте ваши контактные данные, мы свяжемся с вами в течение рабочего дня и обязательно
+      поможем найти ответ на ваш вопрос!</p>
+    <form name="modal-form" method="post" autocomplete="off">
+      <label for="name">ФИО</label>
+      <input id="name" type="text" name="your-name" value="" placeholder="Имя" required="">
+      <label for="phone">Номер телефона</label>
+      <input id="phone" type="tel" name="your-phone" value="" placeholder="Телефон" required="">
+
+      <div>
+        <input id="data" type="checkbox" name="personal" checked="">
+        <label for="data">Нажимая на кнопку, вы даёте согласие на обработку персональных данных</label>
+      </div>
+      <button type="submit" id="modal-submit">Перезвоните мне</button>
+    </form>
+  </div>
+
+  <!-- Сообщение об успешной отправке формы -->
+  <template id="success">
+    <section class="success">
+      <div class="success__inner">
+        <h2 class="success__title">Заявка принята</h2>
+        <p class="success__text">Мы приняли ваши данные и вскоре мы перезвоним вам для уточнения деталей!</p>
+        <button class="success__button" type="button">Понятно</button>
+      </div>
+    </section>
+  </template>
+
+  <!-- Сообщение с ошибкой отправки формы -->
+  <template id="error">
+    <section class="error">
+      <div class="error__inner">
+        <h2 class="error__title">Произошла ошибка отправки формы</h2>
+        <button class="error__button" type="button">Попробовать снова</button>
+      </div>
+    </section>
+  </template>
+
+  <!-- Затемнение при открытии модального окна -->
+  <div class="overlay"></div>
+
+
 </body>
+
 </html>

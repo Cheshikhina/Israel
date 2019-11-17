@@ -50,3 +50,17 @@ $gradient-color: linear-gradient(108.42deg, #ffc341 20.46%, #ffd701 65.31%);
   line-height: 1.6;
   text-align: left;
 }
+
+@mixin font-preview-desktop {
+  font-family: "Raleway", "Arial", sans-serif;
+  font-size: 21px;
+  font-weight: 800;
+  line-height: 25px;
+  color: #FFFFFF;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.12);
+}
+@mixin font-preview-mobile {
+  font-size: 18px;
+  line-height: 21px;
+  text-align: center;
+}
