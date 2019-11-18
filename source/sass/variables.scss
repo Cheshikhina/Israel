@@ -1,5 +1,8 @@
 $tablet-width: 1023px;
+$no-mobile-width: 768px;
 $mobile-width: 767px;
+$retina-dpi: 144dpi;
+$retina-dppx: 1.5dppx;
 $black-color: #484848;
 $black-color-87: rgba(72, 72, 72, 0.87);
 $black-color-74: rgba(72, 72, 72, 0.74);
@@ -7,6 +10,7 @@ $black-color-50: rgba(72, 72, 72, 0.5);
 $blue-color: #1fc0fc;
 $yellow-color: #ffc341;
 $gradient-color: linear-gradient(108.42deg, #ffc341 20.46%, #ffd701 65.31%);
+$opacity: 0.32;
 
 @mixin font-title-desktop {
   font-family: "Montserrat", "Arial", sans-serif;
@@ -18,6 +22,7 @@ $gradient-color: linear-gradient(108.42deg, #ffc341 20.46%, #ffd701 65.31%);
   text-align: center;
   color: $blue-color;
 }
+
 @mixin font-title-mobile {
   font-size: 32px;
   line-height: 39px;
@@ -31,6 +36,7 @@ $gradient-color: linear-gradient(108.42deg, #ffc341 20.46%, #ffd701 65.31%);
   letter-spacing: -0.02em;
   color: $blue-color;
 }
+
 @mixin font-subtitle-mobile {
   font-size: 24px;
   line-height: 29px;
@@ -45,6 +51,7 @@ $gradient-color: linear-gradient(108.42deg, #ffc341 20.46%, #ffd701 65.31%);
   text-align: center;
   color: $black-color;
 }
+
 @mixin font-text-mobile {
   font-size: 16px;
   line-height: 1.6;
@@ -56,11 +63,35 @@ $gradient-color: linear-gradient(108.42deg, #ffc341 20.46%, #ffd701 65.31%);
   font-size: 21px;
   font-weight: 800;
   line-height: 25px;
-  color: #FFFFFF;
+  color: #ffffff;
   text-shadow: 0 1px 4px rgba(0, 0, 0, 0.12);
 }
+
 @mixin font-preview-mobile {
   font-size: 18px;
   line-height: 21px;
   text-align: center;
+}
+
+@mixin link-hover {
+  background: linear-gradient(132.19deg, #ffc341 20.46%, #ffd701 65.31%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  opacity: 0.87;
+}
+
+@mixin link-active {
+  background: linear-gradient(132.19deg, #ffc341 20.46%, #ffd701 65.31%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  opacity: 0.5;
+}
+
+@mixin button-hover {
+  background-image: linear-gradient(143.55deg, #ffc341 -50.3%, #ffd701 63.1%);
+}
+
+@mixin button-active {
+  background-image: radial-gradient(150% 119.49% at 50% 50.85%, rgba(0, 0, 0, 0) 30.67%, rgba(3, 3, 3, 0.24) 100%),
+    linear-gradient(143.55deg, #ffc341 -50.3%, #ffd701 63.1%);
 }

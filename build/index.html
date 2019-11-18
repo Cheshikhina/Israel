@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Маса - проект по обучению с возможностью стажировки в Израиле</title>
+  <title>Маса - учёба, путешествие и карьера для еврейской молодёжи</title>
   <link rel="preload" href="../fonts/fira-sans-500.woff2" as="font" crossorigin="anonymous">
   <link rel="preload" href="../fonts/fira-sans-700.woff2" as="font" crossorigin="anonymous">
   <link rel="preload" href="../fonts/fira-sans-regular.woff2" as="font" crossorigin="anonymous">
@@ -19,7 +19,7 @@
   <header class="page-header">
     <div class="page-header__holder">
       <a class="page-header__phone-number" href="tel:+97226216581">+ (972) 2 – 621 – 6581</a>
-      <a class="page-header__logo" href="#">
+      <a class="page-header__logo">
         <picture>
           <source type="image/webp" media="(max-width: 767px)" srcset="./img/logo-header--mobile@1x.webp 1x, ./img/logo-header--mobile@2x.webp 2x">
           <source type="image/webp" srcset="./img/logo-header--desktop@1x.webp 1x, ./img/logo-header--desktop@2x.webp 2x">
@@ -30,13 +30,17 @@
           <img src="./img/logo-header--desktop@1x.png" srcset="./img/logo-header--desktop@2x.png 2x" alt="Логотип Masa">
         </picture>
       </a>
-      <a class="page-header__call" href="#">Заказать звонок</a>
+      <a class="page-header__call" href="#" id="link-call">заказать звонок</a>
     </div>
     <div class="page-header__box">
       <p class="page-header__text">Учёба, путешествие и карьера для еврейской молодёжи</p>
-      <span class="page-header__icon page-header__icon--scroll" aria-label="подсказка скролл вниз"></span>
-    </div>
-  </header>
+      <div class="page-header__scroll">
+        <button type="button">
+          <span class="visually-hidden">скролл вниз</span>
+        </button>
+        
+      </div>
+  </div></header>
 
   <main class="page-main">
     <article>
@@ -49,7 +53,8 @@
         <div class="main-info__holder">
           <p class="main-info__text">«Маса» — совместный проект правительства Израиля и Еврейского агентства Сохнут.
           </p>
-          <p class="main-info__text">Более 250 учебных программ (60 на русском) и возможность стажировки в Израиле.</p>
+          <p class="main-info__text">Более 250 учебных программ (60 на русском) и возможность стажировки в Израиле.
+          </p>
           <p class="main-info__text">В течение освоения программ предусмотрен грант от 4200 до 8400$.</p>
         </div>
         <div class="main-info__box">
@@ -105,15 +110,18 @@
             <li class="programs__item-basic programs__item-basic--disable">
               <p class="programs__title-basic">Общие</p>
               <div class="programs__box-basic">
-                <p class="programs__text-basic">Провести семестр или год за рубежом, знакомясь с различными культурами и
+                <p class="programs__text-basic">Провести семестр или год за рубежом, знакомясь с различными культурами
+                  и
                   идеями, традициями и стилем жизни — вот что такое учеба за границей! Израиль — это не только центр
                   религиозного мира, это также академический центр, живая лаборатория идей и творческого исследования.
                 </p>
                 <p class="programs__text-basic">Может быть, Вы заинтересованы в изучении социологии, мира,
                   юриспруденции,
-                  биологии, сравнительной религии, законодательного и делового администрирования или искусства? Здесь, в
+                  биологии, сравнительной религии, законодательного и делового администрирования или искусства? Здесь,
+                  в
                   Израиле, Вы сможете изучить все это в удивительной университетской среде.</p>
-                <p class="programs__text-basic">Провести семестр или год за рубежом, знакомясь с различными культурами и
+                <p class="programs__text-basic">Провести семестр или год за рубежом, знакомясь с различными культурами
+                  и
                   идеями, традициями и стилем жизни — вот что такое учеба за границей! Израиль — это не только центр
                   религиозного мира, это также академический центр, живая лаборатория идей и творческого исследования.
                 </p>
@@ -122,13 +130,15 @@
             <li class="programs__item-basic programs__item-basic--active">
               <p class="programs__title-basic">Академические</p>
               <div class="programs__box-basic">
-                <p class="programs__text-basic">Провести семестр или год за рубежом, знакомясь с различными культурами и
+                <p class="programs__text-basic">Провести семестр или год за рубежом, знакомясь с различными культурами
+                  и
                   идеями, традициями и стилем жизни — вот что такое учеба за границей! Израиль — это не только центр
                   религиозного мира, это также академический центр, живая лаборатория идей и творческого исследования.
                 </p>
                 <p class="programs__text-basic">Может быть, Вы заинтересованы в изучении социологии, мира,
                   юриспруденции,
-                  биологии, сравнительной религии, законодательного и делового администрирования или искусства? Здесь, в
+                  биологии, сравнительной религии, законодательного и делового администрирования или искусства? Здесь,
+                  в
                   Израиле, Вы сможете изучить все это в удивительной университетской среде.</p>
               </div>
               <p class="programs__text-basic">Волонтёрство</p>
@@ -136,7 +146,8 @@
             <li class="programs__item-basic programs__item-basic--disable">
               <p class="programs__title-basic">Стажировки</p>
               <div class="programs__box-basic">
-                <p class="programs__text-basic">Провести семестр или год за рубежом, знакомясь с различными культурами и
+                <p class="programs__text-basic">Провести семестр или год за рубежом, знакомясь с различными культурами
+                  и
                   идеями, традициями и стилем жизни — вот что такое учеба за границей! </p>
                 <p class="programs__text-basic">Здесь, в Израиле, Вы сможете изучить все это в удивительной
                   университетской среде.</p>
@@ -145,7 +156,8 @@
             <li class="programs__item-basic programs__item-basic--disable">
               <p class="programs__title-basic">Волонтёрство</p>
               <div class="programs__box-basic">
-                <p class="programs__text-basic">Провести семестр или год за рубежом, знакомясь с различными культурами и
+                <p class="programs__text-basic">Провести семестр или год за рубежом, знакомясь с различными культурами
+                  и
                   идеями, традициями и стилем жизни — вот что такое учеба за границей! Израиль — это не только центр
                   религиозного мира, это также академический центр, живая лаборатория идей и творческого исследования.
                 </p>
@@ -169,7 +181,7 @@
         <div class="phone-contact__form">
           <form name="contact-form" method="post" autocomplete="off">
             <label for="user-phone">Номер телефона</label>
-            <input id="user-phone" type="tel" name="contact-phone" value="" placeholder="Телефон" required="">
+            <input id="user-phone" type="tel" name="your-phone" value="" placeholder="Телефон" required="">
             <button type="submit" id="contact-submit">Перезвоните мне</button>
           </form>
         </div>
@@ -213,7 +225,8 @@
       <section class="advantages">
         <h2 class="visually-hidden">Преимущества участия в программе Маса</h2>
         <p class="advantages__title">Жизнь в Израиле</p>
-        <p class="advantages__text">Помимо учёбы, в рамках программе у вас будет возможность путешествовать по стране и
+        <p class="advantages__text">Помимо учёбы, в рамках программе у вас будет возможность путешествовать по стране
+          и
           познакомиться с богатой культурно-исторической жизнью Израиля и его жителей.</p>
         <div class="advantages__slider">
           <div class="advantages__box">
@@ -296,8 +309,10 @@
                   <span class="questions__icon questions__icon--down" aria-label="Иконка-стрелочка"></span>
                 </label>
                 <p class="question__text visually-hidden">
-                  Полная стоимость определяется организаторами в зависимости от направления. В большинстве случаев грант
-                  «Маса» не покрывает полную стоимость программы, и поэтому предусматривается определённая доля личного
+                  Полная стоимость определяется организаторами в зависимости от направления. В большинстве случаев
+                  грант
+                  «Маса» не покрывает полную стоимость программы, и поэтому предусматривается определённая доля
+                  личного
                   участия.
                 </p>
               </li>
@@ -308,8 +323,10 @@
                   <span class="questions__icon questions__icon--down" aria-label="Иконка-стрелочка"></span>
                 </label>
                 <p class="question__text visually-hidden">
-                  Полная стоимость определяется организаторами в зависимости от направления. В большинстве случаев грант
-                  «Маса» не покрывает полную стоимость программы, и поэтому предусматривается определённая доля личного
+                  Полная стоимость определяется организаторами в зависимости от направления. В большинстве случаев
+                  грант
+                  «Маса» не покрывает полную стоимость программы, и поэтому предусматривается определённая доля
+                  личного
                   участия.
                 </p>
               </li>
@@ -320,8 +337,10 @@
                   <span class="questions__icon questions__icon--up" aria-label="Иконка-стрелочка"></span>
                 </label>
                 <p class="question__text">
-                  Полная стоимость определяется организаторами в зависимости от направления. В большинстве случаев грант
-                  «Маса» не покрывает полную стоимость программы, и поэтому предусматривается определённая доля личного
+                  Полная стоимость определяется организаторами в зависимости от направления. В большинстве случаев
+                  грант
+                  «Маса» не покрывает полную стоимость программы, и поэтому предусматривается определённая доля
+                  личного
                   участия.
                 </p>
               </li>
@@ -332,8 +351,10 @@
                   <span class="questions__icon questions__icon--down" aria-label="Иконка-стрелочка"></span>
                 </label>
                 <p class="question__text visually-hidden">
-                  Полная стоимость определяется организаторами в зависимости от направления. В большинстве случаев грант
-                  «Маса» не покрывает полную стоимость программы, и поэтому предусматривается определённая доля личного
+                  Полная стоимость определяется организаторами в зависимости от направления. В большинстве случаев
+                  грант
+                  «Маса» не покрывает полную стоимость программы, и поэтому предусматривается определённая доля
+                  личного
                   участия.
                 </p>
               </li>
@@ -344,20 +365,24 @@
                   <span class="questions__icon questions__icon--down" aria-label="Иконка-стрелочка"></span>
                 </label>
                 <p class="question__text visually-hidden">
-                  Полная стоимость определяется организаторами в зависимости от направления. В большинстве случаев грант
-                  «Маса» не покрывает полную стоимость программы, и поэтому предусматривается определённая доля личного
+                  Полная стоимость определяется организаторами в зависимости от направления. В большинстве случаев
+                  грант
+                  «Маса» не покрывает полную стоимость программы, и поэтому предусматривается определённая доля
+                  личного
                   участия.
                 </p>
               </li>
               <li class="questions__item">
                 <input class="questions__radio visually-hidden" type="radio" name="questions-item" id="questions-registry" value="registry">
                 <label for="questions-registry" class="questions__label">
-                  Как выглядит полный процесс регистрации на программу «Маса»?
+                  Как выглдядит полный процесс регистрации на программу «Маса»?
                   <span class="questions__icon questions__icon--down" aria-label="Иконка-стрелочка"></span>
                 </label>
                 <p class="question__text visually-hidden">
-                  Полная стоимость определяется организаторами в зависимости от направления. В большинстве случаев грант
-                  «Маса» не покрывает полную стоимость программы, и поэтому предусматривается определённая доля личного
+                  Полная стоимость определяется организаторами в зависимости от направления. В большинстве случаев
+                  грант
+                  «Маса» не покрывает полную стоимость программы, и поэтому предусматривается определённая доля
+                  личного
                   участия.
                 </p>
               </li>
@@ -392,7 +417,8 @@
                     здоровьем. Будьте бдительны, водители – впереди Ложка. Спасительной силой в нашем мире является
                     Ложка – над ней по-прежнему реет флаг оптимизма. </p>
                   <p class="reviews__text">Ложка – это то что немцы на видео снимают, а русские делом доказывают.
-                    Завершена реализация региональной программы «Ложка – в каждую школу». Теперь на очереди разработка и
+                    Завершена реализация региональной программы «Ложка – в каждую школу». Теперь на очереди разработка
+                    и
                     внедрение новой программы, которая, стараниями чиновников, несомненно будет выполнена. Она
                     называется «Ложка – в каждый дом». Давайте немного спокойнее вести нашу беседу. </p>
                   <p class="reviews__text">Ведь торопиться нам некуда. В прошлый раз, мы уже выяснили, что Ложка
@@ -406,7 +432,8 @@
                 <blockquote class="reviews__item">
                   <cite class="reviews__author-name">Смех из под земли</cite>
                   <p class="reviews__author-program"><span>Программа:</span> Арт-Тель, февраль-сетнябрь 2017</p>
-                  <p class="reviews__text">Школы прекращают учить детей своим обычным основам обучения (чтение, письмо,
+                  <p class="reviews__text">Школы прекращают учить детей своим обычным основам обучения (чтение,
+                    письмо,
                     арифметика), и, вместо этого, обращаются к странноватым и противоречивым вопросам Смех. В
                     результате, все вырастают в той или иной степени «с приветом». Но ведь когда-нибудь, скажете вы,
                     этот угар кончится.</p>
@@ -422,11 +449,12 @@
                   <cite class="reviews__author-name">Ольга Михайлова</cite>
                   <p class="reviews__author-program"><span>Программа:</span> Арт-Тель, февраль-сетнябрь 2017</p>
                   <p class="reviews__text">Долго выбирая программу, на которую ехать - я определилась, взяла на 5
-                    месяцев «иврит как культура». Мне очень повезло оказаться в надежных и заботливых руках Анны, Юлии и
+                    месяцев «иврит как культура». Мне очень повезло оказаться в надежных и заботливых руках Анны, Юлии
+                    и
                     Олега.</p>
                   <p class="reviews__text">С первой же встречи тебе дают понять - что ты не один, у тебя есть
                     практически круглосуточная поддержка по любым вопросам. Тебе предоставляют готовое удобное
-                    расписание, жилье, приятные встречи, языковой курс, а еще и поездки всей программой в разные уголки
+                    расписание, жилье, приятные встречи, языковой курс а еще и поездки всей программой в разные уголки
                     страны.</p>
                   <a class="reviews__link" href="#">Читать подробнее</a>
                 </blockquote>
@@ -435,9 +463,11 @@
                 <blockquote class="reviews__item">
                   <cite class="reviews__author-name">Секретарь всемогущего чудовища</cite>
                   <p class="reviews__author-program"><span>Программа:</span> Арт-Тель, февраль-сетнябрь 2017</p>
-                  <p class="reviews__text">Самое большое счастье в жизни – это уверенность в том, что Укроп тебя любит.
+                  <p class="reviews__text">Самое большое счастье в жизни – это уверенность в том, что Укроп тебя
+                    любит.
                     Хочешь увидеть реальный мир? Посмотри в глаза Укроп. А потом – открой свои. Укроп... Ну да, а в
-                    другие места граждане уже не ходят, денег нет... После всего того, что мы сделали с Укроп, мы просто
+                    другие места граждане уже не ходят, денег нет... После всего того, что мы сделали с Укроп, мы
+                    просто
                     обязаны на нем жениться. Россия – это Укроп в снегу. </p>
                   <a class="reviews__link" href="#">Читать подробнее</a>
                 </blockquote>
@@ -451,7 +481,8 @@
                     Окно-тред стартует здесь.</p>
                   <p class="reviews__text">Если тебе мешает Окно, то жить незачем. Уходить от Окно – это
                     самоубийство. Окно не обязано быть великим. Важно, чтобы оно было Вашим. Про отношения человека и
-                    Окно можно сказать то же, что и про любые другие отношения: отсутствие диалога убивает все чувства.
+                    Окно можно сказать то же, что и про любые другие отношения: отсутствие диалога убивает все
+                    чувства.
                     Не правда ли, приятно общаться с Окно, которое вызывает у тебя искреннюю улыбку или раскатистый
                     смех. Как лучше всего познакомиться с девушкой? Воспользуйтесь одним маленьким психологическим
                     фокусом. Просто подойдите к девушке, и скажите: «Окно». Со временем, вы обнаружите, что это у вас
@@ -487,7 +518,7 @@
               <a class="socials__link socials__link--facebook" href="#">
                 <span class="visually-hidden">Отзывы в Фейсбуке</span>
                 <svg width="11" height="21">
-                  <use xlink:href="img/sprite.svg#icon-facebook"></use>
+                  <use xlink:href="./img/sprite_auto.svg#icon-facebook"></use>
                 </svg>
               </a>
             </li>
@@ -495,7 +526,7 @@
               <a class="socials__link socials__link--twitter" href="#">
                 <span class="visually-hidden">Отзывы в Твитере</span>
                 <svg width="23" height="18">
-                  <use xlink:href="img/sprite.svg#icon-twitter"></use>
+                  <use xlink:href="./img/sprite_auto.svg#icon-twitter"></use>
                 </svg>
               </a>
             </li>
@@ -503,7 +534,7 @@
               <a class="socials__link socials__link--instagram" href="#">
                 <span class="visually-hidden">Отзывы в Инстаграме</span>
                 <svg width="20" height="20">
-                  <use xlink:href="img/sprite.svg#icon-instagram"></use>
+                  <use xlink:href="./img/sprite_auto.svg#icon-instagram"></use>
                 </svg>
               </a>
             </li>
@@ -523,7 +554,7 @@
                 <a class="socials__link socials__link--facebook" href="#">
                   <span class="visually-hidden">Контакт куратора Фейсбук</span>
                   <svg width="11" height="21">
-                    <use xlink:href="img/sprite.svg#icon-facebook"></use>
+                    <use xlink:href="./img/sprite_auto.svg#icon-facebook"></use>
                   </svg>
                 </a>
               </li>
@@ -531,7 +562,7 @@
                 <a class="socials__link socials__link--whatsapp" href="#">
                   <span class="visually-hidden">Контакт куратора Вотсап</span>
                   <svg width="20" height="20">
-                    <use xlink:href="img/sprite.svg#icon-whatsapp"></use>
+                    <use xlink:href="./img/sprite_auto.svg#icon-whatsapp"></use>
                   </svg>
                 </a>
               </li>
@@ -539,7 +570,7 @@
                 <a class="socials__link socials__link--telegram" href="#">
                   <span class="visually-hidden">Контакт куратора Телеграм</span>
                   <svg width="22" height="18">
-                    <use xlink:href="img/sprite.svg#icon-telegram"></use>
+                    <use xlink:href="./img/sprite_auto.svg#icon-telegram"></use>
                   </svg>
                 </a>
               </li>
@@ -557,9 +588,9 @@
             придёт спам от нас!</p>
           <form name="details-form" method="post" autocomplete="off">
             <label for="client-name">ФИО</label>
-            <input id="client-name" type="text" name="details-name" value="" placeholder="Имя" required="">
+            <input id="client-name" type="text" name="your-name" value="" placeholder="Имя" required="">
             <label for="client-phone">Номер телефона</label>
-            <input id="client-phone" type="tel" name="details-phone" value="" placeholder="Телефон" required="">
+            <input id="client-phone" type="tel" name="your-phone" value="" placeholder="Телефон" required="">
 
             <button type="submit" id="details-submit">Перезвоните мне</button>
           </form>
@@ -570,7 +601,7 @@
   </main>
 
   <footer class="page-footer">
-    <a class="page-footer__logo" href="#">
+    <a class="page-footer__logo">
       <picture>
         <source type="image/webp" media="(max-width: 767px)" srcset="./img/logo-footer--mobile@1x.webp 1x, ./img/logo-footer--mobile@2x.webp 2x">
         <source type="image/webp" srcset="./img/logo-footer--desktop@1x.webp 1x, ./img/logo-footer--desktop@2x.webp 2x">
@@ -586,24 +617,27 @@
       <li class="socials__item">
         <a class="socials__link socials__link--facebook" href="#">
           <span class="visually-hidden">О проекте Маса в Фейсбуке</span>
-          <svg>
-            <use xlink:href="img/sprite.svg#icon-facebook"></use>
+          <!-- временно, исправить -->
+          <svg width="11" height="21">
+            <use xlink:href="./img/sprite_auto.svg#icon-facebook"></use>
           </svg>
         </a>
       </li>
       <li class="socials__item">
         <a class="socials__link socials__link--twitter" href="#">
           <span class="visually-hidden">О проекте Маса в Твитере</span>
-          <svg>
-            <use xlink:href="img/sprite.svg#icon-twitter"></use>
+          <!-- временно, исправить -->
+          <svg width="23" height="18">
+            <use xlink:href="./img/sprite_auto.svg#icon-twitter"></use>
           </svg>
         </a>
       </li>
       <li class="socials__item">
         <a class="socials__link socials__link--instagram" href="#">
           <span class="visually-hidden">О проекте Маса в Инстаграме</span>
-          <svg>
-            <use xlink:href="img/sprite.svg#icon-instagram"></use>
+          <!-- временно, исправить -->
+          <svg width="20" height="20">
+            <use xlink:href="./img/sprite_auto.svg#icon-instagram"></use>
           </svg>
         </a>
       </li>
@@ -655,7 +689,9 @@
   <!-- Затемнение при открытии модального окна -->
   <div class="overlay"></div>
 
-
+  <script src="./js/jquery.min.js"></script>
+  <script src="./js/jquery.maskedinput.min.js"></script>
+  <script src="./js/script.js"></script>
 </body>
 
 </html>

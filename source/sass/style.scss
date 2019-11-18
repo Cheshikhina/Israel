@@ -1,8 +1,8 @@
 @charset "utf-8";
-@import "./common";
 @import "./variables";
-// @import "./visually-hidden";
-// @import "./page-header";
+@import "./common";
+@import "./visually-hidden";
+@import "./page-header";
 // @import "./page-main";
 // @import "./main-info";
 // @import "./programs";
@@ -15,10 +15,9 @@
 // @import "./details";
 // @import "./page-footer";
 // @import "./socials";
-// @import "./";
-// @import "./";
-// @import "./";
-// @import "./";
+@import "./overlay";
+// @import "./success";
+// @import "./error";
 // @import "./";
 // @import "./";
 // @import "./";

@@ -3,8 +3,7 @@
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url("../fonts/fira-sans-regular.woff2") format("woff2"),
-    url("../fonts/fira-sans-regula.woff") format("woff");
+  src: url("../fonts/fira-sans-regular.woff2") format("woff2"), url("../fonts/fira-sans-regula.woff") format("woff");
 }
 
 @font-face {
@@ -12,8 +11,7 @@
   font-style: normal;
   font-weight: 500;
   font-display: swap;
-  src: url("../fonts/fira-sans-500.woff2") format("woff2"),
-    url("../fonts/fira-sans-500.woff") format("woff");
+  src: url("../fonts/fira-sans-500.woff2") format("woff2"), url("../fonts/fira-sans-500.woff") format("woff");
 }
 
 @font-face {
@@ -21,8 +19,7 @@
   font-style: normal;
   font-weight: 700;
   font-display: swap;
-  src: url("../fonts/fira-sans-700.woff2") format("woff2"),
-    url("../fonts/fira-sans-700.woff") format("woff");
+  src: url("../fonts/fira-sans-700.woff2") format("woff2"), url("../fonts/fira-sans-700.woff") format("woff");
 }
 
 @font-face {
@@ -30,8 +27,7 @@
   font-style: normal;
   font-weight: 700;
   font-display: swap;
-  src: url("../fonts/montserrat-700.woff2") format("woff2"),
-    url("../fonts/montserrat-700.woff") format("woff");
+  src: url("../fonts/montserrat-700.woff2") format("woff2"), url("../fonts/montserrat-700.woff") format("woff");
 }
 
 @font-face {
@@ -39,8 +35,7 @@
   font-style: normal;
   font-weight: 800;
   font-display: swap;
-  src: url("../fonts/raleway-800.woff2") format("woff2"),
-    url("../fonts/raleway-800.woff") format("woff");
+  src: url("../fonts/raleway-800.woff2") format("woff2"), url("../fonts/raleway-800.woff") format("woff");
 }
 
 @font-face {
@@ -48,8 +43,7 @@
   font-style: normal;
   font-weight: 900;
   font-display: swap;
-  src: url("../fonts/raleway-900.woff2") format("woff2"),
-    url("../fonts/raleway-900.woff") format("woff");
+  src: url("../fonts/raleway-900.woff2") format("woff2"), url("../fonts/raleway-900.woff") format("woff");
 }
 
 body {
@@ -60,16 +54,6 @@ body {
   margin: 0;
 }
 
-a {
-  color: hsl(0, 0, 0);
-  text-decoration: none;
-}
-
-a:hover,
-a:focus {
-  outline: none;
-}
-
 html {
   box-sizing: border-box;
 }
@@ -78,4 +62,8 @@ html {
 *::before,
 *::after {
   box-sizing: inherit;
+}
+
+button {
+  cursor: pointer;
 }

@@ -102,7 +102,11 @@
 <stop stop-color="#FFC341"/>
 <stop offset="0.963542" stop-color="#FFD701"/>
 </linearGradient>
-</defs><symbol id="icon-briefcase--black" viewBox="0 0 32 25">
+</defs><symbol id="icon-border--black" viewBox="0 0 114 2">
+<path d="M0 1H114" stroke="#484848" stroke-dasharray="4 4"/>
+</symbol><symbol id="icon-border--yellow" viewBox="0 0 114 2">
+  <path d="M0 1H114" stroke="#FFC341" stroke-dasharray="4 4"/>
+</symbol><symbol id="icon-briefcase--black" viewBox="0 0 32 25">
 <rect width="32" height="25" fill="url(#pattern0)"/>
 
 </symbol><symbol id="icon-briefcase--white" viewBox="0 0 32 25">
