@@ -26,8 +26,8 @@
   width: 88%;
   min-height: 115px;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  flex: 1 1;
+  flex-wrap: no-wrap;
   align-items: center;
   margin: 0 auto;
   font-family: "Fira Sans", "Arial", sans-serif;
@@ -36,22 +36,30 @@
   line-height: 18px;
 }
 
+.page-header__nav-contact,
+.page-header__nav-link {
+  width: 43%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
 .page-header__phone-number {
-  margin-left: 1.9%;
+  margin-left: 4.5%;
   padding: 5px;
-  padding-top: 4px;
   color: $black-color;
 }
 
 .page-header__logo {
-  transform: translateX(-11px);
+  transform: translateX(8px);
   padding: 5px;
 }
 
 .page-header__call {
   position: relative;
+  margin-right: 1.4%;
+  margin-left: auto;
   padding: 5px;
-  margin-right: 2.4%;
   font-size: 13px;
   text-transform: uppercase;
   letter-spacing: 0.3px;
@@ -130,10 +138,10 @@
 @media (max-width: $mobile-width) {
   .page-header {
     min-height: 600px;
+    background-position-y: 0;
     background-image: url("../img/header-background--mobile@1x.jpg");
     /* stylelint-disable */
     background-image: -webkit-image-set(url("../img/header-background--mobile@1x.webp") 1x);
-    background-position-y: 32px;
   }
 
   @media (min-resolution: $retina-dpi), (min-resolution: $retina-dppx) {
@@ -147,10 +155,22 @@
     min-height: 315px;
     flex-direction: column;
     justify-content: initial;
+    flex-wrap: wrap;
     align-items: flex-end;
     padding-top: 15px;
     font-size: 14px;
     line-height: 17px;
+  }
+
+  .page-header__nav-contact,
+  .page-header__nav-link {
+    width: 46%;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+
+  .page-header__nav-contact {
+    margin-top: -56px;
   }
 
   .page-header__logo {
@@ -160,9 +180,8 @@
   }
 
   .page-header__phone-number {
-    margin-left: initial;
-    margin-top: -55px;
     padding-right: 3px;
+    margin-left: initial;
   }
 
   .page-header__call {
