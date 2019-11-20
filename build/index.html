@@ -47,18 +47,18 @@
       </div>
   </div></header>
 
-  <main class="page-main">
-    <article>
+  <main>
+    <article class="page-main">
       <h1 class="visually-hidden">Маса - проект для еврейской молодёжи по обучению с возможностью стажировки в Израиле
       </h1>
 
       <div class="main-info">
-        <p class="main-info__title">О программе</p>
         <h2 class="visually-hidden">Основая информация о программе Маса</h2>
+        <p class="main-info__title">О программе</p>
         <div class="main-info__holder">
           <p class="main-info__text">«Маса» — совместный проект правительства Израиля и Еврейского агентства Сохнут.
           </p>
-          <p class="main-info__text">Более 250 учебных программ (60 на русском) и возможность стажировки в Израиле.
+          <p class="main-info__text main-info__text--left">Более 250 учебных программ (60 на русском) и возможность стажировки в Израиле.
           </p>
           <p class="main-info__text">В течение освоения программ предусмотрен грант от 4200 до 8400$.</p>
         </div>
@@ -642,19 +642,19 @@
     <button type="reset" class="modal-form__button-close" id="modal-close">
       <span class="visually-hidden">Закрыть окно</span></button>
     <p class="modal-form__title">Заказать звонок</p>
-    <p class="modal-form__text">Оставьте ваши контактные данные, мы свяжемся с вами в течение рабочего дня и обязательно
-      поможем найти ответ на ваш вопрос!</p>
+    <p class="modal-form__text">Оставьте ваши контактные данные,<br> мы свяжемся с вами в течение рабочего дня и
+      обязательно поможем найти ответ на ваш вопрос!</p>
     <form name="modal-form" method="post" autocomplete="off">
       <label for="name">ФИО</label>
-      <input id="name" type="text" name="your-name" value="" placeholder="Имя" required="">
+      <input id="name" type="text" name="your-name" value="" placeholder="Имя" autofocus="" required="">
       <label for="phone">Номер телефона</label>
       <input id="phone" type="tel" name="your-phone" value="" placeholder="Телефон" required="">
 
+      <button type="submit" id="modal-submit">Перезвоните мне</button>
       <div>
-        <input id="data" type="checkbox" name="personal" checked="">
+        <input id="data" type="checkbox" name="personal">
         <label for="data">Нажимая на кнопку, вы даёте согласие на обработку персональных данных</label>
       </div>
-      <button type="submit" id="modal-submit">Перезвоните мне</button>
     </form>
   </div>
 
@@ -662,6 +662,8 @@
   <template id="success">
     <section class="success">
       <div class="success__inner">
+        <button type="reset" class="success__button-close" id="success-close">
+          <span class="visually-hidden">Закрыть окно</span></button>
         <h2 class="success__title">Заявка принята</h2>
         <p class="success__text">Мы приняли ваши данные и вскоре мы перезвоним вам для уточнения деталей!</p>
         <button class="success__button" type="button">Понятно</button>

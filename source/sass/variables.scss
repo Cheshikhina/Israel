@@ -12,6 +12,7 @@ $yellow-color: #ffc341;
 $background-color: #bbb955;
 $gradient-color: linear-gradient(108.42deg, #ffc341 20.46%, #ffd701 65.31%);
 $opacity: 0.32;
+$box-shadow: 0 16px 36px -24px $black-color;
 
 @mixin font-title-desktop {
   font-family: "Montserrat", "Arial", sans-serif;
@@ -48,14 +49,14 @@ $opacity: 0.32;
   font-family: "Fira Sans", "Arial", sans-serif;
   font-size: 17px;
   font-weight: 400;
-  line-height: 1.7;
+  line-height: 1.75;
   text-align: center;
   color: $black-color;
 }
 
 @mixin font-text-mobile {
   font-size: 16px;
-  line-height: 1.6;
+  line-height: 1.65;
   text-align: left;
 }
 
@@ -88,6 +89,18 @@ $opacity: 0.32;
   opacity: 0.5;
 }
 
+@mixin button {
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 20px;
+  color: #ffffff;
+  text-transform: uppercase;
+  text-shadow: 0px 1px 4px rgba(0, 0, 0, 0.12);
+  background-image: linear-gradient(146.13deg, #ffc341 20.46%, #ffd701 65.31%);
+  border-radius: 80px;
+  letter-spacing: 0.2px;
+}
+
 @mixin button-hover {
   background-image: linear-gradient(143.55deg, #ffc341 -50.3%, #ffd701 63.1%);
 }
@@ -95,4 +108,8 @@ $opacity: 0.32;
 @mixin button-active {
   background-image: radial-gradient(150% 119.49% at 50% 50.85%, rgba(0, 0, 0, 0) 30.67%, rgba(3, 3, 3, 0.24) 100%),
     linear-gradient(143.55deg, #ffc341 -50.3%, #ffd701 63.1%);
+}
+
+@mixin input-hover {
+  border-color: #FFD701;
 }

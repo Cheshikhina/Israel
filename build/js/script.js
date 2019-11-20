@@ -11,14 +11,14 @@
     SUCESS: 200,
   };
   var TIMEOUT = 10000;
-  var ERROR_INPUT = 'border: 2px solid #FF0000; border-radius: 80px;';
+  var ERROR_INPUT = 'border: 2px solid rgba(255, 0, 0, 0.5); border-radius: 80px;';
   var popup = document.querySelector('.modal-form');
   var overlay = document.querySelector('.overlay');
   var linkOpenPopup = document.querySelector('#link-call');
   var buttonClosePopup = document.querySelector('#modal-close');
   var modalForm = document.querySelector('.modal-form form');
-  // var callForm = document.querySelector('.phone-contact__form form');
-  // var detailsForm = document.querySelector('.details__form form');
+  var callForm = document.querySelector('.phone-contact__form form');
+  var detailsForm = document.querySelector('.details__form form');
   var phoneInFormAll = document.querySelectorAll('input[name="your-phone"]');
   // var phoneCallForm = callForm.querySelector('input[name="your-phone"]');
   // var phoneDetailsForm = detailsForm.querySelector('input[name="your-phone"]');
@@ -26,7 +26,6 @@
   var phoneModalForm = modalForm.querySelector('input[name="your-phone"]');
   var nameModalForm = modalForm.querySelector('input[name="your-name"]');
   var personalModalForm = modalForm.querySelector('div');
-  var textErrorModalForm = document.querySelector('.modal-form__text-extra');
   var scrollButton = document.querySelector('.page-header__scroll button');
   var pageMain = document.querySelector('.page-main');
   var inputAll = document.querySelectorAll('input');
@@ -70,16 +69,17 @@
       .querySelector('.success');
     var sucessMessage = similarSucessMessage.cloneNode(true);
     document.body.insertBefore(sucessMessage, document.body.children[0]);
-    overlay.style.display = "block";
+    overlay.style.display = 'block';
 
     var successButton = document.querySelector('.success__button');
 
     var closeSuccessMessage = function () {
-      overlay.style.display = "none";
+      overlay.style.display = 'none';
       document.body.removeChild(document.body.children[0]);
       successButton.removeEventListener('click', closeSuccessMessage);
       modalForm.reset();
-      // pageForm.reset();
+      callForm.reset();
+      detailsForm.reset();
     };
 
     var addCloseEscSuccessMessage = function () {
@@ -103,7 +103,7 @@
 
     var errorMessage = similarErrorMessage.cloneNode(true);
     document.body.insertBefore(errorMessage, document.body.children[0]);
-    overlay.style.display = "block";
+    overlay.style.display = 'block';
 
     var errorButton = document.querySelector('.error__button');
 
@@ -117,7 +117,7 @@
       document.addEventListener('keydown', function (evt) {
         if (evt.keyCode === KeyCode.ESC) {
           document.body.removeChild(document.body.children[0]);
-          overlay.style.display = "none";
+          overlay.style.display = 'none';
           errorButton.removeEventListener('click', closeErrorMessage);
           modalForm.reset();
         }
@@ -148,7 +148,7 @@
 
   // функция открытия модального окна
   var openPopup = function () {
-    overlay.style.display = "block";
+    overlay.style.display = 'block';
     popup.classList.remove('visually-hidden');
     addCloseEscPopup();
     if (buttonClosePopup) {
@@ -170,15 +170,14 @@
 
   // функция закрытия модального окна
   var closePopup = function () {
-    overlay.style.display = "none";
+    overlay.style.display = 'none';
     nameModalForm.style = '';
     phoneModalForm.style = '';
     personalModalForm.style = '';
-    textErrorModalForm.classList.add('visually-hidden');
     popup.classList.add('visually-hidden');
     removeCloseEscPopup();
     modalForm.removeEventListener('submit', pressModalFormButton);
-  }
+  };
 
   // функция сохранения данных формы модального окна
   var pressModalFormButton = function (evt) {
@@ -221,37 +220,33 @@
   // функция проверки полей модального окна
   var checkModalForm = function () {
     var thisForm = getFormData(modalForm);
+    console.log(thisForm);
     var nameValue = thisForm['your-name'];
     var phoneValue = thisForm['your-phone'];
     var personalValue = thisForm['personal'];
 
-    if (nameValue == '') {
+    if (nameValue === '') {
       nameModalForm.style = ERROR_INPUT;
       phoneModalForm.style = '';
       personalModalForm.style = '';
-      textErrorModalForm.classList.remove('visually-hidden');
       return false;
-    } else if (phoneValue == '') {
+    } else if (phoneValue === '') {
       phoneModalForm.style = ERROR_INPUT;
       nameModalForm.style = '';
       personalModalForm.style = '';
-      textErrorModalForm.classList.remove('visually-hidden');
       return false;
     } else if (personalValue !== 'on') {
       personalModalForm.style = ERROR_INPUT;
       nameModalForm.style = '';
       phoneModalForm.style = '';
-      textErrorModalForm.classList.remove('visually-hidden');
       return false;
     } else {
       nameModalForm.style = '';
       phoneModalForm.style = '';
       personalModalForm.style = '';
-      textErrorModalForm.classList.add('visually-hidden');
       return true;
     }
   };
-
 
   //СКРОЛЛ
   var scrollElement = function (button, link) {
@@ -265,6 +260,5 @@
   if (scrollButton, pageMain) {
     scrollElement(scrollButton, pageMain);
   }
-
 
 })();
