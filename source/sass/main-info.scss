@@ -14,7 +14,7 @@
 
 .main-info__holder {
   width: 65%;
-  margin: 5px auto;
+  margin: 6px auto;
   margin-bottom: 0;
 }
 
@@ -29,23 +29,27 @@
 
 .main-info__box {
   min-height: 604px;
+  max-width: 1366px;
+  width: 100%;
+  margin: 0 auto;
   display: flex;
+  background-color: $background-color;
   background-repeat: no-repeat;
   background-position-x: center;
-  background-image: url("../img/main-info--desktop@1x.png");
+  background-image: url("../img/main-info--desktop@1x.jpg");
   /* stylelint-disable */
   background-image: -webkit-image-set(url("../img/main-info--desktop@1x.webp") 1x);
 }
 
 @media (min-resolution: $retina-dpi), (min-resolution: $retina-dppx) {
-  background-image: url("../img/main-info--desktop@2x.png");
+  background-image: url("../img/main-info--desktop@2x.jpg");
   background-image: -webkit-image-set(url("../img/main-info--desktop@2x.webp") 2x);
 }
 
 .main-info__video-btn {
   position: relative;
   margin: 0 auto;
-  margin-top: 228px;
+  margin-top: 227px;
   width: 96px;
   height: 96px;
   border-radius: 50%;
@@ -85,10 +89,16 @@
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
 }
 
+@media (max-width: 1061px) {
+  .main-info__text {
+    display: inline;
+  }
+}
+
 @media (max-width: $mobile-width) {
   .main-info__title {
     width: 90%;
-    margin-top: 35px;
+    margin-top: 34px;
     @include font-title-mobile;
   }
 
@@ -97,7 +107,6 @@
   }
 
   .main-info__text {
-    display: inline;
     @include font-text-mobile;
   }
 
@@ -107,16 +116,21 @@
 }
 
 @media (max-width: 450px) {
+  .main-info__holder {
+    z-index: 2;
+  }
+
   .main-info__box {
     min-height: 317px;
+    max-width: 320px;
     margin-top: -45px;
-    background-image: url("../img/main-info--mobile@1x.png");
+    background-image: url("../img/main-info--mobile@1x.jpg");
     /* stylelint-disable */
     background-image: -webkit-image-set(url("../img/main-info--mobile@1x.webp") 1x);
   }
 
   @media (min-resolution: $retina-dpi), (min-resolution: $retina-dppx) {
-    background-image: url("../img/main-info--mobile@2x.png");
+    background-image: url("../img/main-info--mobile@2x.jpg");
     background-image: -webkit-image-set(url("../img/main-info--mobile@2x.webp") 2x);
   }
 
@@ -136,8 +150,8 @@
   .main-info__video-btn::after {
     width: 13px;
     height: 16px;
-    border: 9px solid transparent;
-    border-left: 15px solid $blue-color;
+    border: 8px solid transparent;
+    border-left: 13px solid $blue-color;
   }
 }
 

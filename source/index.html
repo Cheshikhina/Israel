@@ -193,8 +193,10 @@
           вопросы!</p>
         <div class="phone-contact__form">
           <form name="contact-form" method="post" autocomplete="off">
-            <label for="user-phone">Номер телефона</label>
-            <input id="user-phone" type="tel" name="your-phone" value="" placeholder="Телефон" required="">
+            <div class="phone-contact__phone">
+              <label for="user-phone">Номер телефона</label>
+              <input id="user-phone" type="tel" name="your-phone" value="" placeholder="Телефон" required="">
+            </div>
             <button type="submit" id="contact-submit">Перезвоните мне</button>
           </form>
         </div>
@@ -603,8 +605,10 @@
           <form name="details-form" method="post" autocomplete="off">
             <label for="client-name">ФИО</label>
             <input id="client-name" type="text" name="your-name" value="" placeholder="Имя" required="">
-            <label for="client-phone">Номер телефона</label>
-            <input id="client-phone" type="tel" name="your-phone" value="" placeholder="Телефон" required="">
+            <div class="details__form-phone">
+              <label for="client-phone">Номер телефона</label>
+              <input id="client-phone" type="tel" name="your-phone" value="" placeholder="Телефон" required="">
+            </div>
 
             <button type="submit" id="details-submit">Перезвоните мне</button>
           </form>
@@ -670,11 +674,13 @@
     <form name="modal-form" method="post" autocomplete="off">
       <label for="name">ФИО</label>
       <input id="name" type="text" name="your-name" value="" placeholder="Имя" autofocus required="">
-      <label for="phone">Номер телефона</label>
-      <input id="phone" type="tel" name="your-phone" value="" placeholder="Телефон" required="">
+      <div class="modal-form__phone phone-placeholder">
+        <label for="phone">Номер телефона</label>
+        <input id="phone" type="tel" name="your-phone" value="" placeholder="Телефон" required="">
+      </div>
 
       <button type="submit" id="modal-submit">Перезвоните мне</button>
-      <div>
+      <div class="modal-form__personal">
         <input id="data" type="checkbox" name="personal">
         <label for="data">Нажимая на кнопку, вы даёте согласие на обработку персональных данных</label>
       </div>

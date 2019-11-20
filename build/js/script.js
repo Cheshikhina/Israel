@@ -1,6 +1,6 @@
 'use strict';
 
-;(function () {
+; (function () {
   var KeyCode = {
     ESC: 27,
   };
@@ -25,7 +25,7 @@
   // var nameDetailsForm = detailsForm.querySelector('input[name="your-name"]');
   var phoneModalForm = modalForm.querySelector('input[name="your-phone"]');
   var nameModalForm = modalForm.querySelector('input[name="your-name"]');
-  var personalModalForm = modalForm.querySelector('div');
+  var personalModalForm = modalForm.querySelector('.modal-form__personal');
   var scrollButton = document.querySelector('.page-header__scroll button');
   var pageMain = document.querySelector('.page-main');
   var inputAll = document.querySelectorAll('input');
@@ -72,11 +72,13 @@
     overlay.style.display = 'block';
 
     var successButton = document.querySelector('.success__button');
+    var successButtonClose = document.querySelector('.success__button-close');
 
     var closeSuccessMessage = function () {
       overlay.style.display = 'none';
       document.body.removeChild(document.body.children[0]);
       successButton.removeEventListener('click', closeSuccessMessage);
+      successButtonClose.removeEventListener('click', closeSuccessMessage);
       modalForm.reset();
       callForm.reset();
       detailsForm.reset();
@@ -92,6 +94,7 @@
 
     addCloseEscSuccessMessage();
     successButton.addEventListener('click', closeSuccessMessage);
+    successButtonClose.addEventListener('click', closeSuccessMessage);
   };
 
   // ошибка отправки формы модального окна
@@ -146,15 +149,40 @@
     document.removeEventListener('keydown', popupCloseEscHandler);
   };
 
+  //функция добавления светло-серой подсказки на ввод телефона
+  var addPhonePlaceholder = function (form) {
+    var inputParent = form.querySelector('input[name="your-phone"]').parentNode;
+    if (inputParent) {
+      inputParent.classList.add('phone-placeholder');
+    }
+  };
+
+  //функция удаления светло-серой подсказки на ввод телефона
+  var removePhonePlaceholder = function (form) {
+    var inputParent = form.querySelector('input[name="your-phone"]').parentNode;
+    if (inputParent) {
+      inputParent.classList.remove('phone-placeholder');
+    }
+  };
+
   // функция открытия модального окна
   var openPopup = function () {
     overlay.style.display = 'block';
+    nameModalForm.focus();
     popup.classList.remove('visually-hidden');
     addCloseEscPopup();
     if (buttonClosePopup) {
       buttonClosePopup.addEventListener('click', function () {
         closePopup();
         modalForm.reset();
+      });
+    }
+    if (phoneModalForm) {
+      phoneModalForm.addEventListener('focus', function () {
+        addPhonePlaceholder(modalForm);
+      });
+      phoneModalForm.addEventListener('blur', function () {
+        removePhonePlaceholder(modalForm);
       });
     }
     modalForm.addEventListener('submit', pressModalFormButton);
@@ -220,7 +248,6 @@
   // функция проверки полей модального окна
   var checkModalForm = function () {
     var thisForm = getFormData(modalForm);
-    console.log(thisForm);
     var nameValue = thisForm['your-name'];
     var phoneValue = thisForm['your-phone'];
     var personalValue = thisForm['personal'];
@@ -252,7 +279,7 @@
   var scrollElement = function (button, link) {
     $(button).on('click', function () {
       var top = $(link).offset().top;
-      $('body, html').animate({scrollTop: top}, 1500);
+      $('body, html').animate({ scrollTop: top }, 1500);
     });
   };
 
