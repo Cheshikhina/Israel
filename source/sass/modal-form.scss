@@ -93,7 +93,6 @@
 }
 
 .modal-form input {
-  position: relative;
   min-height: 59px;
   width: 90%;
   max-width: 512px;
@@ -225,6 +224,23 @@
   box-shadow: none;
 }
 
+.modal-form__phone--placeholder {
+  position: relative;
+}
+
+.modal-form__phone--placeholder::before {
+  content: "";
+  z-index: 100;
+  position: absolute;
+  display: block;
+  width: 115px;
+  height: 6px;
+  top: 43px;
+  left: 66px;
+  background-repeat: no-repeat;
+  background-image: url("../img/placeholder.png");
+}
+
 @media (max-width: $mobile-width) {
   .modal-form {
     min-height: 590px;
@@ -271,6 +287,10 @@
     width: 100%;
   }
 
+  .modal-form__phone--placeholder::before {
+    left: 20%;
+  }
+
   .modal-form button#modal-submit {
     width: 85%;
     max-width: 350px;
@@ -283,6 +303,12 @@
     top: 0;
     padding: 169px 5px;
     padding-bottom: 164px;
+  }
+}
+
+@media (max-width: 415px) {
+  .modal-form__phone--placeholder::before {
+    left: 58px;
   }
 }
 

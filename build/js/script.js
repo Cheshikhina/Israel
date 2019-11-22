@@ -10,7 +10,14 @@
   var Code = {
     SUCESS: 200,
   };
+  var PlaceholderClass = {
+    MODAL: 'modal-form__phone--placeholder',
+    CALL: 'phone-contact__phone--placeholder',
+    DETAILS: 'phone-contact__phone--placeholder',
+  };
   var TIMEOUT = 10000;
+  var SCROLL_SPEED = 1500;
+  var thisTab = ':nth-child(2)';
   var ERROR_INPUT = 'border: 2px solid rgba(255, 0, 0, 0.5); border-radius: 80px;';
   var popup = document.querySelector('.modal-form');
   var overlay = document.querySelector('.overlay');
@@ -20,7 +27,7 @@
   var callForm = document.querySelector('.phone-contact__form form');
   var detailsForm = document.querySelector('.details__form form');
   var phoneInFormAll = document.querySelectorAll('input[name="your-phone"]');
-  // var phoneCallForm = callForm.querySelector('input[name="your-phone"]');
+  var phoneCallForm = callForm.querySelector('input[name="your-phone"]');
   // var phoneDetailsForm = detailsForm.querySelector('input[name="your-phone"]');
   // var nameDetailsForm = detailsForm.querySelector('input[name="your-name"]');
   var phoneModalForm = modalForm.querySelector('input[name="your-phone"]');
@@ -29,6 +36,8 @@
   var scrollButton = document.querySelector('.page-header__scroll button');
   var pageMain = document.querySelector('.page-main');
   var inputAll = document.querySelectorAll('input');
+  var programsName = document.querySelectorAll('.programs__nav-item');
+  var programsDesc = document.querySelectorAll('.programs__item-basic');
 
   //BACKEND
   // функция загрузки данных из формы
@@ -131,6 +140,39 @@
     errorButton.addEventListener('click', closeErrorMessage);
   };
 
+  // ошибка отправки формы "Хочу поехать"
+  var callFormErrorHandler = function () {
+    var similarErrorMessage = document.querySelector('#error')
+      .content
+      .querySelector('.error');
+
+    var errorMessage = similarErrorMessage.cloneNode(true);
+    document.body.insertBefore(errorMessage, document.body.children[0]);
+    overlay.style.display = 'block';
+
+    var errorButton = document.querySelector('.error__button');
+
+    var closeErrorMessage = function () {
+      document.body.removeChild(document.body.children[0]);
+      errorButton.removeEventListener('click', closeErrorMessage);
+      overlay.style.display = 'none';
+    };
+
+    var addCloseEscErrorMessage = function () {
+      document.addEventListener('keydown', function (evt) {
+        if (evt.keyCode === KeyCode.ESC) {
+          document.body.removeChild(document.body.children[0]);
+          overlay.style.display = 'none';
+          errorButton.removeEventListener('click', closeErrorMessage);
+          callForm.reset();
+        }
+      });
+    };
+
+    addCloseEscErrorMessage();
+    errorButton.addEventListener('click', closeErrorMessage);
+  };
+
 
   //ЛОГИКА МОДАЛЬНОГО ОКНА
   // функция закрытия модального окна по нажатию на ESC
@@ -150,18 +192,18 @@
   };
 
   //функция добавления светло-серой подсказки на ввод телефона
-  var addPhonePlaceholder = function (form) {
+  var addPhonePlaceholder = function (form, classForPlaceholder) {
     var inputParent = form.querySelector('input[name="your-phone"]').parentNode;
     if (inputParent) {
-      inputParent.classList.add('phone-placeholder');
+      inputParent.classList.add(classForPlaceholder);
     }
   };
 
   //функция удаления светло-серой подсказки на ввод телефона
-  var removePhonePlaceholder = function (form) {
+  var removePhonePlaceholder = function (form, classForPlaceholder) {
     var inputParent = form.querySelector('input[name="your-phone"]').parentNode;
     if (inputParent) {
-      inputParent.classList.remove('phone-placeholder');
+      inputParent.classList.remove(classForPlaceholder);
     }
   };
 
@@ -179,10 +221,10 @@
     }
     if (phoneModalForm) {
       phoneModalForm.addEventListener('focus', function () {
-        addPhonePlaceholder(modalForm);
+        addPhonePlaceholder(modalForm, PlaceholderClass.MODAL);
       });
       phoneModalForm.addEventListener('blur', function () {
-        removePhonePlaceholder(modalForm);
+        removePhonePlaceholder(modalForm, PlaceholderClass.MODAL);
       });
     }
     modalForm.addEventListener('submit', pressModalFormButton);
@@ -275,17 +317,72 @@
     }
   };
 
+
   //СКРОЛЛ
   var scrollElement = function (button, link) {
     $(button).on('click', function () {
       var top = $(link).offset().top;
-      $('body, html').animate({ scrollTop: top }, 1500);
+      $('body, html').animate({ scrollTop: top }, SCROLL_SPEED);
     });
   };
 
   // переход по кнопке скролла
   if (scrollButton, pageMain) {
     scrollElement(scrollButton, pageMain);
+  }
+
+
+  //ЛОГИКА РАБОТЫ ТАБОВ
+  // общая функция для открытия/закрытия табов
+  var runTabs = function (tabs, contents, tab) {
+    $(contents).not(tab).hide();
+    $(tabs).click(function () {
+      $(contents).hide().eq($(this).index()).show();
+    });
+  };
+
+  // открытие/закрытие табов в блоке Программы
+  if (programsName, programsDesc, thisTab) {
+    runTabs(programsName, programsDesc, thisTab);
+  }
+
+
+  //ЛОГИКА ФОРМЫ "ХОЧУ ПОЕХАТЬ"
+  // добавление/удаление светло-серой подсказки на ввод телефона
+  if (phoneCallForm, callForm) {
+    phoneCallForm.addEventListener('focus', function () {
+      addPhonePlaceholder(callForm, PlaceholderClass.CALL);
+    });
+    phoneCallForm.addEventListener('blur', function () {
+      removePhonePlaceholder(callForm, PlaceholderClass.CALL);
+    });
+  }
+
+  // функция проверки формы "Хочу поехать"
+  var checkCallForm = function () {
+    var thisForm = getFormData(callForm);
+    var phoneValue = thisForm['your-phone'];
+
+    if (phoneValue === '') {
+      phoneCallForm.style = ERROR_INPUT;
+      return false;
+    } else {
+      phoneCallForm.style = '';
+      return true;
+    }
+  };
+
+  // функция сохранения данных формы "Хочу поехать"
+  var pressCallFormButton = function (evt) {
+    evt.preventDefault();
+    if (checkCallForm()) {
+      save(new FormData(callForm), successHandler, callFormErrorHandler);
+    }
+  };
+
+  // слушатель отправки формы "Хочу поехать"
+  if (callForm) {
+    callForm.addEventListener('submit', pressCallFormButton);
   }
 
 })();

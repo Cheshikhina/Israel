@@ -1,0 +1,398 @@
+.programs {
+  position: relative;
+  max-width: 1366px;
+  margin: 0 auto;
+  background-color: #ffffff;
+}
+
+.programs::before {
+  content: "";
+  z-index: 0;
+  position: absolute;
+  display: block;
+  width: 680px;
+  height: 426px;
+  top: -48px;
+  right: 0;
+  background-repeat: no-repeat;
+  background-position-x: right;
+  background-image: url("../img/sketch-programs--desktop@1x.png");
+}
+
+.programs__title {
+  width: 69.3%;
+  margin: 70px auto;
+  margin-top: 104px;
+  @include font-title-desktop;
+  text-align: left;
+}
+
+.programs__holder {
+  width: 69.3%;
+  max-width: 1366px;
+  display: flex;
+  margin: 0 auto;
+}
+
+.programs__nav,
+.programs__list-basic {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.programs__nav {
+  width: 30%;
+  min-width: 250px;
+}
+
+.programs__nav-item {
+  display: flex;
+  margin-bottom: 4px;
+}
+
+.programs__nav-label {
+  display: flex;
+  min-width: 250px;
+  min-height: 68px;
+  padding: 15px 20px;
+  padding-top: 8px;
+  line-height: 18px;
+  align-items: center;
+  color: $black-color-87;
+}
+
+.programs__nav-label--common {
+  padding-top: 7px;
+}
+
+.programs__nav-icon {
+  width: 36px;
+  height: 35px;
+  margin-right: 16px;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.programs__nav-icon--common {
+  margin-right: 17px;
+  background-image: url("../img/icon-star--black.svg");
+}
+
+.programs__nav-icon--academic {
+  background-image: url("../img/icon-education--black.svg");
+}
+
+.programs__nav-icon--internship {
+  background-image: url("../img/icon-briefcase--black.svg");
+}
+
+.programs__nav-icon--volunteering {
+  background-image: url("../img/icon-heart--black.svg");
+}
+
+.programs__nav-icon--religious {
+  margin-right: 17px;
+  margin-left: -1px;
+  background-image: url("../img/icon-candle--black.svg");
+}
+
+.programs__nav-radio:checked + .programs__nav-label {
+  font-size: 13px;
+  font-weight: 500;
+  text-transform: uppercase;
+  color: #ffffff;
+  text-shadow: $text-shadow;
+  letter-spacing: 1px;
+}
+
+.programs__nav-radio:checked + .programs__nav-label > .programs__nav-icon {
+  margin-top: -5px;
+}
+
+.programs__nav-radio:checked + .programs__nav-label > .programs__nav-icon--common {
+  background-image: url("../img/icon-star--white.svg");
+}
+
+.programs__nav-radio:checked + .programs__nav-label > .programs__nav-icon--academic {
+  background-image: url("../img/icon-education--white.svg");
+}
+
+.programs__nav-radio:checked + .programs__nav-label > .programs__nav-icon--internship {
+  background-image: url("../img/icon-briefcase--white.svg");
+}
+
+.programs__nav-radio:checked + .programs__nav-label > .programs__nav-icon--volunteering {
+  background-image: url("../img/icon-heart--white.svg");
+}
+
+.programs__nav-radio:checked + .programs__nav-label > .programs__nav-icon--religious {
+  background-image: url("../img/icon-candle--white.svg");
+}
+
+.programs__list-basic {
+  width: 70%;
+}
+
+.programs__item-basic {
+  padding: 13px 8px;
+}
+
+.programs__title-basic {
+  margin: 0;
+  @include font-subtitle-desktop;
+}
+
+.programs__box-basic {
+  margin-top: 24px;
+  padding-right: 92px;
+}
+
+.programs__text-basic {
+  margin: 15px 0;
+  line-height: 1.75;
+  color: $black-color-87;
+}
+
+.programs__text-basic > br {
+  display: none;
+}
+
+.programs__text-basic--narrow {
+  padding-right: 40px;
+}
+
+.programs__item-basic--disable {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+@media (max-width: 1300px) {
+  .programs {
+    background-repeat: no-repeat;
+    background-position-x: right;
+    background-image: url("../img/sketch-programs--desktop@1x.png");
+  }
+
+  .programs::before {
+    display: none;
+  }
+
+  .programs__box-basic {
+    padding-right: 0;
+  }
+
+  .programs__text-basic--narrow {
+    padding-right: 0;
+  }
+}
+
+// @media (max-width: $tablet-width) {
+// }
+
+@media (max-width: $mobile-width) {
+  .programs {
+    background-position-y: 117px;
+    background-image: url("../img/sketch-programs--mobile@1x.png");
+  }
+
+  .programs__title {
+    width: 90%;
+    margin-top: 81px;
+    margin-bottom: 15px;
+    @include font-title-mobile;
+    text-align: center;
+  }
+
+  .programs__holder {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .programs__nav {
+    width: 60%;
+    min-width: initial;
+    margin: 0 auto;
+  }
+
+  //На время, чтобы pp сходился
+  .programs__nav-item {
+    margin-bottom: 1px;
+  }
+
+  //ПРидумать стили!!!!!
+  // .programs__nav--js {
+  //   overflow: hidden;
+  // flex-direction: row;
+  // width: 100%;
+  // }
+
+  .programs__nav-label {
+    padding: 3px 11px;
+    padding-top: 6px;
+    margin: 0 auto;
+    min-width: 181px;
+    min-height: 48px;
+    opacity: 0.4;
+  }
+
+  // временный класс для разметки
+  .programs__nav-label--invisible {
+    position: absolute;
+    min-width: initial;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+    white-space: nowrap;
+    clip-path: inset(100%);
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+  }
+
+  //ПРидумать стили!!!!!
+  // .programs__nav-label--js {
+  //   position: absolute;
+  //   min-width: initial;
+  // width: 1px;
+  // height: 1px;
+  // margin: -1px;
+  // border: 0;
+  // padding: 0;
+  // white-space: nowrap;
+  // clip-path: inset(100%);
+  // clip: rect(0 0 0 0);
+  //   overflow: hidden;
+  // }
+
+  // .programs__nav-label--js-active {
+  //   min-width: 181px;
+  //   margin: initial;
+  //   margin-left: 50%;
+  //   transform: translateX(-50%);
+  // }
+
+  // .programs__nav-label--js-near {
+  //   position: absolute;
+  //   min-width: initial;
+  //   // width: 50%;
+  //   margin: initial;
+  // }
+
+  .programs__nav-icon {
+    margin-right: 6px;
+  }
+
+  .programs__nav-radio:checked + .programs__nav-label {
+    background: linear-gradient(141.47deg, #ffc341 20.46%, #ffd701 65.31%);
+    border-radius: 60.6704px;
+    transform: matrix(1, 0, 0, 1, 0, 0);
+    opacity: 1;
+  }
+
+  .programs__list-basic {
+    width: 95%;
+    margin: 0 auto;
+  }
+
+  .programs__title-basic {
+    margin-top: 15px;
+    @include font-subtitle-mobile;
+    text-align: left;
+  }
+
+  .programs__box-basic {
+    margin-top: 17px;
+  }
+
+  .programs__text-basic {
+    margin: 15px 0;
+    font-size: 14px;
+    line-height: 1.6;
+  }
+}
+
+@media (max-width: 321px) {
+  .programs__text-basic > br {
+    display: block;
+  }
+}
+
+@media (min-width: $no-mobile-width) {
+  .programs__nav-radio:checked + .programs__nav-label {
+    position: relative;
+    z-index: 1;
+    padding-top: 13px;
+    padding-right: 50px;
+
+    &::before {
+      content: "";
+      position: absolute;
+      display: block;
+      width: 228px;
+      height: 68px;
+      top: -3px;
+      left: 0;
+      z-index: -1;
+      background-image: url("../img/sticker.png");
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      display: block;
+      width: 199px;
+      height: 68px;
+      top: -3px;
+      left: 0;
+      z-index: -2;
+      background-color: $background-color;
+    }
+  }
+
+  .programs__nav-radio:focus ~ .programs__nav-label,
+  .programs__nav-radio:hover ~ .programs__nav-label {
+    cursor: pointer;
+  }
+
+  .programs__nav-radio:focus:not(:checked) ~ .programs__nav-label,
+  .programs__nav-radio:hover:not(:checked) ~ .programs__nav-label {
+    @include link-hover;
+  }
+
+  .programs__nav-radio:focus:not(:checked) + .programs__nav-label > .programs__nav-icon--common,
+  .programs__nav-radio:hover:not(:checked) + .programs__nav-label > .programs__nav-icon--common {
+    background-image: url("../img/icon-star--yellow.svg");
+  }
+
+  .programs__nav-radio:focus:not(:checked) + .programs__nav-label > .programs__nav-icon--academic,
+  .programs__nav-radio:hover:not(:checked) + .programs__nav-label > .programs__nav-icon--academic {
+    background-image: url("../img/icon-education--yellow.svg");
+  }
+
+  .programs__nav-radio:focus:not(:checked) + .programs__nav-label > .programs__nav-icon--internship,
+  .programs__nav-radio:hover:not(:checked) + .programs__nav-label > .programs__nav-icon--internship {
+    background-image: url("../img/icon-briefcase--yellow.svg");
+  }
+
+  .programs__nav-radio:focus:not(:checked) + .programs__nav-label > .programs__nav-icon--volunteering,
+  .programs__nav-radio:hover:not(:checked) + .programs__nav-label > .programs__nav-icon--volunteering {
+    background-image: url("../img/icon-heart--yellow.svg");
+  }
+
+  .programs__nav-radio:focus:not(:checked) + .programs__nav-label > .programs__nav-icon--religious,
+  .programs__nav-radio:hover:not(:checked) + .programs__nav-label > .programs__nav-icon--religious {
+    background-image: url("../img/icon-candle--yellow.svg");
+  }
+}

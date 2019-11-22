@@ -1,0 +1,277 @@
+.phone-contact {
+  position: relative;
+  padding-top: 8px;
+  margin: 0;
+}
+
+.phone-contact::before,
+.phone-contact__inner::after {
+  content: "";
+  position: absolute;
+  display: flex;
+  background-repeat: no-repeat;
+}
+
+.phone-contact::before {
+  z-index: 1;
+  width: 147px;
+  height: 262px;
+  top: 143px;
+  background-image: url("../img/backpack--desktop@1x.png");
+}
+
+.phone-contact__inner {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  max-width: 1366px;
+  min-height: 594px;
+  margin: 0 auto;
+  margin-top: 200px;
+}
+
+.phone-contact__inner::after {
+  z-index: 0;
+  min-height: 594px;
+  max-width: 818px;
+  width: 100%;
+  align-self: flex-end;
+  margin-top: -200px;
+  background-color: $background-color;
+  background-image: url("../img/phone-contact--desktop@1x.jpg");
+  /* stylelint-disable */
+  background-image: -webkit-image-set(url("../img/phone-contact--desktop@1x.webp") 1x);
+
+  @media (min-resolution: $retina-dpi), (min-resolution: $retina-dppx) {
+    background-image: url("../img/phone-contact--desktop@2x.jpg");
+    background-image: -webkit-image-set(url("../img/phone-contact--desktop@2x.webp") 2x);
+  }
+}
+
+.phone-contact__title,
+.phone-contact__text,
+.phone-contact__form form {
+  position: relative;
+  z-index: 2;
+  width: 45%;
+  margin: 0;
+  margin-left: 15%;
+}
+
+.phone-contact__title {
+  padding: 9px 5px;
+  @include font-title-desktop;
+  text-align: left;
+}
+
+.phone-contact__text {
+  margin-bottom: 45px;
+  padding: 15px 5px;
+  padding-right: 15%;
+  font-size: 17px;
+  line-height: 1.75;
+  color: $black-color-87;
+}
+
+.phone-contact__phone {
+  display: flex;
+}
+
+.phone-contact__phone--placeholder {
+  position: relative;
+}
+
+.phone-contact__phone--placeholder::before {
+  content: "";
+  z-index: 100;
+  position: absolute;
+  display: block;
+  width: 115px;
+  height: 6px;
+  top: 43px;
+  left: 60px;
+  background-repeat: no-repeat;
+  background-image: url("../img/placeholder.png");
+}
+
+.phone-contact__form label {
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  border: 0;
+  padding: 0;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  margin: -1px;
+}
+
+.phone-contact__form input {
+  min-height: 59px;
+  min-width: 350px;
+  margin: 4px 0;
+  margin-left: 1%;
+  padding: 18px 37px;
+  padding-top: 20px;
+  padding-right: 15%;
+  font-size: 15px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: $black-color-87;
+  border: 2px solid #e3e3e3;
+  border-radius: 80px;
+  outline: none;
+}
+
+.phone-contact__form input::-webkit-input-placeholder {
+  font-family: "Fira Sans", "Arial", sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.7px;
+  color: $black-color;
+  opacity: 0.5;
+}
+
+.phone-contact__form input::-moz-placeholder {
+  font-family: "Fira Sans", "Arial", sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.7px;
+  color: $black-color;
+  opacity: 0.5;
+}
+
+.phone-contact__form input:focus::-webkit-input-placeholder {
+  color: transparent;
+}
+
+.phone-contact__form input:focus::-moz-placeholder {
+  color: transparent;
+}
+
+.phone-contact__form input:focus {
+  @include input-hover;
+}
+
+.phone-contact__form button#contact-submit {
+  z-index: 3;
+  min-width: 216px;
+  margin: 4px auto;
+  margin-left: -14.6%;
+  padding: 19px 40px;
+  padding-top: 20px;
+  @include button;
+  border: none;
+  outline: none;
+}
+
+.phone-contact__form button#contact-submit:active {
+  @include button-active;
+}
+
+@media (max-width: 1330px) {
+  .phone-contact__text {
+    padding-right: 7%;
+  }
+
+  .phone-contact__inner {
+    margin-top: 150px;
+  }
+
+  .phone-contact__inner::after {
+    width: 75%;
+    margin-top: -100px;
+  }
+}
+
+@media (max-width: $mobile-width) {
+  .phone-contact::before {
+    width: 103px;
+    height: 188px;
+    top: 2px;
+    background-image: url("../img/backpack--mobile@1x.png");
+  }
+
+  .phone-contact__inner {
+    min-height: 599px;
+    margin-top: 33px;
+  }
+
+  .phone-contact__inner::after {
+    position: relative;
+    min-height: 308px;
+    max-width: 320px;
+    width: 320px;
+    margin-top: -4px;
+    align-self: center;
+    background-image: url("../img/phone-contact--mobile@1x.jpg");
+    /* stylelint-disable */
+    background-image: -webkit-image-set(url("../img/phone-contact--mobile@1x.webp") 1x);
+
+    @media (min-resolution: $retina-dpi), (min-resolution: $retina-dppx) {
+      background-image: url("../img/phone-contact--mobile@2x.jpg");
+      background-image: -webkit-image-set(url("../img/phone-contact--mobile@2x.webp") 2x);
+    }
+  }
+
+  .phone-contact__title,
+  .phone-contact__text,
+  .phone-contact__form form {
+    width: 97%;
+    margin: 0 auto;
+  }
+
+  .phone-contact__title {
+    @include font-title-mobile;
+    text-align: center;
+  }
+
+  .phone-contact__text {
+    max-width: 526px;
+    margin-bottom: 5px;
+    padding: 15px 12px;
+    @include font-text-mobile;
+  }
+
+  .phone-contact__phone {
+    flex-direction: column;
+    max-width: 380px;
+    margin: 0 auto;
+  }
+
+  .phone-contact__phone--placeholder::before {
+    left: 19%;
+  }
+
+  .phone-contact__form input {
+    width: 93%;
+    min-width: initial;
+    max-width: 380px;
+    margin: 4px auto;
+    padding-left: 40px;
+    letter-spacing: 0.7px;
+  }
+
+  .phone-contact__form button#contact-submit {
+    width: 85%;
+    max-width: 350px;
+    margin-left: auto;
+  }
+}
+
+@media (max-width: 415px) {
+  .phone-contact__phone--placeholder::before {
+    left: 73px;
+  }
+}
+
+@media (min-width: $no-mobile-width) {
+  .phone-contact__form button#contact-submit:hover,
+  .phone-contact__form button#contact-submit:focus {
+    @include button-hover;
+  }
+}
