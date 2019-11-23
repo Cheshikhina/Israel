@@ -15,9 +15,13 @@
     CALL: 'phone-contact__phone--placeholder',
     DETAILS: 'phone-contact__phone--placeholder',
   };
+  var ThisElement = {
+    TAB: ':nth-child(2)',
+    SLIDE: ':nth-child(1)',
+  };
   var TIMEOUT = 10000;
   var SCROLL_SPEED = 1500;
-  var thisTab = ':nth-child(2)';
+  var MAX_WIDTH_BE_SLIDER = 768;
   var ERROR_INPUT = 'border: 2px solid rgba(255, 0, 0, 0.5); border-radius: 80px;';
   var popup = document.querySelector('.modal-form');
   var overlay = document.querySelector('.overlay');
@@ -38,6 +42,9 @@
   var inputAll = document.querySelectorAll('input');
   var programsName = document.querySelectorAll('.programs__nav-item');
   var programsDesc = document.querySelectorAll('.programs__item-basic');
+  var slider = document.querySelector('.advantages__nav-list');
+  var slidesName = document.querySelectorAll('.advantages__nav-item');
+  var slidesPhoto = document.querySelectorAll('.advantages__slide');
 
   //BACKEND
   // функция загрузки данных из формы
@@ -342,10 +349,9 @@
   };
 
   // открытие/закрытие табов в блоке Программы
-  if (programsName, programsDesc, thisTab) {
-    runTabs(programsName, programsDesc, thisTab);
+  if (programsName, programsDesc, ThisElement.TAB) {
+    runTabs(programsName, programsDesc, ThisElement.TAB);
   }
-
 
   //ЛОГИКА ФОРМЫ "ХОЧУ ПОЕХАТЬ"
   // добавление/удаление светло-серой подсказки на ввод телефона
@@ -384,5 +390,36 @@
   if (callForm) {
     callForm.addEventListener('submit', pressCallFormButton);
   }
+
+  //ЛОГИКА СЛАЙДЕРА
+  // проверка ширины окна при открытии сайта для добавления/удаления кнопок слайдера
+  if (slider) {
+    if (document.documentElement.clientWidth < MAX_WIDTH_BE_SLIDER) {
+      slider.classList.remove('visually-hidden');
+      if (slidesName, slidesPhoto, ThisElement.SLIDE) {
+        runTabs(slidesName, slidesPhoto, ThisElement.SLIDE);
+      }
+    }
+  }
+
+  // проверка ширины окна в текущем времени для добавления/удаления кнопок слайдера
+  window.addEventListener('resize', function () {
+    if (slider) {
+      if (document.documentElement.clientWidth >= MAX_WIDTH_BE_SLIDER) {
+        if (!$(slider).hasClass('visually-hidden')) {
+          slider.classList.add('visually-hidden');
+          $(slidesPhoto).show();
+        }
+      } else {
+        if ($(slider).hasClass('visually-hidden')) {
+          slider.classList.remove('visually-hidden');
+          if (slidesName, slidesPhoto, ThisElement.SLIDE) {
+            runTabs(slidesName, slidesPhoto, ThisElement.SLIDE);
+          }
+        }
+      }
+    }
+  });
+
 
 })();
