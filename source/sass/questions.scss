@@ -1,0 +1,208 @@
+.questions {
+  position: relative;
+  margin-top: 57px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.questions::before {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  display: flex;
+  width: 153px;
+  height: 177px;
+  top: 66.7%;
+  left: 0;
+  background-repeat: no-repeat;
+  background-image: url("../img/bag--desktop@1x.png");
+}
+
+.questions__inner {
+  position: relative;
+  max-width: 1366px;
+  min-height: 1208px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.questions__title {
+  width: 48%;
+  margin: 10px auto;
+  margin-top: 79px;
+  margin-left: 8%;
+  @include font-title-desktop;
+  text-align: left;
+}
+
+.questions__holder {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  width: 48%;
+  margin: 0 auto;
+  margin-left: 8%;
+}
+
+.questions__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.questions__item {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  max-width: 560px;
+  padding: 24px 30px;
+  padding-top: 38px;
+  border-bottom: 1px solid rgba(71, 71, 71, 0.2);
+}
+
+.questions__item-index {
+  position: absolute;
+  left: 1px;
+  top: 31px;
+  font-size: 28px;
+  font-weight: 700;
+  background: linear-gradient(95.15deg, #ffc341 20.46%, #ffd701 65.31%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.questions__label {
+  width: 75%;
+  min-height: 32px;
+  font-size: 17px;
+  line-height: 1.5;
+}
+
+.questions__text {
+  width: 100%;
+  margin: 7px 0;
+  margin-left: -29px;
+  margin-top: 19px;
+  line-height: 1.4;
+  color: $black-color-74;
+}
+
+.questions__checkbox {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  display: flex;
+  width: 17px;
+  height: 11px;
+  min-height: 11px;
+  margin: 8px auto;
+  margin-right: 1%;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-image: url("../img/icon-vector--blue.svg");
+  border-radius: 0;
+}
+
+.questions__checkbox:checked {
+  transform: rotate(180deg);
+  background-image: url("../img/icon-vector--blue.svg");
+}
+
+@media (max-width: $mobile-width) {
+  .questions {
+    margin-top: 0;
+  }
+
+  .questions::before {
+    width: 146px;
+    height: 177px;
+    top: 75.3%;
+    background-image: url("../img/bag--mobile@1x.png");
+  }
+
+  .questions__inner {
+    min-height: auto;
+  }
+
+  .questions__holder {
+    min-width: initial;
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  .questions__title {
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 69px;
+    @include font-title-mobile;
+    text-align: center;
+  }
+
+  .questions__list {
+    margin: 0 auto;
+  }
+
+  .questions__item {
+    padding-left: 24px;
+    padding-right: 0;
+    padding-bottom: 16px;
+    letter-spacing: -0.5px;
+  }
+
+  .questions__item-index {
+    left: 0;
+  }
+
+  .questions__label {
+    width: 90%;
+    line-height: 1.55;
+  }
+
+  .questions__text {
+    margin-top: 16px;
+    margin-left: -26px;
+    margin-bottom: -1px;
+    line-height: 1.5;
+  }
+
+  .questions__item--padding-another {
+    padding-top: 36px;
+  }
+
+  .questions__checkbox {
+    margin-right: -1px;
+  }
+}
+
+@media (max-width: 350px) {
+  .questions__label--narrow {
+    padding-right: 22%;
+  }
+}
+
+@media (min-width: $no-mobile-width) {
+  .questions__inner::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    display: flex;
+    min-height: 1119px;
+    max-width: 1366px;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-color: $background-color;
+    background-image: url("../img/questions-background@1x.jpg");
+    /* stylelint-disable */
+    background-image: -webkit-image-set(url("../img/questions-background@1x.webp") 1x);
+
+    @media (min-resolution: $retina-dpi), (min-resolution: $retina-dppx) {
+      background-image: url("../img/questions-background@2x.jpg");
+      background-image: -webkit-image-set(url("../img/questions-background@2x.webp") 2x);
+    }
+  }
+}

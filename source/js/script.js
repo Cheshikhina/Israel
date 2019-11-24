@@ -45,6 +45,10 @@
   var slider = document.querySelector('.advantages__nav-list');
   var slidesName = document.querySelectorAll('.advantages__nav-item');
   var slidesPhoto = document.querySelectorAll('.advantages__slide');
+  var questionsAll = document.querySelectorAll('.questions__checkbox');
+  var answersAll = document.querySelectorAll('.questions__text');
+  var thisQuestion = document.querySelector('.questions__checkbox--checked');
+  var thisAnswer = document.querySelector('.questions__text--active');
 
   //BACKEND
   // функция загрузки данных из формы
@@ -334,7 +338,7 @@
   };
 
   // переход по кнопке скролла
-  if (scrollButton, pageMain) {
+  if (scrollButton && pageMain) {
     scrollElement(scrollButton, pageMain);
   }
 
@@ -349,13 +353,13 @@
   };
 
   // открытие/закрытие табов в блоке Программы
-  if (programsName, programsDesc, ThisElement.TAB) {
+  if (programsName && programsDesc && ThisElement.TAB) {
     runTabs(programsName, programsDesc, ThisElement.TAB);
   }
 
   //ЛОГИКА ФОРМЫ "ХОЧУ ПОЕХАТЬ"
   // добавление/удаление светло-серой подсказки на ввод телефона
-  if (phoneCallForm, callForm) {
+  if (phoneCallForm && callForm) {
     phoneCallForm.addEventListener('focus', function () {
       addPhonePlaceholder(callForm, PlaceholderClass.CALL);
     });
@@ -396,7 +400,7 @@
   if (slider) {
     if (document.documentElement.clientWidth < MAX_WIDTH_BE_SLIDER) {
       slider.classList.remove('visually-hidden');
-      if (slidesName, slidesPhoto, ThisElement.SLIDE) {
+      if (slidesName && slidesPhoto && ThisElement.SLIDE) {
         runTabs(slidesName, slidesPhoto, ThisElement.SLIDE);
       }
     }
@@ -413,13 +417,24 @@
       } else {
         if ($(slider).hasClass('visually-hidden')) {
           slider.classList.remove('visually-hidden');
-          if (slidesName, slidesPhoto, ThisElement.SLIDE) {
+          if (slidesName && slidesPhoto && ThisElement.SLIDE) {
             runTabs(slidesName, slidesPhoto, ThisElement.SLIDE);
           }
         }
       }
     }
   });
+
+
+  //ЛОГИКА ДЛЯ БЛОКА С ЧАСТЫМИ ВОПРОСАМИ (АККОРДЕОН)
+  if (questionsAll && answersAll && thisQuestion && thisAnswer) {
+    $(questionsAll).not(thisQuestion).removeAttr('checked');
+    $(answersAll).not(thisAnswer).hide();
+
+    $(questionsAll).click(function () {
+      $(this).next(answersAll).toggle();
+    });
+  }
 
 
 })();

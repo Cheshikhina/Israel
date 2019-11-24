@@ -300,7 +300,8 @@
             <h2 class="visually-hidden">Ссылка на блоги участников программы Маса</h2>
             <div class="blog-contact__inner">
               <p class="blog-contact__title">#masaisrael</p>
-              <p class="blog-contact__text">Познакомьтесь с программой &nbsp;<br>от первого лица! Многие участники ведут блоги и
+              <p class="blog-contact__text">Познакомьтесь с программой &nbsp;<br>от первого лица! Многие участники ведут
+                блоги и
                 фотодневники <br>о жизни, учёбе и путешествиях <br>в Израиле.</p>
               <a class="blog-contact__link" href="#">
                 <span class="blog-contact__link-text">Смотреть фото</span>
@@ -311,89 +312,90 @@
           <section class="questions">
             <div class="questions__inner">
               <h2 class="questions__title">Частые вопросы</h2>
-              <fieldset class="questions__box">
+              <div class="questions__holder">
                 <ul class="questions__list">
                   <li class="questions__item">
-                    <input class="questions__radio visually-hidden" type="radio" name="questions-item" id="questions-organizing" value="organizing">
+                    <span class="questions__item-index">1</span>
                     <label for="questions-organizing" class="questions__label">
                       Кто организатор? Какие сроки у программы?
-                      <span class="questions__icon questions__icon--down" aria-label="Иконка-стрелочка"></span>
                     </label>
-                    <p class="questions__text visually-hidden">
-                      Полная стоимость определяется организаторами в зависимости от направления. В большинстве случаев
-                      грант «Маса» не покрывает полную стоимость программы, и поэтому предусматривается определённая
-                      доля
-                      личного участия.
+                    <input class="questions__checkbox" type="checkbox" id="questions-organizing" value="organizing" checked="">
+                    <p class="questions__text">
+                      Организатор лучший слуга. Но достаточно ли хорошо мы оплачиваем эти услуги? Вывод. Первая стадия
+                      Организатор неприятна. Она чревата срывами, пониженной дееспособностью, плохим самочувствием и
+                      прочим букетом всяческих прелестей в этом роде.
                     </p>
                   </li>
                   <li class="questions__item">
-                    <input class="questions__radio visually-hidden" type="radio" name="questions-item" id="questions-grant" value="grant">
+                    <span class="questions__item-index">2</span>
                     <label for="questions-grant" class="questions__label">
                       Что такое грант на обучение?
-                      <span class="questions__icon questions__icon--down" aria-label="Иконка-стрелочка"></span>
                     </label>
-                    <p class="questions__text visually-hidden">
-                      Полная стоимость определяется организаторами в зависимости от направления. В большинстве случаев
-                      грант «Маса» не покрывает полную стоимость программы, и поэтому предусматривается определённая
-                      доля
-                      личного участия.
+                    <input class="questions__checkbox" type="checkbox" id="questions-grant" value="grant" checked="">
+                    <p class="questions__text">
+                      Грант не профессия, а диагноз. Трудно доказывать, что ты не Грант, особенно если верно обратное.
+                      Грант стирает, играет в волейбол, занимается высокой политикой, пишет стихи, руководит банком –
+                      все, что он ни делает, он делает для вас.
                     </p>
                   </li>
                   <li class="questions__item">
-                    <input class="questions__radio visually-hidden" type="radio" name="questions-item" id="questions-cost" value="cost">
+                    <span class="questions__item-index">3</span>
                     <label for="questions-cost" class="questions__label">
                       Как определяется стоимость программы?
-                      <span class="questions__icon questions__icon--up" aria-label="Иконка-стрелочка"></span>
                     </label>
-                    <p class="questions__text">
+                    <input class="questions__checkbox questions__checkbox--checked" type="checkbox" id="questions-cost" value="cost" checked="">
+                    <p class="questions__text questions__text--active">
                       Полная стоимость определяется организаторами в зависимости от направления. В большинстве случаев
                       грант «Маса» не покрывает полную стоимость программы, и поэтому предусматривается определённая
-                      доля
-                      личного участия.
+                      доля личного участия.
                     </p>
                   </li>
                   <li class="questions__item">
-                    <input class="questions__radio visually-hidden" type="radio" name="questions-item" id="questions-grants" value="grants">
+                    <span class="questions__item-index">4</span>
                     <label for="questions-grants" class="questions__label">
                       Что такое грант на обучение?
-                      <span class="questions__icon questions__icon--down" aria-label="Иконка-стрелочка"></span>
                     </label>
-                    <p class="questions__text visually-hidden">
-                      Полная стоимость определяется организаторами в зависимости от направления. В большинстве случаев
-                      грант «Маса» не покрывает полную стоимость программы, и поэтому предусматривается определённая
-                      доля
-                      личного участия.
+                    <input class="questions__checkbox" type="checkbox" id="questions-grants" value="grants" checked="">
+                    <p class="questions__text">
+                      Грант – вам будет что вспомнить. Ты смеешься над Грант, но какой процент пишущих слово «Грант»
+                      действительно понимает, о чем идет речь? Что значит антиматерия, теория черных дыр, столкновение
+                      Земли с другими небесными телами по сравнению с Грант?
+                    </p>
+                    <p class="questions__text">
+                      Грант. Возможности этого продукта шире, чем кажется сначала. Грант это Жепь... Ой, извините. Грант
+                      – это Грант. Грант: увижу – поверю, услышу – проверю. В Грант упражняться весьма полезно, вот
+                      только где сыскать комплекс этих упражнений. Устал? Купи чего-нибудь вкусного в магазине, скачай и
+                      посмотри классный фильм, почитай любимую книжку, замути что-нибудь с другом, погладь свою кошку,
+                      скажи Грант что любишь его. Так что кончай хандрить и сделай что-нибудь приятное. И помни, что в
+                      мире всегда найдется добрый Грант, который поддержит и поможет.
                     </p>
                   </li>
                   <li class="questions__item">
-                    <input class="questions__radio visually-hidden" type="radio" name="questions-item" id="questions-study" value="study">
+                    <span class="questions__item-index">5</span>
                     <label for="questions-study" class="questions__label">
                       Признаётся ли учеба в рамках проекта для дальнейшего обучения?
-                      <span class="questions__icon questions__icon--down" aria-label="Иконка-стрелочка"></span>
                     </label>
-                    <p class="questions__text visually-hidden">
-                      Полная стоимость определяется организаторами в зависимости от направления. В большинстве случаев
-                      грант «Маса» не покрывает полную стоимость программы, и поэтому предусматривается определённая
-                      доля
-                      личного участия.
+                    <input class="questions__checkbox" type="checkbox" id="questions-study" value="study" checked="">
+                    <p class="questions__text">
+                      Если человек говорит мне «Ты Учеба», я не задаюсь вопросом «А не Учеба ли я?», я задаюсь вопросом
+                      «А не Учеба ли он?» Учеба – причина многих увлекательных приключений.
+                    </p>
+                    <p class="questions__text">
+                      Обучение есть. Если верить. И хотеть.
                     </p>
                   </li>
-                  <li class="questions__item">
-                    <input class="questions__radio visually-hidden" type="radio" name="questions-item" id="questions-registry" value="registry">
-                    <label for="questions-registry" class="questions__label">
+                  <li class="questions__item questions__item--padding-another">
+                    <span class="questions__item-index">6</span>
+                    <label for="questions-registry" class="questions__label questions__label--narrow">
                       Как выглдядит полный процесс регистрации на программу «Маса»?
-                      <span class="questions__icon questions__icon--down" aria-label="Иконка-стрелочка"></span>
                     </label>
-                    <p class="questions__text visually-hidden">
-                      Полная стоимость определяется организаторами в зависимости от направления. В большинстве случаев
-                      грант «Маса» не покрывает полную стоимость программы, и поэтому предусматривается определённая
-                      доля
-                      личного участия.
+                    <input class="questions__checkbox" type="checkbox" id="questions-registry" value="registry" checked="">
+                    <p class="questions__text">
+                      Регистрация – вам будет что вспомнить.
                     </p>
                   </li>
-
                 </ul>
-              </fieldset>
+              </div>
             </div>
           </section>
 
