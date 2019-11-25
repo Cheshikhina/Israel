@@ -13,7 +13,7 @@
   var PlaceholderClass = {
     MODAL: 'modal-form__phone--placeholder',
     CALL: 'phone-contact__phone--placeholder',
-    DETAILS: 'phone-contact__phone--placeholder',
+    DETAILS: 'details__form-phone--placeholder',
   };
   var ThisElement = {
     TAB: ':nth-child(2)',
@@ -32,8 +32,8 @@
   var detailsForm = document.querySelector('.details__form form');
   var phoneInFormAll = document.querySelectorAll('input[name="your-phone"]');
   var phoneCallForm = callForm.querySelector('input[name="your-phone"]');
-  // var phoneDetailsForm = detailsForm.querySelector('input[name="your-phone"]');
-  // var nameDetailsForm = detailsForm.querySelector('input[name="your-name"]');
+  var phoneDetailsForm = detailsForm.querySelector('input[name="your-phone"]');
+  var nameDetailsForm = detailsForm.querySelector('input[name="your-name"]');
   var phoneModalForm = modalForm.querySelector('input[name="your-phone"]');
   var nameModalForm = modalForm.querySelector('input[name="your-name"]');
   var personalModalForm = modalForm.querySelector('.modal-form__personal');
@@ -55,6 +55,18 @@
   var counterComments = document.querySelector('.reviews__holder');
   var countThisComment = document.querySelector('.reviews__count-this');
   var counterAllComments = document.querySelector('.reviews__count-all');
+
+  // //ФУНКЦИЯ "ОЖИВЛЕНИЯ" КАРТЫ
+  // var initMap = function () {
+  //   var uluru = { lat: 55.028574, lng: 82.928464 };
+  //   var map = new google.maps.Map(document.getElementById('map'), { zoom: 18, center: uluru });
+  //   var marker = new google.maps.Marker({
+  //     position: uluru,
+  //     map: map,
+  //     icon: './img/icon-marker-map.svg'
+  //   });
+  // };
+  // initMap();
 
   //BACKEND
   // функция загрузки данных из формы
@@ -182,6 +194,39 @@
           overlay.style.display = 'none';
           errorButton.removeEventListener('click', closeErrorMessage);
           callForm.reset();
+        }
+      });
+    };
+
+    addCloseEscErrorMessage();
+    errorButton.addEventListener('click', closeErrorMessage);
+  };
+
+  // ошибка отправки формы "Узнать подробности"
+  var detailsFormErrorHandler = function () {
+    var similarErrorMessage = document.querySelector('#error')
+      .content
+      .querySelector('.error');
+
+    var errorMessage = similarErrorMessage.cloneNode(true);
+    document.body.insertBefore(errorMessage, document.body.children[0]);
+    overlay.style.display = 'block';
+
+    var errorButton = document.querySelector('.error__button');
+
+    var closeErrorMessage = function () {
+      document.body.removeChild(document.body.children[0]);
+      errorButton.removeEventListener('click', closeErrorMessage);
+      overlay.style.display = 'none';
+    };
+
+    var addCloseEscErrorMessage = function () {
+      document.addEventListener('keydown', function (evt) {
+        if (evt.keyCode === KeyCode.ESC) {
+          document.body.removeChild(document.body.children[0]);
+          overlay.style.display = 'none';
+          errorButton.removeEventListener('click', closeErrorMessage);
+          detailsForm.reset();
         }
       });
     };
@@ -489,5 +534,50 @@
     }
   }
 
+
+  //ЛОГИКА ФОРМЫ "УЗНАТЬ ПОДРОБНОСТИ"
+  // добавление/удаление светло-серой подсказки на ввод телефона
+  if (phoneDetailsForm && detailsForm) {
+    phoneDetailsForm.addEventListener('focus', function () {
+      addPhonePlaceholder(detailsForm, PlaceholderClass.DETAILS);
+    });
+    phoneDetailsForm.addEventListener('blur', function () {
+      removePhonePlaceholder(detailsForm, PlaceholderClass.DETAILS);
+    });
+  }
+
+  // функция проверки формы "Узнать подробности"
+  var checkDetailsForm = function () {
+    var thisForm = getFormData(detailsForm);
+    var phoneValue = thisForm['your-phone'];
+    var nameValue = thisForm['your-name'];
+
+    if (nameValue === '') {
+      nameDetailsForm.style = ERROR_INPUT;
+      phoneDetailsForm.style = '';
+      return false;
+    } else if (phoneValue === '') {
+      phoneDetailsForm.style = ERROR_INPUT;
+      nameDetailsForm.style = '';
+      return false;
+    } else {
+      phoneDetailsForm.style = '';
+      nameDetailsForm.style = '';
+      return true;
+    }
+  };
+
+  // функция сохранения данных формы "Узнать подробности"
+  var pressDetailsFormButton = function (evt) {
+    evt.preventDefault();
+    if (checkDetailsForm()) {
+      save(new FormData(detailsForm), successHandler, detailsFormErrorHandler);
+    }
+  };
+
+  // слушатель отправки формы "Узнать подробности"
+  if (detailsForm) {
+    detailsForm.addEventListener('submit', pressDetailsFormButton);
+  }
 
 })();

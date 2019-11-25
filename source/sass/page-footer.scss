@@ -1,10 +1,123 @@
 .page-footer {
-  display: flex;
   flex: 0 0 auto;
+  width: 100%;
+  min-height: 75px;
+  margin-top: -10px;
+  border-top: 1px solid rgba(72, 72, 72, 0.2);
+}
+
+.page-footer__inner {
+  max-width: 1366px;
+  display: flex;
+  align-items: flex-start;
+  margin: 0 auto;
+  padding-top: 23px;
+}
+
+.page-footer__logo {
+  margin-left: 8.1%;
+  margin-right: auto;
+}
+
+.page-footer__copyright {
+  width: 21%;
+  min-width: 209px;
+  padding: 6px;
+  padding-left: 3.8%;
+  font-size: 12px;
+  line-height: 1.45;
+  color: $black-color-50;
+  text-decoration: none;
+}
+
+.page-footer__socials {
+  min-width: 112px;
+  margin-right: 8.1%;
+  margin-left: auto;
+  margin-top: 2px;
+}
+
+.page-footer__socials-item {
+  min-width: 28px;
+  min-height: 30px;
+  margin: 0;
+  margin-right: 14px;
+}
+
+.page-footer__socials-item--facebook {
+  margin-right: 16px;
+  margin-left: -2px;
+}
+
+.page-footer__socials-item:last-child {
+  margin-right: 0;
+}
+
+@media (max-width: 1250px) {
+  .page-footer__copyright {
+    width: initial;
+    padding: 6px;
+  }
+}
+
+@media (max-width: 1170px) {
+  .page-footer {
+    margin-top: 0;
+  }
 }
 
 @media (max-width: $mobile-width) {
   .page-footer {
+    padding-bottom: 27px;
+  }
+
+  .page-footer__inner {
     flex-direction: column;
+    padding-top: 31px;
+  }
+
+  .page-footer__logo {
+    margin: 0 auto;
+    margin-bottom: 16px;
+  }
+
+  .page-footer__copyright {
+    margin: 0 auto;
+    margin-bottom: 22px;
+  }
+
+  .page-footer__socials {
+    margin: 0 auto;
+  }
+
+  .page-footer__socials-item {
+    min-width: 32px;
+    min-height: 32px;
+  }
+
+  .page-footer__socials-item {
+    margin-right: 15px;
+  }
+
+  .page-footer__socials-item--twitter {
+    margin-top: 3px;
+    transform: translateX(-3px);
+  }
+
+  .page-footer__socials-item--facebook {
+    margin-left: 0;
+  }
+
+  .page-footer__socials-link--facebook svg {
+    width: 14px;
+    height: 28px;
+  }
+  .page-footer__socials-link--twitter svg {
+    width: 30px;
+    height: 24px;
+  }
+  .page-footer__socials-link--instagram svg {
+    width: 32px;
+    height: 32px;
   }
 }

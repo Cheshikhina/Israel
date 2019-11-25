@@ -104,6 +104,8 @@
 </linearGradient>
 </defs><symbol id="icon-border--black" viewBox="0 0 114 2">
 <path d="M0 1H114" stroke="#484848" stroke-dasharray="4 4"/>
+</symbol><symbol id="icon-border--blue" viewBox="0 0 94 1">
+<path d="M0 0.5H93.5" stroke="#1FC0FC" stroke-dasharray="4 4"/>
 </symbol><symbol id="icon-border--dashed" viewBox="0 0 2 241">
 <path opacity="0.2" d="M1 0L0.999989 241" stroke="#484848" stroke-dasharray="4 4"/>
 </symbol><symbol id="icon-border--yellow" viewBox="0 0 114 2">

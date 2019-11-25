@@ -427,7 +427,7 @@
                     srcset="./img/reviews--mobile@1x.jpg 1x, ./img/reviews--mobile@2x.jpg 2x">
                   <!-- 1х: 364px; 2x: 728px -->
                   <img src="./img/reviews--desktop@1x.jpg" srcset="./img/reviews--desktop@2x.jpg 2x"
-                    alt="Фото Ольги Михайловой">
+                    alt="Фото написавшего отзыв">
                 </picture>
               </p>
               <ul class="reviews__list">
@@ -563,51 +563,63 @@
           <section class="details">
             <h2 class="visually-hidden">Контактная информация</h2>
             <div class="details__info">
+              <p class="details__title">Узнать подробности</p>
               <p class="details__city">Ваш город: <span class="details__city-yours">Новосибирск</span></p>
               <div class="details__curator">
-                <p class="details__curator-name"><span>Ваш куратор:</span> Анна Горелик</p>
-                <p class="details__curator-adress">Новосибирск, ул. Щетинкина 68, культурный центр «Бейт Менахем»</p>
-                <ul class="details__socials socials">
-                  <li class="socials__item">
-                    <a class="details__socials-facebook socials__link socials__link--facebook" href="#">
-                      <span class="visually-hidden">Контакт куратора Фейсбук</span>
-                      <svg width="24" height="24">
+                <p class="details__curator-photo">
+                  <picture>
+                    <source type="image/webp" srcset="./img/curator@1x.webp 1x, ./img/curator@2x.webp 2x">
 
-                        <use xlink:href="./img/sprite_auto.svg#icon-facebook"></use>
-                      </svg>
-                    </a>
-                  </li>
-                  <li class="socials__item">
-                    <a class="details__socials-whatsapp socials__link socials__link--whatsapp" href="#">
-                      <span class="visually-hidden">Контакт куратора Вотсап</span>
-                      <svg width="24" height="24">
-                        <use xlink:href="./img/sprite_auto.svg#icon-whatsapp"></use>
-                      </svg>
-                    </a>
-                  </li>
-                  <li class="socials__item">
-                    <a class="details__socials-telegram socials__link socials__link--telegram" href="#">
-                      <span class="visually-hidden">Контакт куратора Телеграм</span>
-                      <svg width="24" height="24">
-                        <use xlink:href="./img/sprite_auto.svg#icon-telegram"></use>
-                      </svg>
-                    </a>
-                  </li>
-                </ul>
+                    <!-- 1х: 112px; 2x: 224px -->
+                    <img src="./img/curator@1x.png" srcset="./img/curator@2x.png 2x" alt="Фото вашего куратора">
+                  </picture>
+                </p>
+                <div class="details__holder">
+                  <p class="details__curator-name"><span>Ваш куратор:</span> Анна Горелик</p>
+                  <p class="details__curator-adress">Новосибирск, ул. Щетинкина 68,<br> культурный центр «Бейт Менахем»
+                  </p>
+                  <ul class="details__socials socials">
+                    <li class="details__socials-item details__socials-item--facebook socials__item">
+                      <a class="details__socials-facebook socials__link socials__link--facebook" href="#">
+                        <span class="visually-hidden">Контакт куратора Фейсбук</span>
+                        <svg width="14" height="22">
+                          <use xlink:href="./img/sprite_auto.svg#icon-facebook"></use>
+                        </svg>
+                      </a>
+                    </li>
+                    <li class="details__socials-item socials__item">
+                      <a class="details__socials-whatsapp socials__link socials__link--whatsapp" href="#">
+                        <span class="visually-hidden">Контакт куратора Вотсап</span>
+                        <svg width="20" height="20">
+                          <use xlink:href="./img/sprite_auto.svg#icon-whatsapp"></use>
+                        </svg>
+                      </a>
+                    </li>
+                    <li class="details__socials-item details__socials-item--telegram socials__item">
+                      <a class="details__socials-telegram socials__link socials__link--telegram" href="#">
+                        <span class="visually-hidden">Контакт куратора Телеграм</span>
+                        <svg width="22" height="18">
+                          <use xlink:href="./img/sprite_auto.svg#icon-telegram"></use>
+                        </svg>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
               </div>
               <p class="details__info-text">Куратор является опытным специалистом агентства Сохнут<br> и знает о проекте
                 «Маса» всё! Свяжитесь с куратором,<br> узнайте подробнее о программах и выберите свою !</p>
             </div>
             <div class="details__map">
-              <span class="details__map-marker"
-                aria-label="Маркер-показатель нахождения наставника на карте города"></span>
+              <h3 class="visually-hidden">Карта проезда к месту работы куратора</h3>
+              <div class="details__map-modal" id="map" tabindex="-1"></div>
             </div>
             <div class="details__form">
-              <p class="details__form-title">Оставьте ваши контакты, если у вас остались вопросы — мы на них ответим!
-              </p>
-              <p class="details__form-text">Мы не передаём данные третьим лицам. Ваши данные будут в безопасности и вам
-                не
-                придёт спам от нас!</p>
+              <div class="details__form-box">
+                <p class="details__form-title">Оставьте ваши контакты, если у вас остались вопросы — мы на них ответим!
+                </p>
+                <p class="details__form-text">Мы не передаём данные третьим лицам. Ваши данные будут в безопасности и
+                  вам не придёт спам от нас!</p>
+              </div>
               <form name="details-form" method="post" autocomplete="off">
                 <label for="client-name">ФИО</label>
                 <input id="client-name" type="text" name="your-name" value="" placeholder="Имя" required="">
@@ -626,47 +638,54 @@
     </div>
 
     <footer class="page-footer">
-      <a class="page-footer__logo">
-        <picture>
-          <source type="image/webp" media="(max-width: 767px)"
-            srcset="./img/logo-footer--mobile@1x.webp 1x, ./img/logo-footer--mobile@2x.webp 2x">
-          <source type="image/webp"
-            srcset="./img/logo-footer--desktop@1x.webp 1x, ./img/logo-footer--desktop@2x.webp 2x">
+      <div class="page-footer__inner">
+        <a class="page-footer__logo">
+          <picture>
+            <source type="image/webp" media="(max-width: 767px)"
+              srcset="./img/logo-footer--mobile@1x.webp 1x, ./img/logo-footer--mobile@2x.webp 2x">
+            <source type="image/webp"
+              srcset="./img/logo-footer--desktop@1x.webp 1x, ./img/logo-footer--desktop@2x.webp 2x">
 
-          <!-- 1х: 99x; 2x: 198px -->
-          <source media="(max-width: 767px)"
-            srcset="./img/logo-footer--mobile@1x.png 1x, ./img/logo-footer--mobile@2x.png 2x">
-          <!-- 1х: 85px; 2x: 170px -->
-          <img src="./img/logo-footer--desktop@1x.png" srcset="./img/logo-footer--desktop@2x.png 2x" alt="Логотип Masa">
-        </picture>
-      </a>
-      <a class="page-footer__copyright" href="#">Copyright someDesignCompany ©2019</a>
-      <ul class="page-footer__socials socials">
-        <li class="socials__item">
-          <a class="page-footer__socials-facebook socials__link socials__link--facebook" href="#">
-            <span class="visually-hidden">О проекте Маса в Фейсбуке</span>
-            <svg width="24" height="24">
-              <use xlink:href="./img/sprite_auto.svg#icon-facebook"></use>
-            </svg>
-          </a>
-        </li>
-        <li class="socials__item">
-          <a class="page-footer__socials-twitter socials__link socials__link--twitter" href="#">
-            <span class="visually-hidden">О проекте Маса в Твитере</span>
-            <svg width="24" height="24">
-              <use xlink:href="./img/sprite_auto.svg#icon-twitter"></use>
-            </svg>
-          </a>
-        </li>
-        <li class="socials__item">
-          <a class="page-footer__socials-instagram socials__link socials__link--instagram" href="#">
-            <span class="visually-hidden">О проекте Маса в Инстаграме</span>
-            <svg width="24" height="24">
-              <use xlink:href="./img/sprite_auto.svg#icon-instagram"></use>
-            </svg>
-          </a>
-        </li>
-      </ul>
+            <!-- 1х: 99x; 2x: 198px -->
+            <source media="(max-width: 767px)"
+              srcset="./img/logo-footer--mobile@1x.png 1x, ./img/logo-footer--mobile@2x.png 2x">
+            <!-- 1х: 85px; 2x: 170px -->
+            <img src="./img/logo-footer--desktop@1x.png" srcset="./img/logo-footer--desktop@2x.png 2x"
+              alt="Логотип Masa">
+          </picture>
+        </a>
+        <a class="page-footer__copyright" href="#">Copyright someDesignCompany ©2019</a>
+        <ul class="page-footer__socials socials">
+          <li class="page-footer__socials-item page-footer__socials-item--facebook socials__item">
+            <a class="page-footer__socials-link page-footer__socials-link--facebook socials__link socials__link--facebook"
+              href="#">
+              <span class="visually-hidden">О проекте Маса в Фейсбуке</span>
+              <svg width="24" height="24">
+                <use xlink:href="./img/sprite_auto.svg#icon-facebook"></use>
+              </svg>
+            </a>
+          </li>
+          <li class="page-footer__socials-item page-footer__socials-item--twitter socials__item">
+            <a class="page-footer__socials-link page-footer__socials-link--twitter socials__link socials__link--twitter"
+              href="#">
+              <span class="visually-hidden">О проекте Маса в Твитере</span>
+              <svg width="24" height="24">
+                <use xlink:href="./img/sprite_auto.svg#icon-twitter"></use>
+              </svg>
+            </a>
+          </li>
+          <li class="page-footer__socials-item socials__item">
+            <a class="page-footer__socials-link page-footer__socials-link--instagram socials__link socials__link--instagram"
+              href="#">
+              <span class="visually-hidden">О проекте Маса в Инстаграме</span>
+              <svg width="24" height="24">
+                <use xlink:href="./img/sprite_auto.svg#icon-instagram"></use>
+              </svg>
+            </a>
+          </li>
+        </ul>
+
+      </div>
     </footer>
   </div>
 
@@ -720,8 +739,8 @@
   <div class="overlay"></div>
 
   <script src="./js/jquery.min.js"></script>
-  <script src="./js/jquery.maskedinput.min.js"></script>
   <script src="./js/script.js"></script>
+  <!-- <script async="" defer="" src="https://maps.googleapis.com/maps/api/js?callback=initMap"></script> -->
 </body>
 
 </html>
