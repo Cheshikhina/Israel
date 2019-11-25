@@ -12,7 +12,7 @@
   display: flex;
   width: 153px;
   height: 177px;
-  top: 66.7%;
+  top: 88.6%;
   left: 0;
   background-repeat: no-repeat;
   background-image: url("../img/bag--desktop@1x.png");
@@ -21,7 +21,7 @@
 .questions__inner {
   position: relative;
   max-width: 1366px;
-  min-height: 1208px;
+  min-height: 910px;
   width: 100%;
   margin: 0 auto;
 }
@@ -204,5 +204,10 @@
       background-image: url("../img/questions-background@2x.jpg");
       background-image: -webkit-image-set(url("../img/questions-background@2x.webp") 2x);
     }
+  }
+
+  .questions__checkbox:hover,
+  .questions__label:hover {
+    cursor: pointer;
   }
 }

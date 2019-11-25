@@ -206,13 +206,6 @@
     font-size: 20px;
     line-height: 24px;
   }
-
-  .page-header__phone-number:hover,
-  .page-header__phone-number:focus,
-  .page-header__call:hover,
-  .page-header__call:focus {
-    outline: none;
-  }
 }
 
 @media (min-width: $no-mobile-width) {

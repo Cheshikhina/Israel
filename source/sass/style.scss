@@ -1,6 +1,7 @@
 @charset "utf-8";
 @import "./variables";
 @import "./common";
+@import "./socials";
 @import "./page-header";
 @import "./wrapper";
 // @import "./page-main";
@@ -11,11 +12,10 @@
 @import "./advantages";
 @import "./blog-contact";
 @import "./questions";
-// @import "./reviews";
+@import "./modal-form";
+@import "./reviews";
 // @import "./details";
 @import "./page-footer";
-// @import "./socials";
-@import "./modal-form";
 @import "./success";
 @import "./error";
 @import "./overlay";

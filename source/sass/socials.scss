@@ -1,0 +1,28 @@
+.socials {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 0;
+}
+
+.socials__item {
+  list-style: none;
+}
+
+.socials__link svg {
+  fill: #000000;
+  opacity: 0.16;
+}
+
+.socials__link:active svg {
+  fill: $yellow-color;
+  opacity: 0.5;
+}
+
+@media (min-width: $no-mobile-width) {
+  .socials__link:hover svg,
+  .socials__link:focus svg {
+    fill: $yellow-color;
+    opacity: 0.87;
+  }
+}

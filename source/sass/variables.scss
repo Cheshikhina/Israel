@@ -78,15 +78,16 @@ $box-shadow: 0 16px 36px -24px $black-color;
 
 @mixin link-hover {
   background: linear-gradient(132.19deg, #ffc341 20.46%, #ffd701 65.31%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
   opacity: 0.87;
+  outline: none;
 }
 
 @mixin link-active {
   background: linear-gradient(132.19deg, #ffc341 20.46%, #ffd701 65.31%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
   opacity: 0.5;
 }
 

@@ -49,6 +49,12 @@
   var answersAll = document.querySelectorAll('.questions__text');
   var thisQuestion = document.querySelector('.questions__checkbox--checked');
   var thisAnswer = document.querySelector('.questions__text--active');
+  var thisComment = document.querySelector('.reviews__point--active');
+  var buttonsToggleComment = document.querySelectorAll('.reviews__bth');
+  var commentsAll = document.querySelectorAll('.reviews__point');
+  var counterComments = document.querySelector('.reviews__holder');
+  var countThisComment = document.querySelector('.reviews__count-this');
+  var counterAllComments = document.querySelector('.reviews__count-all');
 
   //BACKEND
   // функция загрузки данных из формы
@@ -329,7 +335,7 @@
   };
 
 
-  //СКРОЛЛ
+  //СКРОЛЛ В ШАПКЕ
   var scrollElement = function (button, link) {
     $(button).on('click', function () {
       var top = $(link).offset().top;
@@ -343,7 +349,7 @@
   }
 
 
-  //ЛОГИКА РАБОТЫ ТАБОВ
+  //ЛОГИКА РАБОТЫ ТАБОВ В БЛОКЕ ПРОГРАММЫ
   // общая функция для открытия/закрытия табов
   var runTabs = function (tabs, contents, tab) {
     $(contents).not(tab).hide();
@@ -395,7 +401,7 @@
     callForm.addEventListener('submit', pressCallFormButton);
   }
 
-  //ЛОГИКА СЛАЙДЕРА
+  //ЛОГИКА СЛАЙДЕРА В БЛОКЕ ЖИЗНЬ В ИЗРАИЛЕ
   // проверка ширины окна при открытии сайта для добавления/удаления кнопок слайдера
   if (slider) {
     if (document.documentElement.clientWidth < MAX_WIDTH_BE_SLIDER) {
@@ -434,6 +440,53 @@
     $(questionsAll).click(function () {
       $(this).next(answersAll).toggle();
     });
+  }
+
+
+  //ЛОГИКА ДЛЯ БЛОКА ЧАСТЫЕ ВОПРОСЫ
+  if (buttonsToggleComment && commentsAll && counterComments && countThisComment && counterAllComments) {
+    $(commentsAll).not(thisComment).hide();
+    counterComments.classList.remove('visually-hidden');
+
+    // функция для показа комментария
+    var showComment = function (arr, index, currentNumber, link) {
+      index = currentNumber - 1;
+      $(arr[index]).show();
+      $(arr).not(arr[index]).hide();
+      link.innerHTML = currentNumber;
+    };
+
+    // переменные для функции показа комментария
+    var currentCommentNumber = Number(countThisComment.innerHTML);
+    var currentComment;
+    var limitComments = commentsAll.length;
+    counterAllComments.innerHTML = limitComments;
+
+    // слушатель клика по кнопкам вперед/назад
+    if (limitComments === '0' || currentCommentNumber > limitComments) {
+      counterComments.classList.add('visually-hidden');
+    } else {
+      $(buttonsToggleComment).on('click', function () {
+        if ($(this).attr('value') === 'left') {
+          currentCommentNumber = currentCommentNumber - 1;
+          if (currentCommentNumber <= 1) {
+            currentCommentNumber = 1;
+            showComment(commentsAll, currentComment, currentCommentNumber, countThisComment);
+          } else {
+            showComment(commentsAll, currentComment, currentCommentNumber, countThisComment);
+          }
+        }
+        if ($(this).attr('value') === 'right') {
+          currentCommentNumber = currentCommentNumber + 1;
+          if (currentCommentNumber >= limitComments) {
+            currentCommentNumber = limitComments;
+            showComment(commentsAll, currentComment, currentCommentNumber, countThisComment);
+          } else {
+            showComment(commentsAll, currentComment, currentCommentNumber, countThisComment);
+          }
+        }
+      });
+    }
   }
 
 
