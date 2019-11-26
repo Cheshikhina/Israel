@@ -21,7 +21,7 @@
   };
   var TIMEOUT = 10000;
   var SCROLL_SPEED = 1500;
-  var MAX_WIDTH_BE_SLIDER = 768;
+  var MOBILE_WIDTH = 768;
   var ERROR_INPUT = 'border: 2px solid rgba(255, 0, 0, 0.5); border-radius: 80px;';
   var popup = document.querySelector('.modal-form');
   var overlay = document.querySelector('.overlay');
@@ -253,7 +253,7 @@
     document.removeEventListener('keydown', popupCloseEscHandler);
   };
 
-  //функция добавления светло-серой подсказки на ввод телефона
+  // функция добавления светло-серой подсказки на ввод телефона
   var addPhonePlaceholder = function (form, classForPlaceholder) {
     var inputParent = form.querySelector('input[name="your-phone"]').parentNode;
     if (inputParent) {
@@ -261,7 +261,7 @@
     }
   };
 
-  //функция удаления светло-серой подсказки на ввод телефона
+  // функция удаления светло-серой подсказки на ввод телефона
   var removePhonePlaceholder = function (form, classForPlaceholder) {
     var inputParent = form.querySelector('input[name="your-phone"]').parentNode;
     if (inputParent) {
@@ -408,6 +408,57 @@
     runTabs(programsName, programsDesc, ThisElement.TAB);
   }
 
+  //
+  // var programsName = document.querySelectorAll('.programs__nav-item');
+  // var programsDesc = document.querySelectorAll('.programs__item-basic');
+  // var tabsWidth = document.documentElement.clientWidth;
+  // var thisProgramsName = document.querySelector('.programs__nav-radio[checked]');
+  var programsNameLine = document.querySelector('.programs__nav');
+  // var programsNameLineWidth = 0;
+  // var programsNameWidthArray = [];
+
+  var programsNameContainer = document.querySelector('.programs__nav-box');
+  // // var offset = Math.ceil((document.documentElement.clientWidth - $(thisProgramsName).parent().width()) / 2);
+  // var offset = 0;
+  // var step = 0;
+  // var limit = 0;
+
+  if (programsNameLine && programsNameContainer) {
+    if (document.documentElement.clientWidth < MOBILE_WIDTH) {
+      programsNameLine.classList.add('programs__nav--js');
+      programsNameContainer.classList.add('programs__nav-box--js');
+    }
+  }
+
+  // for (var k = 0; k < programsName.length; k++) {
+  //   programsNameWidthArray.push(programsName[k].offsetWidth);
+  //   programsNameLineWidth += programsName[k].offsetWidth;
+  // }
+  // programsNameLine.style.width = programsNameLineWidth + 'px';
+
+  // $(programsName).click(function () {
+  //   limit = programsNameLineWidth - document.documentElement.clientWidth - (offset + programsNameWidthArray[step])
+  //   offset = offset + programsNameWidthArray[step];
+  //   programsNameLine.style.left = -offset + 'px';
+  //   step++;
+
+  // });
+
+  // проверка ширины окна в текущем времени для добавления/удаления прокрутки навигации табов
+  // window.addEventListener('resize', function () {
+  //   if (document.documentElement.clientWidth < MOBILE_WIDTH) {
+  //     if ($(programsNameLine).hasClass('programs__nav--js') === false) {
+  //       programsNameLine.classList.add('programs__nav--js');
+  //       programsNameContainer.classList.add('programs__nav-box--js');
+  //     } else if ($(programsNameLine).hasClass('programs__nav--js') === true) {
+  //       programsNameLine.classList.remove('programs__nav--js');
+  //       programsNameContainer.classList.remove('programs__nav-box--js');
+  //     }
+  //   }
+  // });
+
+
+
   //ЛОГИКА ФОРМЫ "ХОЧУ ПОЕХАТЬ"
   // добавление/удаление светло-серой подсказки на ввод телефона
   if (phoneCallForm && callForm) {
@@ -449,7 +500,7 @@
   //ЛОГИКА СЛАЙДЕРА В БЛОКЕ ЖИЗНЬ В ИЗРАИЛЕ
   // проверка ширины окна при открытии сайта для добавления/удаления кнопок слайдера
   if (slider) {
-    if (document.documentElement.clientWidth < MAX_WIDTH_BE_SLIDER) {
+    if (document.documentElement.clientWidth < MOBILE_WIDTH) {
       slider.classList.remove('visually-hidden');
       if (slidesName && slidesPhoto && ThisElement.SLIDE) {
         runTabs(slidesName, slidesPhoto, ThisElement.SLIDE);
@@ -460,7 +511,7 @@
   // проверка ширины окна в текущем времени для добавления/удаления кнопок слайдера
   window.addEventListener('resize', function () {
     if (slider) {
-      if (document.documentElement.clientWidth >= MAX_WIDTH_BE_SLIDER) {
+      if (document.documentElement.clientWidth >= MOBILE_WIDTH) {
         if (!$(slider).hasClass('visually-hidden')) {
           slider.classList.add('visually-hidden');
           $(slidesPhoto).show();
@@ -488,7 +539,7 @@
   }
 
 
-  //ЛОГИКА ДЛЯ БЛОКА ЧАСТЫЕ ВОПРОСЫ
+  //ЛОГИКА ДЛЯ БЛОКА ОТЗЫВЫ
   if (buttonsToggleComment && commentsAll && counterComments && countThisComment && counterAllComments) {
     $(commentsAll).not(thisComment).hide();
     counterComments.classList.remove('visually-hidden');

@@ -225,18 +225,6 @@
     margin: 0 auto;
   }
 
-  //На время, чтобы pp сходился
-  .programs__nav-item {
-    margin-bottom: 1px;
-  }
-
-  //ПРидумать стили!!!!!
-  // .programs__nav--js {
-  //   overflow: hidden;
-  // flex-direction: row;
-  // width: 100%;
-  // }
-
   .programs__nav-label {
     padding: 3px 11px;
     padding-top: 6px;
@@ -246,52 +234,9 @@
     opacity: 0.4;
   }
 
-  // временный класс для разметки
-  .programs__nav-label--invisible {
-    position: absolute;
-    min-width: initial;
-    width: 1px;
-    height: 1px;
-    margin: -1px;
-    border: 0;
-    padding: 0;
-    white-space: nowrap;
-    clip-path: inset(100%);
-    clip: rect(0 0 0 0);
-    overflow: hidden;
-  }
-
-  //ПРидумать стили!!!!!
-  // .programs__nav-label--js {
-  //   position: absolute;
-  //   min-width: initial;
-  // width: 1px;
-  // height: 1px;
-  // margin: -1px;
-  // border: 0;
-  // padding: 0;
-  // white-space: nowrap;
-  // clip-path: inset(100%);
-  // clip: rect(0 0 0 0);
-  //   overflow: hidden;
-  // }
-
-  // .programs__nav-label--js-active {
-  //   min-width: 181px;
-  //   margin: initial;
-  //   margin-left: 50%;
-  //   transform: translateX(-50%);
-  // }
-
-  // .programs__nav-label--js-near {
-  //   position: absolute;
-  //   min-width: initial;
-  //   // width: 50%;
-  //   margin: initial;
-  // }
-
   .programs__nav-icon {
     margin-right: 6px;
+    transform: scale(0.9);
   }
 
   .programs__nav-radio:checked + .programs__nav-label {
@@ -320,6 +265,25 @@
     margin: 15px 0;
     font-size: 14px;
     line-height: 1.6;
+  }
+
+  .programs__nav-box--js {
+    width: 100%;
+    overflow-x: auto;
+  }
+
+  .programs__nav--js {
+    width: 100%;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    position: relative;
+    overflow-x: auto;
+  }
+
+  .programs__nav--js .programs__nav-label,
+  .programs__nav--js .programs__nav-item {
+    min-width: min-content;
+    width: min-content;
   }
 }
 

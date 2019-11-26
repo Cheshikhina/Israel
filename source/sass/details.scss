@@ -63,8 +63,7 @@
 }
 
 .details__city-yours::before {
-  width: 80%;
-  min-width: 93.5px;
+  width: calc(100% - 26px);
   height: 2px;
   min-height: 2px;
   bottom: -5px;
