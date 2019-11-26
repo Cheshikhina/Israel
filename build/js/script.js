@@ -55,6 +55,8 @@
   var counterComments = document.querySelector('.reviews__holder');
   var countThisComment = document.querySelector('.reviews__count-this');
   var counterAllComments = document.querySelector('.reviews__count-all');
+  var programsNameLine = document.querySelector('.programs__nav');
+  var programsNameContainer = document.querySelector('.programs__nav-box');
 
   // //ФУНКЦИЯ "ОЖИВЛЕНИЯ" КАРТЫ
   // var initMap = function () {
@@ -394,71 +396,6 @@
   }
 
 
-  //ЛОГИКА РАБОТЫ ТАБОВ В БЛОКЕ ПРОГРАММЫ
-  // общая функция для открытия/закрытия табов
-  var runTabs = function (tabs, contents, tab) {
-    $(contents).not(tab).hide();
-    $(tabs).click(function () {
-      $(contents).hide().eq($(this).index()).show();
-    });
-  };
-
-  // открытие/закрытие табов в блоке Программы
-  if (programsName && programsDesc && ThisElement.TAB) {
-    runTabs(programsName, programsDesc, ThisElement.TAB);
-  }
-
-  //
-  // var programsName = document.querySelectorAll('.programs__nav-item');
-  // var programsDesc = document.querySelectorAll('.programs__item-basic');
-  // var tabsWidth = document.documentElement.clientWidth;
-  // var thisProgramsName = document.querySelector('.programs__nav-radio[checked]');
-  var programsNameLine = document.querySelector('.programs__nav');
-  // var programsNameLineWidth = 0;
-  // var programsNameWidthArray = [];
-
-  var programsNameContainer = document.querySelector('.programs__nav-box');
-  // // var offset = Math.ceil((document.documentElement.clientWidth - $(thisProgramsName).parent().width()) / 2);
-  // var offset = 0;
-  // var step = 0;
-  // var limit = 0;
-
-  if (programsNameLine && programsNameContainer) {
-    if (document.documentElement.clientWidth < MOBILE_WIDTH) {
-      programsNameLine.classList.add('programs__nav--js');
-      programsNameContainer.classList.add('programs__nav-box--js');
-    }
-  }
-
-  // for (var k = 0; k < programsName.length; k++) {
-  //   programsNameWidthArray.push(programsName[k].offsetWidth);
-  //   programsNameLineWidth += programsName[k].offsetWidth;
-  // }
-  // programsNameLine.style.width = programsNameLineWidth + 'px';
-
-  // $(programsName).click(function () {
-  //   limit = programsNameLineWidth - document.documentElement.clientWidth - (offset + programsNameWidthArray[step])
-  //   offset = offset + programsNameWidthArray[step];
-  //   programsNameLine.style.left = -offset + 'px';
-  //   step++;
-
-  // });
-
-  // проверка ширины окна в текущем времени для добавления/удаления прокрутки навигации табов
-  // window.addEventListener('resize', function () {
-  //   if (document.documentElement.clientWidth < MOBILE_WIDTH) {
-  //     if ($(programsNameLine).hasClass('programs__nav--js') === false) {
-  //       programsNameLine.classList.add('programs__nav--js');
-  //       programsNameContainer.classList.add('programs__nav-box--js');
-  //     } else if ($(programsNameLine).hasClass('programs__nav--js') === true) {
-  //       programsNameLine.classList.remove('programs__nav--js');
-  //       programsNameContainer.classList.remove('programs__nav-box--js');
-  //     }
-  //   }
-  // });
-
-
-
   //ЛОГИКА ФОРМЫ "ХОЧУ ПОЕХАТЬ"
   // добавление/удаление светло-серой подсказки на ввод телефона
   if (phoneCallForm && callForm) {
@@ -503,29 +440,16 @@
     if (document.documentElement.clientWidth < MOBILE_WIDTH) {
       slider.classList.remove('visually-hidden');
       if (slidesName && slidesPhoto && ThisElement.SLIDE) {
-        runTabs(slidesName, slidesPhoto, ThisElement.SLIDE);
+        // var runTabs = function (tabs, contents, tab) {
+        $(slidesPhoto).not(ThisElement.SLIDE).hide();
+        $(slidesName).click(function () {
+          $(slidesPhoto).hide().eq($(this).index()).show();
+        });
+        // };
+        // runTabs(slidesName, slidesPhoto, ThisElement.SLIDE);
       }
     }
   }
-
-  // проверка ширины окна в текущем времени для добавления/удаления кнопок слайдера
-  window.addEventListener('resize', function () {
-    if (slider) {
-      if (document.documentElement.clientWidth >= MOBILE_WIDTH) {
-        if (!$(slider).hasClass('visually-hidden')) {
-          slider.classList.add('visually-hidden');
-          $(slidesPhoto).show();
-        }
-      } else {
-        if ($(slider).hasClass('visually-hidden')) {
-          slider.classList.remove('visually-hidden');
-          if (slidesName && slidesPhoto && ThisElement.SLIDE) {
-            runTabs(slidesName, slidesPhoto, ThisElement.SLIDE);
-          }
-        }
-      }
-    }
-  });
 
 
   //ЛОГИКА ДЛЯ БЛОКА С ЧАСТЫМИ ВОПРОСАМИ (АККОРДЕОН)
@@ -630,5 +554,131 @@
   if (detailsForm) {
     detailsForm.addEventListener('submit', pressDetailsFormButton);
   }
+
+
+  //ЛОГИКА РАБОТЫ ТАБОВ В БЛОКЕ ПРОГРАММЫ
+  if (programsName && programsDesc && ThisElement.TAB) {
+    $(programsDesc).not(ThisElement.TAB).hide();
+    $(programsName).click(function () {
+      $(programsDesc).hide().eq($(this).index()).show();
+    });
+  }
+
+
+  if (programsNameLine && programsNameContainer) {
+    if (document.documentElement.clientWidth < MOBILE_WIDTH) {
+      if (!$(programsNameLine).hasClass('programs__nav--js')) {
+        programsNameLine.classList.add('programs__nav--js');
+      }
+      if (!$(programsNameContainer).hasClass('programs__nav-box--js')) {
+        programsNameContainer.classList.add('programs__nav-box--js');
+      }
+    }
+  }
+
+  // открытие/закрытие табов в блоке Программы
+
+  //
+  // var programsName = document.querySelectorAll('.programs__nav-item');
+  // var programsDesc = document.querySelectorAll('.programs__item-basic');
+  // var container = document.documentElement.clientWidth;
+  // var thisProgramsName = document.querySelector('.programs__nav-radio[checked]');
+  // var programsNameLine = document.querySelector('.programs__nav');
+  // var lineWidth = 0;
+  // var arrayWidth = [];
+
+  // var programsNameContainer = document.querySelector('.programs__nav-box');
+  // var offset = Math.ceil((document.documentElement.clientWidth - $(thisProgramsName).parent().width()) / 2);
+  // var index = $(document.querySelector('.programs__nav-radio[checked]')).parent().index();
+  // // var offset = 0;
+  // // var step = 0;
+  // // var limit = 0;
+
+  // for (var k = 0; k < programsName.length; k++) {
+  //   arrayWidth.push(programsName[k].offsetWidth);
+  //   lineWidth += programsName[k].offsetWidth;
+  // }
+
+  // var getCurrentWidth = function (array, index) {
+  //   var sum = 0;
+  //   for (var i = 0; i < index + 1; i++) {
+  //     sum += array[index];
+  //   }
+  //   return sum;
+  // };
+
+  // // var currentWidth = getCurrentWidth(arrayWidth, index);
+  // // var thisCurrentWidth = currentWidth;
+  // programsNameLine.style.width = lineWidth + 'px';
+  // programsNameLine.style.left = -offset + 'px';
+
+  // // общая функция для открытия/закрытия табов
+
+  // $(programsDesc).not(ThisElement.TAB).hide();
+  // $(programsName).click(function () {
+  //   $(programsDesc).hide().eq($(this).index()).show();
+  //   console.log(index);
+  //   console.log($(this).index());
+  //   if (index > $(this).index()) {
+  //     offset = offset + arrayWidth[$(this).index()];
+  //     // programsNameLine.style.width = lineWidth + 'px';
+  //     programsNameLine.style.left = -offset + 'px';
+  //   }
+  //   if (index < $(this).index()) {
+  //     offset = -offset + arrayWidth[$(this).index()];
+  //     // programsNameLine.style.width = lineWidth + 'px';
+  //     programsNameLine.style.left = offset + 'px';
+  //   }
+  //   if (index = $(this).index()) {
+  //     offset = offset;
+  //     // programsNameLine.style.width = lineWidth + 'px';
+  //     // programsNameLine.style.left = offset + 'px';
+  //   }
+
+
+  //   thisCurrentWidth = getCurrentWidth(arrayWidth, $(this).index());
+  // });
+
+
+  // проверка ширины окна в текущем времени для добавления/удаления кнопок слайдера и классов для корректной работы табов
+  window.addEventListener('resize', function () {
+    if (slider) {
+      if (document.documentElement.clientWidth >= MOBILE_WIDTH) {
+        if (!$(slider).hasClass('visually-hidden')) {
+          slider.classList.add('visually-hidden');
+          $(slidesPhoto).show();
+        }
+      } else {
+        if ($(slider).hasClass('visually-hidden')) {
+          slider.classList.remove('visually-hidden');
+          if (slidesName && slidesPhoto && ThisElement.SLIDE) {
+            $(slidesPhoto).not(ThisElement.SLIDE).hide();
+            $(slidesName).click(function () {
+              $(slidesPhoto).hide().eq($(this).index()).show();
+            });
+          }
+        }
+      }
+    }
+
+
+    if (programsNameLine && programsNameContainer) {
+      if (document.documentElement.clientWidth < MOBILE_WIDTH) {
+        if (!$(programsNameLine).hasClass('programs__nav--js')) {
+          programsNameLine.classList.add('programs__nav--js');
+        }
+        if (!$(programsNameContainer).hasClass('programs__nav-box--js')) {
+          programsNameContainer.classList.add('programs__nav-box--js');
+        }
+      } else {
+        if ($(programsNameLine).hasClass('programs__nav--js')) {
+          programsNameLine.classList.remove('programs__nav--js');
+        }
+        if ($(programsNameContainer).hasClass('programs__nav-box--js')) {
+          programsNameContainer.classList.remove('programs__nav-box--js');
+        }
+      }
+    }
+  });
 
 })();

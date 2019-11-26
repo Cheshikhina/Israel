@@ -269,7 +269,7 @@
 
   .programs__nav-box--js {
     width: 100%;
-    overflow-x: auto;
+    overflow-x: hidden;
   }
 
   .programs__nav--js {
@@ -277,7 +277,7 @@
     flex-direction: row;
     flex-wrap: nowrap;
     position: relative;
-    overflow-x: auto;
+    overflow-x: hidden;
   }
 
   .programs__nav--js .programs__nav-label,
