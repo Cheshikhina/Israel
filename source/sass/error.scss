@@ -23,20 +23,20 @@
 }
 
 .error__title {
+  @include font-subtitle-desktop;
   width: 96%;
   margin: 65px auto;
   margin-top: 85px;
-  @include font-subtitle-desktop;
   color: rgba(255, 0, 0, 0.75);
 }
 
 .error__button {
+  @include button;
   width: 66%;
   margin: 85px auto;
   margin-top: 20px;
   padding: 19px 40px;
   padding-top: 20px;
-  @include button;
   background-image: initial;
   background-color: $black-color;
   border: none;

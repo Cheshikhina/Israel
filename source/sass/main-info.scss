@@ -6,9 +6,9 @@
 }
 
 .main-info__title {
+  @include font-title-desktop;
   width: 65%;
   margin: 18px auto;
-  @include font-title-desktop;
   text-align: center;
 }
 
@@ -19,8 +19,8 @@
 }
 
 .main-info__text {
-  margin: 0 auto;
   @include font-text-desktop;
+  margin: 0 auto;
 }
 
 .main-info__text--left {
@@ -97,9 +97,9 @@
 
 @media (max-width: $mobile-width) {
   .main-info__title {
+    @include font-title-mobile;
     width: 90%;
     margin-top: 34px;
-    @include font-title-mobile;
   }
 
   .main-info__holder {
@@ -125,7 +125,6 @@
     max-width: 320px;
     margin-top: -45px;
     background-image: url("../img/main-info--mobile@1x.jpg");
-    /* stylelint-disable */
     background-image: -webkit-image-set(url("../img/main-info--mobile@1x.webp") 1x);
 
     @media (min-resolution: $retina-dpi), (min-resolution: $retina-dppx) {

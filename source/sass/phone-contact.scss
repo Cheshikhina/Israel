@@ -59,8 +59,8 @@
 }
 
 .phone-contact__title {
-  padding: 9px 5px;
   @include font-title-desktop;
+  padding: 9px 5px;
   text-align: left;
 }
 
@@ -158,13 +158,13 @@
 }
 
 .phone-contact__form button#contact-submit {
+  @include button;
   z-index: 3;
   min-width: 216px;
   margin: 4px auto;
   margin-left: -14.6%;
   padding: 19px 40px;
   padding-top: 20px;
-  @include button;
   border: none;
   outline: none;
 }
@@ -209,7 +209,6 @@
     margin-top: -4px;
     align-self: center;
     background-image: url("../img/phone-contact--mobile@1x.jpg");
-    /* stylelint-disable */
     background-image: -webkit-image-set(url("../img/phone-contact--mobile@1x.webp") 1x);
 
     @media (min-resolution: $retina-dpi), (min-resolution: $retina-dppx) {
@@ -231,10 +230,10 @@
   }
 
   .phone-contact__text {
+    @include font-text-mobile;
     max-width: 526px;
     margin-bottom: 5px;
     padding: 15px 12px;
-    @include font-text-mobile;
   }
 
   .phone-contact__phone {

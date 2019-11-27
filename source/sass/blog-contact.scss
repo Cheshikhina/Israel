@@ -29,11 +29,11 @@
 }
 
 .blog-contact__title {
+  @include font-title-desktop;
   margin: 0;
   padding: 5px;
   padding-top: 0;
   margin-bottom: 14px;
-  @include font-title-desktop;
   text-align: left;
 }
 
@@ -48,6 +48,7 @@
 }
 
 .blog-contact__link {
+  @include button;
   position: relative;
   display: flex;
   width: 56%;
@@ -57,7 +58,6 @@
   margin-left: 5px;
   padding: 18px 40px;
   padding-right: 20px;
-  @include button;
   text-decoration: none;
   letter-spacing: 0.1px;
 }
@@ -104,7 +104,6 @@
     background-position: center;
     background-position-y: 45%;
     background-image: url("../img/blog--mobile@1x.jpg");
-    /* stylelint-disable */
     background-image: -webkit-image-set(url("../img/blog--mobile@1x.webp") 1x);
 
     @media (min-resolution: $retina-dpi), (min-resolution: $retina-dppx) {
@@ -130,13 +129,13 @@
   }
 
   .blog-contact__text {
+    @include font-text-mobile;
     position: relative;
     width: 95%;
     max-width: 411px;
     margin: 27px auto;
     margin-bottom: 40px;
     padding: 5px 2.4%;
-    @include font-text-mobile;
   }
 
   .blog-contact__text::after {

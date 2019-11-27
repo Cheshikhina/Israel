@@ -38,6 +38,7 @@
   width: 95%;
   margin: 10px auto;
   margin-top: 1px;
+
   @include font-title-desktop;
   text-align: left;
 }
@@ -226,6 +227,7 @@
   .conditions__subtitle {
     margin-top: 13px;
     padding-right: 0;
+
     @include font-text-mobile;
   }
 

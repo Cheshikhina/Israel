@@ -70,10 +70,10 @@
 }
 
 .success__title {
+  @include font-subtitle-desktop;
   width: 90%;
   margin: 14px auto;
   margin-top: 32px;
-  @include font-subtitle-desktop;
 }
 
 .success__text {
@@ -85,12 +85,12 @@
 }
 
 .success__button {
+  @include button;
   width: 66%;
   margin: 0 auto;
   margin-top: 20px;
   padding: 19px 40px;
   padding-top: 20px;
-  @include button;
   border: none;
   outline: none;
 }
@@ -115,8 +115,8 @@
   }
 
   .success__title {
-    width: 96%;
     @include font-subtitle-mobile;
+    width: 96%;
   }
 
   .success__text {

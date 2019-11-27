@@ -27,11 +27,11 @@
 }
 
 .questions__title {
+  @include font-title-desktop;
   width: 48%;
   margin: 10px auto;
   margin-top: 79px;
   margin-left: 8%;
-  @include font-title-desktop;
   text-align: left;
 }
 
@@ -135,10 +135,10 @@
   }
 
   .questions__title {
+    @include font-title-mobile;
     width: 90%;
     margin: 0 auto;
     margin-top: 69px;
-    @include font-title-mobile;
     text-align: center;
   }
 

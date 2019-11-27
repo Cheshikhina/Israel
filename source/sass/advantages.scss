@@ -5,12 +5,12 @@
 }
 
 .advantages__title {
+  @include font-title-desktop;
   width: 60%;
   margin: 0 auto;
   padding: 5px;
   padding-top: 0;
   margin-bottom: 14px;
-  @include font-title-desktop;
 }
 
 .advantages__title > br {
@@ -18,6 +18,7 @@
 }
 
 .advantages__text {
+  @include font-text-desktop;
   position: relative;
   z-index: 2;
   width: 60%;
@@ -25,7 +26,6 @@
   margin-bottom: 41px;
   padding: 5px 3%;
   padding-right: 4.5%;
-  @include font-text-desktop;
   color: $black-color-87;
   text-align: right;
 }
@@ -35,10 +35,9 @@
   display: flex;
   align-items: flex-start;
   flex-wrap: wrap;
-  margin: 0;
+  margin: 0 auto;
   padding: 0;
   width: 84.6%;
-  margin: 0 auto;
 }
 
 .advantages__slide {
@@ -100,7 +99,6 @@
 
 .advantages__slide--studying {
   background-image: url("../img/studying--desktop@1x.png");
-  /* stylelint-disable */
   background-image: -webkit-image-set(url("../img/studying--desktop@1x.webp") 1x);
 
   @media (min-resolution: $retina-dpi), (min-resolution: $retina-dppx) {
@@ -111,7 +109,6 @@
 
 .advantages__slide--training {
   background-image: url("../img/training--desktop@1x.png");
-  /* stylelint-disable */
   background-image: -webkit-image-set(url("../img/training--desktop@1x.webp") 1x);
 
   @media (min-resolution: $retina-dpi), (min-resolution: $retina-dppx) {
@@ -122,7 +119,6 @@
 
 .advantages__slide--creative {
   background-image: url("../img/creative--desktop@1x.png");
-  /* stylelint-disable */
   background-image: -webkit-image-set(url("../img/creative--desktop@1x.webp") 1x);
 
   @media (min-resolution: $retina-dpi), (min-resolution: $retina-dppx) {
@@ -133,7 +129,6 @@
 
 .advantages__slide--lead {
   background-image: url("../img/lead--desktop@1x.png");
-  /* stylelint-disable */
   background-image: -webkit-image-set(url("../img/lead--desktop@1x.webp") 1x);
 
   @media (min-resolution: $retina-dpi), (min-resolution: $retina-dppx) {
@@ -143,13 +138,13 @@
 }
 
 .advantages__slide-text {
+  @include font-preview-desktop;
   align-self: flex-end;
   width: 65%;
   margin: 0;
   margin-bottom: 32px;
   margin-left: 8%;
   position: relative;
-  @include font-preview-desktop;
 }
 
 .advantages__slide-text::after {
@@ -209,15 +204,15 @@
   }
 
   .advantages__title {
-    width: 85%;
     @include font-title-mobile;
+    width: 85%;
     text-align: center;
   }
 
   .advantages__text {
+    @include font-text-mobile;
     width: 80%;
     padding: 5px 10px;
-    @include font-text-mobile;
     text-align: left;
   }
 
@@ -235,7 +230,6 @@
 
   .advantages__slide--exursion {
     background-image: url("../img/exursion--mobile@1x.jpg");
-    /* stylelint-disable */
     background-image: -webkit-image-set(url("../img/exursion--mobile@1x.webp") 1x);
 
     @media (min-resolution: $retina-dpi), (min-resolution: $retina-dppx) {
@@ -246,7 +240,6 @@
 
   .advantages__slide--studying {
     background-image: url("../img/studying--mobile@1x.jpg");
-    /* stylelint-disable */
     background-image: -webkit-image-set(url("../img/studying--mobile@1x.webp") 1x);
 
     @media (min-resolution: $retina-dpi), (min-resolution: $retina-dppx) {
@@ -257,7 +250,6 @@
 
   .advantages__slide--training {
     background-image: url("../img/training--mobile@1x.jpg");
-    /* stylelint-disable */
     background-image: -webkit-image-set(url("../img/training--mobile@1x.webp") 1x);
 
     @media (min-resolution: $retina-dpi), (min-resolution: $retina-dppx) {
@@ -268,7 +260,6 @@
 
   .advantages__slide--creative {
     background-image: url("../img/creative--mobile@1x.jpg");
-    /* stylelint-disable */
     background-image: -webkit-image-set(url("../img/creative--mobile@1x.webp") 1x);
 
     @media (min-resolution: $retina-dpi), (min-resolution: $retina-dppx) {
@@ -279,7 +270,6 @@
 
   .advantages__slide--lead {
     background-image: url("../img/lead--mobile@1x.jpg");
-    /* stylelint-disable */
     background-image: -webkit-image-set(url("../img/lead--mobile@1x.webp") 1x);
 
     @media (min-resolution: $retina-dpi), (min-resolution: $retina-dppx) {
@@ -293,11 +283,11 @@
   }
 
   .advantages__slide-text {
+    @include font-preview-mobile;
     width: 82%;
     max-width: 220px;
     margin: 0 auto;
     margin-bottom: 24px;
-    @include font-preview-mobile;
   }
 
   .advantages__nav-list {

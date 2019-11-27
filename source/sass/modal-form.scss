@@ -19,9 +19,9 @@
 }
 
 .modal-form__title {
+  @include font-subtitle-desktop;
   width: 96%;
   margin: 15px auto;
-  @include font-subtitle-desktop;
 }
 
 .modal-form__text {
@@ -143,12 +143,12 @@
 }
 
 .modal-form button#modal-submit {
+  @include button;
   width: 66%;
   margin: 0 auto;
   margin-top: 20px;
   padding: 19px 40px;
   padding-top: 20px;
-  @include button;
   border: none;
   outline: none;
 }
@@ -255,9 +255,9 @@
   }
 
   .modal-form__title {
+    @include font-subtitle-mobile;
     width: 96%;
     margin: 0 auto;
-    @include font-subtitle-mobile;
   }
 
   .modal-form__text {

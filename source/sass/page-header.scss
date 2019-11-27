@@ -139,7 +139,6 @@
     min-height: 600px;
     background-position-y: 0;
     background-image: url("../img/header-background--mobile@1x.jpg");
-    /* stylelint-disable */
     background-image: -webkit-image-set(url("../img/header-background--mobile@1x.webp") 1x);
 
     @media (min-resolution: $retina-dpi), (min-resolution: $retina-dppx) {

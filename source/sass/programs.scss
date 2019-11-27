@@ -20,10 +20,10 @@
 }
 
 .programs__title {
+  @include font-title-desktop;
   width: 69.3%;
   margin: 70px auto;
   margin-top: 104px;
-  @include font-title-desktop;
   text-align: left;
 }
 
@@ -141,8 +141,8 @@
 }
 
 .programs__title-basic {
-  margin: 0;
   @include font-subtitle-desktop;
+  margin: 0;
 }
 
 .programs__box-basic {
@@ -207,10 +207,10 @@
   }
 
   .programs__title {
+    @include font-title-mobile;
     width: 90%;
     margin-top: 81px;
     margin-bottom: 15px;
-    @include font-title-mobile;
     text-align: center;
   }
 
@@ -252,8 +252,8 @@
   }
 
   .programs__title-basic {
-    margin-top: 15px;
     @include font-subtitle-mobile;
+    margin-top: 15px;
     text-align: left;
   }
 

@@ -23,11 +23,11 @@
 }
 
 .reviews__title {
+  @include font-title-desktop;
   width: 48%;
   margin: 0 auto;
   margin-bottom: 8px;
   margin-right: 9.1%;
-  @include font-title-desktop;
   text-align: left;
 }
 
@@ -90,7 +90,6 @@
 }
 
 .reviews__text {
-  margin: 0;
   margin: 8.5px 0;
   font-size: 17px;
   line-height: 1.75;
@@ -246,10 +245,10 @@
   }
 
   .reviews__title {
+    @include font-title-mobile;
     width: 95%;
     margin: 0 auto;
     margin-bottom: 24px;
-    @include font-title-mobile;
     text-align: center;
   }
 
@@ -295,8 +294,8 @@
   }
 
   .reviews__text {
-    padding-left: 1px;
     @include font-text-mobile;
+    padding-left: 1px;
   }
 
   .reviews__link {

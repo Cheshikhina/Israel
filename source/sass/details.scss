@@ -16,9 +16,9 @@
 }
 
 .details__title {
+  @include font-title-desktop;
   margin: 0;
   margin-bottom: 49px;
-  @include font-title-desktop;
   text-align: left;
 }
 
@@ -117,10 +117,6 @@
   margin-bottom: 12px;
   font-size: 13px;
   line-height: 1.55;
-}
-
-.details__socials {
-  min-width: 96px;
 }
 
 .details__socials {
@@ -284,11 +280,11 @@
 }
 
 .details__form button#details-submit {
+  @include button;
   width: 66%;
   max-width: 216px;
   padding: 19px 20px;
   padding-top: 20px;
-  @include button;
   border: none;
   outline: none;
 }
@@ -369,8 +365,8 @@
   }
 
   .details__title {
-    margin-bottom: 24px;
     @include font-title-mobile;
+    margin-bottom: 24px;
     text-align: center;
   }
 
@@ -411,7 +407,6 @@
     margin-left: auto;
     margin-right: auto;
     background-image: url("../img/map--mobile@1x.png");
-    /* stylelint-disable */
     background-image: -webkit-image-set(url("../img/map--mobile@1x.webp") 1x);
 
     @media (min-resolution: $retina-dpi), (min-resolution: $retina-dppx) {
