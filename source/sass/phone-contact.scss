@@ -34,9 +34,9 @@
   z-index: 0;
   min-height: 594px;
   max-width: 818px;
-  width: 100%;
-  align-self: flex-end;
-  margin-top: -200px;
+  width: 59.9%;
+  top: -200px;
+  left: 40.1%;
   background-color: $background-color;
   background-image: url("../img/phone-contact--desktop@1x.jpg");
   /* stylelint-disable */
@@ -183,8 +183,7 @@
   }
 
   .phone-contact__inner::after {
-    width: 75%;
-    margin-top: -100px;
+    top: -100px;
   }
 }
 
@@ -206,7 +205,8 @@
     min-height: 308px;
     max-width: 320px;
     width: 320px;
-    margin-top: -4px;
+    top: -4px;
+    left: 0;
     align-self: center;
     background-image: url("../img/phone-contact--mobile@1x.jpg");
     background-image: -webkit-image-set(url("../img/phone-contact--mobile@1x.webp") 1x);

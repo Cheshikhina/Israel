@@ -139,9 +139,8 @@
 
 .advantages__slide-text {
   @include font-preview-desktop;
-  align-self: flex-end;
   width: 65%;
-  margin: 0;
+  margin: auto 0;
   margin-bottom: 32px;
   margin-left: 8%;
   position: relative;
@@ -286,7 +285,7 @@
     @include font-preview-mobile;
     width: 82%;
     max-width: 220px;
-    margin: 0 auto;
+    margin: auto;
     margin-bottom: 24px;
   }
 
