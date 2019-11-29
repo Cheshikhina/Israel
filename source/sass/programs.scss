@@ -207,7 +207,7 @@
   .programs__title {
     @include font-title-mobile;
     width: 90%;
-    margin-top: 81px;
+    margin-top: 70px;
     margin-bottom: 15px;
     text-align: center;
   }
@@ -286,6 +286,12 @@
 
   .programs__nav--js .programs__nav-label {
     padding-right: 12px;
+  }
+}
+
+@media (max-width: 450px) {
+  .programs__title {
+    margin-top: -12px;
   }
 }
 

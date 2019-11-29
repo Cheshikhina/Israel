@@ -173,13 +173,19 @@
   }
 }
 
+.details__map-modal > iframe {
+  width: 100%;
+  max-width: 703px;
+  min-height: 448px;
+}
+
 .details__form {
   width: 100%;
   max-width: 1160px;
   display: flex;
   flex-wrap: wrap;
   margin: 0 auto;
-  margin-top: 64px;
+  margin-top: 60px;
 }
 
 .details__form-box {
@@ -418,6 +424,11 @@
     }
   }
 
+  .details__map-modal > iframe {
+    min-width: 320px;
+    min-height: 420px;
+  }
+
   .details__form {
     flex-direction: column;
     margin-top: 19px;
@@ -426,7 +437,7 @@
   .details__form-box {
     width: 95%;
     margin-bottom: 32px;
-    padding-top: 5px;
+    padding-top: 1px;
     padding-left: 2.4%;
   }
 

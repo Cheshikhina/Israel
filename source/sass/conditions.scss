@@ -305,25 +305,38 @@
 }
 
 @media (min-width: $no-mobile-width) {
+  .conditions {
+    margin-top: -110px;
+    padding-top: 110px;
+    background-repeat: no-repeat;
+    background-position-x: right;
+    background-position-y: -130px;
+    background-size: 100% 1208px;
+    background-image: url("../img/conditions-background@1x.jpg");
+  }
+
+  .conditions__inner {
+    margin-top: -10px;
+  }
+
   .conditions__inner::before {
     content: "";
     position: absolute;
-    z-index: -1;
     display: flex;
-    min-height: 1208px;
-    max-width: 1366px;
+    min-height: 707px;
+    max-width: 581px;
     width: 100%;
-    margin-top: -230px;
+    margin-top: -30px;
+    right: 56.6%;
     background-repeat: no-repeat;
-    background-position-x: center;
-    background-color: $background-color;
-    background-image: url("../img/conditions-background@1x.jpg");
+    background-position-x: left;
+    background-image: url("../img/conditions-picture@1x.png");
     /* stylelint-disable */
-    background-image: -webkit-image-set(url("../img/conditions-background@1x.webp") 1x);
+    background-image: -webkit-image-set(url("../img/conditions-picture@1x.webp") 1x);
 
     @media (min-resolution: $retina-dpi), (min-resolution: $retina-dppx) {
-      background-image: url("../img/conditions-background@2x.jpg");
-      background-image: -webkit-image-set(url("../img/conditions-background@2x.webp") 2x);
+      background-image: url("../img/conditions-picture@2x.png");
+      background-image: -webkit-image-set(url("../img/conditions-picture@2x.webp") 2x);
     }
   }
 }

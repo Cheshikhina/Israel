@@ -2,7 +2,13 @@
   display: flex;
   flex-direction: column;
   margin-top: -2px;
+  padding-bottom: 96px;
   background-color: #ffffff;
+  background-repeat: no-repeat;
+  background-position-x: right;
+  background-position-y: 177px;
+  background-size: 100% 604px;
+  background-image: url("../img/main-info-background--desktop@1x.jpg");
 }
 
 .main-info__title {
@@ -28,12 +34,12 @@
 }
 
 .main-info__box {
-  min-height: 604px;
-  max-width: 1366px;
+  min-height: 460px;
+  max-width: 870px;
   width: 100%;
   margin: 0 auto;
+  margin-top: 48px;
   display: flex;
-  background-color: $background-color;
   background-repeat: no-repeat;
   background-position-x: center;
   background-image: url("../img/main-info--desktop@1x.jpg");
@@ -49,7 +55,7 @@
 .main-info__video-btn {
   position: relative;
   margin: 0 auto;
-  margin-top: 227px;
+  margin-top: 179px;
   width: 96px;
   height: 96px;
   border-radius: 50%;
@@ -96,6 +102,13 @@
 }
 
 @media (max-width: $mobile-width) {
+  .main-info {
+    padding-bottom: 0;
+    background-position-y: 235px;
+    background-size: auto;
+    background-image: url("../img/main-info-background--mobile@1x.jpg");
+  }
+
   .main-info__title {
     @include font-title-mobile;
     width: 90%;
@@ -123,7 +136,6 @@
   .main-info__box {
     min-height: 317px;
     max-width: 320px;
-    margin-top: -45px;
     background-image: url("../img/main-info--mobile@1x.jpg");
     background-image: -webkit-image-set(url("../img/main-info--mobile@1x.webp") 1x);
 
@@ -136,7 +148,7 @@
   .main-info__video-btn {
     width: 80px;
     height: 80px;
-    margin-top: 173px;
+    margin-top: 80px;
   }
 
   .main-info__video-btn::before {
