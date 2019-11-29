@@ -157,6 +157,7 @@
   .success__button-close:focus::after {
     background: linear-gradient(132.19deg, #ffc341 20.46%, #ffd701 65.31%);
     opacity: 0.87;
+    transition: $transition;
   }
 
   .success__button:hover,

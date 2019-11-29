@@ -4,9 +4,9 @@
   flex-direction: column;
   margin-top: 100px;
   background-repeat: no-repeat;
-  background-position-x: center;
-  background-position-y: 38px;
-  background-size: 1366px 527px;
+  background-position-x: 36%;
+  background-position-y: 30px;
+  background-size: cover;
   background-image: url("../img/reviews-background--desktop@1x.jpg");
 }
 
@@ -24,10 +24,9 @@
 
 .reviews__title {
   @include font-title-desktop;
-  width: 48%;
   margin: 0 auto;
   margin-bottom: 8px;
-  margin-right: 9.1%;
+  transform: translateX(-1px);
   text-align: left;
 }
 
@@ -233,6 +232,7 @@
   .reviews__photo {
     min-width: 320px;
     min-height: 240px;
+    margin: 0 auto;
   }
 
   .reviews__holder {
@@ -300,5 +300,6 @@
   .reviews__bth:focus::before {
     background-image: url("../img/icon-vector--yellow.svg");
     opacity: 0.87;
+    transition: $transition;
   }
 }

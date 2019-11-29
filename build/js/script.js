@@ -459,7 +459,12 @@
     $(answersAll).not(thisAnswer).hide();
 
     $(questionsAll).click(function () {
-      $(this).next(answersAll).toggle();
+      if ($(this).prop('checked') === false) {
+        $(this).next(answersAll).hide();
+      } else {
+        $(this).next(answersAll).fadeIn().show();
+
+      }
     });
   }
 
@@ -472,7 +477,7 @@
     // функция для показа комментария
     var showComment = function (arr, index, currentNumber, link) {
       index = currentNumber - 1;
-      $(arr[index]).show();
+      $(arr[index]).fadeIn().show();
       $(arr).not(arr[index]).hide();
       link.innerHTML = currentNumber;
     };
@@ -598,9 +603,11 @@
   // открытие/закрытие табов в и перемещение названий программ по карусели на мобильном
   if (programsName && programsDesc && indexTabName && programsNameLine) {
     $(programsName).click(function () {
-      $(programsDesc).hide().eq($(this).index()).show();
+      $(programsDesc).hide().eq($(this).index()).fadeIn().show();
       if ($(this).index() === indexTabName) {
         indentTabName = indentTabName;
+      } else if ($(this).index() === 1) {
+        programsNameLine.style.left = '-44px';
       } else {
         indentTabName = (getCurrentTabNameWidth(arrayTabNameWidth, ($(this).index() - 1)) - Math.floor((document.documentElement.clientWidth - arrayTabNameWidth[$(this).index()]) / 2));
         programsNameLine.style.left = -indentTabName + 'px';

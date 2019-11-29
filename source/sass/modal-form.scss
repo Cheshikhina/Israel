@@ -205,6 +205,7 @@
   min-height: 8px;
   padding: 0;
   margin: 0 auto;
+  transform: translateX(-21px);
   border: none;
   background-color: transparent;
   border-radius: 0;
@@ -215,7 +216,6 @@
   display: flex;
   top: 11.5px;
   align-self: center;
-  transform: translateX(-21px);
   background: linear-gradient(142.39deg, #ffc341 20.46%, #ffd701 65.31%);
 }
 
@@ -325,6 +325,7 @@
   .modal-form__button-close:focus::after {
     background: linear-gradient(132.19deg, #ffc341 20.46%, #ffd701 65.31%);
     opacity: 0.87;
+    transition: $transition;
   }
 
   .modal-form button#modal-submit:hover,

@@ -158,10 +158,12 @@
   .main-info__video-btn:hover::before,
   .main-info__video-btn:focus::before {
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+    transition: $transition;
   }
 
   .main-info__video-btn:hover::after,
   .main-info__video-btn:focus::after {
     border-left-color: #63d3fd;
+    transition: $transition;
   }
 }

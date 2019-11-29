@@ -1,7 +1,6 @@
 .details {
   display: flex;
   flex-wrap: wrap;
-  max-width: 1366px;
   margin: 0 auto;
   padding-top: 104px;
   padding-bottom: 82px;
@@ -11,6 +10,8 @@
   display: flex;
   flex-direction: column;
   width: 48.6%;
+  max-width: 665px;
+  margin-left: auto;
   padding-left: 8%;
   color: $black-color-74;
 }
@@ -156,8 +157,10 @@
 
 .details__map {
   width: 51.4%;
+  max-width: 703px;
   min-height: 448px;
   margin-top: 6px;
+  margin-right: auto;
   background-repeat: no-repeat;
   background-position-x: right;
   background-image: url("../img/map--desktop@1x.png");
@@ -469,6 +472,7 @@
   .details {
     background-repeat: no-repeat;
     background-position-y: 15px;
+    background-size: cover;
     background-image: url("../img/details-background@1x.jpg");
   }
 

@@ -1,6 +1,5 @@
 .programs {
   position: relative;
-  max-width: 1366px;
   margin: 0 auto;
   background-color: #ffffff;
 }
@@ -22,6 +21,7 @@
 .programs__title {
   @include font-title-desktop;
   width: 69.3%;
+  max-width: 947px;
   margin: 70px auto;
   margin-top: 104px;
   text-align: left;
@@ -29,7 +29,7 @@
 
 .programs__holder {
   width: 69.3%;
-  max-width: 1366px;
+  max-width: 947px;
   display: flex;
   margin: 0 auto;
 }
@@ -312,6 +312,7 @@
       left: 0;
       z-index: -1;
       background-image: url("../img/sticker.png");
+      transition: $transition;
     }
 
     &::after {
@@ -325,6 +326,8 @@
       z-index: -2;
       background-color: $background-color;
     }
+
+    transition: $transition;
   }
 
   .programs__nav-radio:focus ~ .programs__nav-label,

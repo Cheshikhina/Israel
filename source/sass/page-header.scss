@@ -219,10 +219,12 @@
   .page-header__call:focus::after {
     background-image: url("../img/icon-border--yellow.svg");
     opacity: 0.87;
+    transition: $transition;
   }
 
   .page-header__scroll > button:hover,
   .page-header__scroll > button:focus {
     background-image: url("../img/mouse--yellow.png");
+    transition: $transition;
   }
 }
