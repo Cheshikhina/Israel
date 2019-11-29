@@ -134,6 +134,7 @@
 
 .programs__list-basic {
   width: 70%;
+  margin-left: 3.6%;
 }
 
 .programs__item-basic {
@@ -196,9 +197,6 @@
     padding-right: 0;
   }
 }
-
-// @media (max-width: $tablet-width) {
-// }
 
 @media (max-width: $mobile-width) {
   .programs {
@@ -284,6 +282,10 @@
   .programs__nav--js .programs__nav-item {
     min-width: min-content;
     width: min-content;
+  }
+
+  .programs__nav--js .programs__nav-label {
+    padding-right: 12px;
   }
 }
 

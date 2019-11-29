@@ -153,10 +153,6 @@
   color: $black-color-87;
 }
 
-.conditions__item-text--padding-another {
-  padding-top: 15px;
-}
-
 .conditions__note {
   position: relative;
   width: 95%;
@@ -233,7 +229,7 @@
 
   .conditions__list {
     width: 100%;
-    margin-top: 11px;
+    margin-top: 10px;
     margin-left: -5px;
     margin-right: 0;
     padding-right: 3px;
@@ -257,11 +253,11 @@
   }
 
   .conditions__item--margin-other {
-    margin-bottom: 5px;
+    margin-bottom: 4px;
   }
 
   .conditions__item:last-child {
-    margin-bottom: 6px;
+    margin-bottom: 5px;
   }
 
   .conditions__item-text {
@@ -270,6 +266,11 @@
     line-height: 1.5;
     color: $black-color-87;
     letter-spacing: -0.5px;
+  }
+
+  .conditions__item-text--padding-another {
+    padding-left: 23px;
+    padding-top: 13px;
   }
 
   .conditions__item-index--margin-another {

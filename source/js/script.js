@@ -38,7 +38,7 @@
   var nameModalForm = modalForm.querySelector('input[name="your-name"]');
   var personalModalForm = modalForm.querySelector('.modal-form__personal');
   var scrollButton = document.querySelector('.page-header__scroll button');
-  var pageMain = document.querySelector('.page-main');
+  var mainInfo = document.querySelector('.main-info');
   var inputAll = document.querySelectorAll('input');
   var programsName = document.querySelectorAll('.programs__nav-item');
   var programsDesc = document.querySelectorAll('.programs__item-basic');
@@ -57,6 +57,10 @@
   var counterAllComments = document.querySelector('.reviews__count-all');
   var programsNameLine = document.querySelector('.programs__nav');
   var programsNameContainer = document.querySelector('.programs__nav-box');
+  var indentTabName = 0;
+  var arrayTabNameWidth = [];
+  var programsNameLineWidth = 0;
+  var indexTabName = $(document.querySelector('.programs__nav-radio[checked]')).parent().index();
 
   // //ФУНКЦИЯ "ОЖИВЛЕНИЯ" КАРТЫ
   // var initMap = function () {
@@ -391,8 +395,8 @@
   };
 
   // переход по кнопке скролла
-  if (scrollButton && pageMain) {
-    scrollElement(scrollButton, pageMain);
+  if (scrollButton && mainInfo) {
+    scrollElement(scrollButton, mainInfo);
   }
 
 
@@ -440,13 +444,10 @@
     if (document.documentElement.clientWidth < MOBILE_WIDTH) {
       slider.classList.remove('visually-hidden');
       if (slidesName && slidesPhoto && ThisElement.SLIDE) {
-        // var runTabs = function (tabs, contents, tab) {
         $(slidesPhoto).not(ThisElement.SLIDE).hide();
         $(slidesName).click(function () {
           $(slidesPhoto).hide().eq($(this).index()).show();
         });
-        // };
-        // runTabs(slidesName, slidesPhoto, ThisElement.SLIDE);
       }
     }
   }
@@ -557,88 +558,56 @@
 
 
   //ЛОГИКА РАБОТЫ ТАБОВ В БЛОКЕ ПРОГРАММЫ
-  if (programsName && programsDesc && ThisElement.TAB) {
+  // отрисовка выбранного таба
+  if (programsDesc && ThisElement.TAB) {
     $(programsDesc).not(ThisElement.TAB).hide();
-    $(programsName).click(function () {
-      $(programsDesc).hide().eq($(this).index()).show();
-    });
   }
 
+  // функция для расчета текущей ширины линии - суммы элементов массива по заданный индекс
+  var getCurrentTabNameWidth = function (array, index) {
+    var sum = 0;
+    for (var i = 0; i < index + 1; i++) {
+      sum = sum + Math.ceil(array[i]);
+    }
+    return sum;
+  };
 
+
+  // прячем названия табов, невлезающих в одну линию для мобильного
   if (programsNameLine && programsNameContainer) {
     if (document.documentElement.clientWidth < MOBILE_WIDTH) {
       if (!$(programsNameLine).hasClass('programs__nav--js')) {
         programsNameLine.classList.add('programs__nav--js');
+
+        // выяснение текущей ширины линии названий табов и присваивание соответсвующих стилей
       }
       if (!$(programsNameContainer).hasClass('programs__nav-box--js')) {
         programsNameContainer.classList.add('programs__nav-box--js');
+        if (programsNameLine && programsName) {
+          for (var k = 0; k < programsName.length; k++) {
+            arrayTabNameWidth.push(programsName[k].offsetWidth);
+            programsNameLineWidth += programsName[k].offsetWidth;
+          }
+          programsNameLine.style.width = programsNameLineWidth + 'px';
+          programsNameLine.style.left = '-44px';
+        }
       }
     }
   }
 
-  // открытие/закрытие табов в блоке Программы
-
-  //
-  // var programsName = document.querySelectorAll('.programs__nav-item');
-  // var programsDesc = document.querySelectorAll('.programs__item-basic');
-  // var container = document.documentElement.clientWidth;
-  // var thisProgramsName = document.querySelector('.programs__nav-radio[checked]');
-  // var programsNameLine = document.querySelector('.programs__nav');
-  // var lineWidth = 0;
-  // var arrayWidth = [];
-
-  // var programsNameContainer = document.querySelector('.programs__nav-box');
-  // var offset = Math.ceil((document.documentElement.clientWidth - $(thisProgramsName).parent().width()) / 2);
-  // var index = $(document.querySelector('.programs__nav-radio[checked]')).parent().index();
-  // // var offset = 0;
-  // // var step = 0;
-  // // var limit = 0;
-
-  // for (var k = 0; k < programsName.length; k++) {
-  //   arrayWidth.push(programsName[k].offsetWidth);
-  //   lineWidth += programsName[k].offsetWidth;
-  // }
-
-  // var getCurrentWidth = function (array, index) {
-  //   var sum = 0;
-  //   for (var i = 0; i < index + 1; i++) {
-  //     sum += array[index];
-  //   }
-  //   return sum;
-  // };
-
-  // // var currentWidth = getCurrentWidth(arrayWidth, index);
-  // // var thisCurrentWidth = currentWidth;
-  // programsNameLine.style.width = lineWidth + 'px';
-  // programsNameLine.style.left = -offset + 'px';
-
-  // // общая функция для открытия/закрытия табов
-
-  // $(programsDesc).not(ThisElement.TAB).hide();
-  // $(programsName).click(function () {
-  //   $(programsDesc).hide().eq($(this).index()).show();
-  //   console.log(index);
-  //   console.log($(this).index());
-  //   if (index > $(this).index()) {
-  //     offset = offset + arrayWidth[$(this).index()];
-  //     // programsNameLine.style.width = lineWidth + 'px';
-  //     programsNameLine.style.left = -offset + 'px';
-  //   }
-  //   if (index < $(this).index()) {
-  //     offset = -offset + arrayWidth[$(this).index()];
-  //     // programsNameLine.style.width = lineWidth + 'px';
-  //     programsNameLine.style.left = offset + 'px';
-  //   }
-  //   if (index = $(this).index()) {
-  //     offset = offset;
-  //     // programsNameLine.style.width = lineWidth + 'px';
-  //     // programsNameLine.style.left = offset + 'px';
-  //   }
-
-
-  //   thisCurrentWidth = getCurrentWidth(arrayWidth, $(this).index());
-  // });
-
+  // открытие/закрытие табов в и перемещение названий программ по карусели на мобильном
+  if (programsName && programsDesc && indexTabName && programsNameLine) {
+    $(programsName).click(function () {
+      $(programsDesc).hide().eq($(this).index()).show();
+      if ($(this).index() === indexTabName) {
+        indentTabName = indentTabName;
+      } else {
+        indentTabName = (getCurrentTabNameWidth(arrayTabNameWidth, ($(this).index() - 1)) - Math.floor((document.documentElement.clientWidth - arrayTabNameWidth[$(this).index()]) / 2));
+        programsNameLine.style.left = -indentTabName + 'px';
+      }
+      indexTabName = $(this).index();
+    });
+  }
 
   // проверка ширины окна в текущем времени для добавления/удаления кнопок слайдера и классов для корректной работы табов
   window.addEventListener('resize', function () {
@@ -661,9 +630,10 @@
       }
     }
 
-
     if (programsNameLine && programsNameContainer) {
       if (document.documentElement.clientWidth < MOBILE_WIDTH) {
+        programsNameLine.style.width = programsNameLineWidth + 'px';
+        programsNameLine.style.left = -(getCurrentTabNameWidth(arrayTabNameWidth, ($(this).index() - 1)) - Math.floor((document.documentElement.clientWidth - arrayTabNameWidth[$(this).index()]) / 2)) + 'px';
         if (!$(programsNameLine).hasClass('programs__nav--js')) {
           programsNameLine.classList.add('programs__nav--js');
         }
@@ -671,6 +641,7 @@
           programsNameContainer.classList.add('programs__nav-box--js');
         }
       } else {
+        programsNameLine.style = '';
         if ($(programsNameLine).hasClass('programs__nav--js')) {
           programsNameLine.classList.remove('programs__nav--js');
         }
