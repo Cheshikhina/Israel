@@ -69,7 +69,7 @@
   font-size: 28px;
   font-weight: 700;
   background: linear-gradient(95.15deg, #ffc341 20.46%, #ffd701 65.31%);
-  -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
@@ -78,6 +78,7 @@
   min-height: 32px;
   font-size: 17px;
   line-height: 1.5;
+  transition: $transition;
 }
 
 .questions__text {
@@ -105,6 +106,7 @@
   background-repeat: no-repeat;
   background-image: url("../img/icon-vector--blue.svg");
   border-radius: 0;
+  transition: $transition;
 }
 
 .questions__checkbox:checked {

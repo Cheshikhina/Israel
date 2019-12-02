@@ -41,6 +41,7 @@
   background-color: $black-color;
   border: none;
   outline: none;
+  transition: $transition;
 }
 
 .error__button:active {
@@ -72,6 +73,5 @@
   .error__button:hover,
   .error__button:focus {
     background-color: $black-color-87;
-    transition: $transition;
   }
 }

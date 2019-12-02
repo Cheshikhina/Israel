@@ -62,6 +62,7 @@
   line-height: 18px;
   align-items: center;
   color: $black-color-87;
+  transition: $transition;
 }
 
 .programs__nav-label--common {
@@ -74,6 +75,7 @@
   margin-right: 16px;
   background-position: center;
   background-repeat: no-repeat;
+  transition: $transition;
 }
 
 .programs__nav-icon--common {
@@ -318,7 +320,6 @@
       left: 0;
       z-index: -1;
       background-image: url("../img/sticker.png");
-      transition: $transition;
     }
 
     &::after {
@@ -332,8 +333,6 @@
       z-index: -2;
       background-color: $background-color;
     }
-
-    transition: $transition;
   }
 
   .programs__nav-radio:focus ~ .programs__nav-label,

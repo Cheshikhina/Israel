@@ -167,6 +167,7 @@
   padding-top: 20px;
   border: none;
   outline: none;
+  transition: $transition;
 }
 
 .phone-contact__form button#contact-submit:active {

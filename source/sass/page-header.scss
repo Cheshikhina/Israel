@@ -47,6 +47,7 @@
   margin-left: 4.5%;
   padding: 5px;
   color: $black-color;
+  transition: $transition;
 }
 
 .page-header__logo {
@@ -63,6 +64,7 @@
   text-transform: uppercase;
   letter-spacing: 0.3px;
   color: $black-color;
+  transition: $transition;
 }
 
 .page-header__call::after {
@@ -76,6 +78,7 @@
   transform: rotate(180deg);
   background-image: url(../img/icon-border--black.svg);
   background-repeat: no-repeat;
+  transition: $transition;
 }
 
 .page-header__box {
@@ -117,6 +120,7 @@
   border: none;
   outline: none;
   cursor: pointer;
+  transition: $transition;
 }
 
 .page-header__phone-number:active,
@@ -219,12 +223,10 @@
   .page-header__call:focus::after {
     background-image: url("../img/icon-border--yellow.svg");
     opacity: 0.87;
-    transition: $transition;
   }
 
   .page-header__scroll > button:hover,
   .page-header__scroll > button:focus {
     background-image: url("../img/mouse--yellow.png");
-    transition: $transition;
   }
 }

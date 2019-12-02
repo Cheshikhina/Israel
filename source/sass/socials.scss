@@ -12,6 +12,7 @@
 .socials__link svg {
   fill: #000000;
   opacity: 0.16;
+  transition: $transition;
 }
 
 .socials__link:active svg {
@@ -24,6 +25,5 @@
   .socials__link:focus svg {
     fill: $yellow-color;
     opacity: 0.87;
-    transition: $transition;
   }
 }
