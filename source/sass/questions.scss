@@ -40,15 +40,18 @@
   z-index: 2;
   display: flex;
   flex-direction: column;
-  width: 48%;
+  width: 44%;
   margin: 0 auto;
   margin-left: 8%;
 }
 
 .questions__list {
   margin: 0;
+  margin-bottom: 100px;
+  margin-right: 20px;
   padding: 0;
   list-style: none;
+  counter-reset: questionsCounter;
 }
 
 .questions__item {
@@ -59,13 +62,18 @@
   max-width: 560px;
   padding: 24px 30px;
   padding-top: 38px;
+  padding-left: 0;
   border-bottom: 1px solid rgba(71, 71, 71, 0.2);
 }
 
-.questions__item-index {
-  position: absolute;
-  left: 1px;
-  top: 31px;
+.questions__item::before {
+  order: -2;
+  content: "";
+  position: relative;
+  counter-increment: questionsCounter;
+  content: counter(questionsCounter);
+  left: 0;
+  top: -6px;
   font-size: 28px;
   font-weight: 700;
   background: linear-gradient(95.15deg, #ffc341 20.46%, #ffd701 65.31%);
@@ -74,17 +82,24 @@
 }
 
 .questions__label {
+  order: -1;
   width: 75%;
   min-height: 32px;
+  padding-left: 15px;
   font-size: 17px;
   line-height: 1.5;
   transition: $transition;
 }
 
+.questions__label--organizing {
+  padding-left: 17px;
+}
+
 .questions__text {
   width: 100%;
   margin: 7px 0;
-  margin-left: -29px;
+  margin-left: 1px;
+  padding-right: 5px;
   margin-top: 19px;
   line-height: 1.4;
   color: $black-color-74;
@@ -149,24 +164,28 @@
   }
 
   .questions__item {
-    padding-left: 24px;
     padding-right: 0;
     padding-bottom: 16px;
     letter-spacing: -0.5px;
   }
 
-  .questions__item-index {
+  .questions__item::before {
     left: 0;
   }
 
   .questions__label {
-    width: 90%;
+    width: 85%;
+    padding-left: 10px;
     line-height: 1.55;
+  }
+
+  .questions__label--organizing {
+    padding-left: 12px;
   }
 
   .questions__text {
     margin-top: 16px;
-    margin-left: -25px;
+    margin-left: 0;
     margin-bottom: -1px;
     line-height: 1.5;
   }
@@ -182,7 +201,7 @@
 
 @media (max-width: 350px) {
   .questions__label--narrow {
-    padding-right: 22%;
+    padding-right: 20%;
   }
 }
 
@@ -207,18 +226,18 @@
     top: 79px;
     background-repeat: no-repeat;
     background-position-x: left;
+    background-size: 645px 803px;
     background-image: url("../img/questions-picture@1x.png");
-    /* stylelint-disable */
-    background-image: -webkit-image-set(url("../img/questions-picture@1x.webp") 1x);
 
     @media (min-resolution: $retina-dpi), (min-resolution: $retina-dppx) {
       background-image: url("../img/questions-picture@2x.png");
-      background-image: -webkit-image-set(url("../img/questions-picture@2x.webp") 2x);
     }
   }
 
   .questions__checkbox:hover,
+  .questions__checkbox:hover + .questions__label,
   .questions__label:hover {
     cursor: pointer;
+    opacity: 0.67;
   }
 }

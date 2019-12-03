@@ -20,7 +20,7 @@
 .conditions__inner {
   position: relative;
   max-width: 1366px;
-  min-height: 1208px;
+  min-height: 837px;
   margin: 0 auto;
 }
 
@@ -72,6 +72,7 @@
   padding-left: 12px;
   list-style: none;
   overflow: hidden;
+  counter-reset: conditionsCounter;
 }
 
 .conditions__list::after {
@@ -115,39 +116,32 @@
   background-image: url("../img/icon-border--dashed.svg");
 }
 
-.conditions__item-index {
+.conditions__item::before {
   position: relative;
+  counter-increment: conditionsCounter;
+  content: counter(conditionsCounter);
   z-index: 3;
-  padding: 5px;
+  width: 36px;
+  height: 36px;
+  padding: 5px 14px;
   padding-top: 2px;
-  padding-left: 14px;
+  align-self: center;
   font-size: 17px;
   font-weight: 700;
   line-height: 1.75;
+  background-color: #ffffff;
+  border-radius: 50%;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.1);
   color: $yellow-color;
 }
 
-.conditions__item-index::after {
-  content: "";
-  position: absolute;
-  display: block;
-  z-index: -1;
-  width: 36px;
-  height: 36px;
-  top: 0;
-  left: 0;
-  background: #ffffff;
-  border-radius: 50%;
-  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.1);
-}
-
-.conditions__item-index--margin-another {
+.conditions__item--margin-different::before {
   margin-top: -10px;
 }
 
 .conditions__item-text {
   margin: 0;
-  padding: 10px 32px;
+  padding: 10px 24px;
   padding-right: 18%;
   line-height: 1.4;
   color: $black-color-87;
@@ -176,7 +170,8 @@
 @media (max-width: 1330px) {
   .conditions__holder {
     min-width: 480px;
-    width: 54%;
+    width: 50%;
+    margin-right: 2%;
   }
 
   .conditions__text,
@@ -262,18 +257,18 @@
 
   .conditions__item-text {
     padding-right: 0;
-    padding-left: 24px;
+    padding-left: 15px;
     line-height: 1.5;
     color: $black-color-87;
     letter-spacing: -0.5px;
   }
 
   .conditions__item-text--padding-another {
-    padding-left: 23px;
+    padding-left: 16px;
     padding-top: 13px;
   }
 
-  .conditions__item-index--margin-another {
+  .conditions__item--margin-different::before {
     margin-top: 0;
   }
 
@@ -330,13 +325,11 @@
     right: 56.6%;
     background-repeat: no-repeat;
     background-position-x: left;
+    background-size: 581px 707px;
     background-image: url("../img/conditions-picture@1x.png");
-    /* stylelint-disable */
-    background-image: -webkit-image-set(url("../img/conditions-picture@1x.webp") 1x);
 
     @media (min-resolution: $retina-dpi), (min-resolution: $retina-dppx) {
       background-image: url("../img/conditions-picture@2x.png");
-      background-image: -webkit-image-set(url("../img/conditions-picture@2x.webp") 2x);
     }
   }
 }

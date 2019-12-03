@@ -4,9 +4,9 @@
   width: 100%;
   max-width: 480px;
   min-height: 521px;
-  top: 7.3em;
+  top: 50%;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translateX(-50%) translateY(-50%);
   padding: 40px;
   background-color: #ffffff;
   box-shadow: $box-shadow;
@@ -105,6 +105,7 @@
   .success {
     min-height: 590px;
     top: 2.3em;
+    transform: translateX(-50%) translateY(0);
     padding: 80px 5px;
   }
 

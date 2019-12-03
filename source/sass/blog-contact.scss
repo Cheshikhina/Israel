@@ -7,13 +7,11 @@
   background-repeat: no-repeat;
   background-position-x: center;
   background-color: $background-color;
+  background-size: 1366px 583px;
   background-image: url("../img/blog--desktop@1x.jpg");
-  /* stylelint-disable */
-  background-image: -webkit-image-set(url("../img/blog--desktop@1x.webp") 1x);
 
   @media (min-resolution: $retina-dpi), (min-resolution: $retina-dppx) {
     background-image: url("../img/blog--desktop@2x.jpg");
-    background-image: -webkit-image-set(url("../img/blog--desktop@2x.webp") 2x);
   }
 }
 
@@ -104,12 +102,11 @@
     background-size: contain;
     background-position: center;
     background-position-y: 45%;
+    background-size: contain;
     background-image: url("../img/blog--mobile@1x.jpg");
-    background-image: -webkit-image-set(url("../img/blog--mobile@1x.webp") 1x);
 
     @media (min-resolution: $retina-dpi), (min-resolution: $retina-dppx) {
       background-image: url("../img/blog--mobile@2x.jpg");
-      background-image: -webkit-image-set(url("../img/blog--mobile@2x.webp") 2x);
     }
   }
 

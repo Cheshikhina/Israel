@@ -38,13 +38,11 @@
   top: -200px;
   left: 40.1%;
   background-color: $background-color;
+  background-size: 818px 594px;
   background-image: url("../img/phone-contact--desktop@1x.jpg");
-  /* stylelint-disable */
-  background-image: -webkit-image-set(url("../img/phone-contact--desktop@1x.webp") 1x);
 
   @media (min-resolution: $retina-dpi), (min-resolution: $retina-dppx) {
     background-image: url("../img/phone-contact--desktop@2x.jpg");
-    background-image: -webkit-image-set(url("../img/phone-contact--desktop@2x.webp") 2x);
   }
 }
 
@@ -209,12 +207,11 @@
     top: -4px;
     left: 0;
     align-self: center;
+    background-size: 320px 308px;
     background-image: url("../img/phone-contact--mobile@1x.jpg");
-    background-image: -webkit-image-set(url("../img/phone-contact--mobile@1x.webp") 1x);
 
     @media (min-resolution: $retina-dpi), (min-resolution: $retina-dppx) {
       background-image: url("../img/phone-contact--mobile@2x.jpg");
-      background-image: -webkit-image-set(url("../img/phone-contact--mobile@2x.webp") 2x);
     }
   }
 

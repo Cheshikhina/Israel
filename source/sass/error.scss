@@ -6,9 +6,9 @@
   width: 100%;
   max-width: 480px;
   min-height: 521px;
-  top: 7.3em;
+  top: 50%;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translateX(-50%) translateY(-50%);
   margin: 0 auto;
   padding: 60px 40px;
   background-color: #ffffff;
@@ -52,6 +52,7 @@
   .error {
     min-height: 590px;
     top: 2.3em;
+    transform: translateX(-50%) translateY(0);
     padding: 95px 35px;
   }
 

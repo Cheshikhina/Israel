@@ -8,7 +8,7 @@
     SEND: 'http://httpbin.org/post',
   };
   var Code = {
-    SUCESS: 200,
+    SUCCESS: 200,
   };
   var PlaceholderClass = {
     MODAL: 'modal-form__phone--placeholder',
@@ -23,6 +23,8 @@
   var SCROLL_SPEED = 1500;
   var MOBILE_WIDTH = 768;
   var ERROR_INPUT = 'border: 2px solid rgba(255, 0, 0, 0.5); border-radius: 80px;';
+  var SUCCESS_INPUT = 'border: 2px solid rgba(72, 72, 72, 0.5); border-radius: 80px;';
+  var body = document.querySelector('body');
   var popup = document.querySelector('.modal-form');
   var overlay = document.querySelector('.overlay');
   var linkOpenPopup = document.querySelector('#link-call');
@@ -80,7 +82,7 @@
     var xhr = new XMLHttpRequest();
     xhr.responseType = 'json';
     xhr.addEventListener('load', function () {
-      if (xhr.status === Code.SUCESS) {
+      if (xhr.status === Code.SUCCESS) {
         onLoad(xhr.response);
       } else {
         onError('Статус ответа: ' + xhr.status + ' ' + xhr.statusText);
@@ -108,18 +110,23 @@
   //успешно отправленная форма
   var successHandler = function () {
     closePopup();
+    phoneCallForm.style = '';
+    nameDetailsForm.style = '';
+    phoneDetailsForm.style = '';
     var similarSucessMessage = document.querySelector('#success')
       .content
       .querySelector('.success');
     var sucessMessage = similarSucessMessage.cloneNode(true);
     document.body.insertBefore(sucessMessage, document.body.children[0]);
     overlay.style.display = 'block';
+    body.style.overflow = 'hidden';
 
     var successButton = document.querySelector('.success__button');
     var successButtonClose = document.querySelector('.success__button-close');
 
     var closeSuccessMessage = function () {
       overlay.style.display = 'none';
+      body.style.overflow = '';
       document.body.removeChild(document.body.children[0]);
       successButton.removeEventListener('click', closeSuccessMessage);
       successButtonClose.removeEventListener('click', closeSuccessMessage);
@@ -151,10 +158,12 @@
     var errorMessage = similarErrorMessage.cloneNode(true);
     document.body.insertBefore(errorMessage, document.body.children[0]);
     overlay.style.display = 'block';
+    body.style.overflow = 'hidden';
 
     var errorButton = document.querySelector('.error__button');
 
     var closeErrorMessage = function () {
+      body.style.overflow = '';
       openPopup();
       document.body.removeChild(document.body.children[0]);
       errorButton.removeEventListener('click', closeErrorMessage);
@@ -184,6 +193,7 @@
     var errorMessage = similarErrorMessage.cloneNode(true);
     document.body.insertBefore(errorMessage, document.body.children[0]);
     overlay.style.display = 'block';
+    body.style.overflow = 'hidden';
 
     var errorButton = document.querySelector('.error__button');
 
@@ -191,6 +201,7 @@
       document.body.removeChild(document.body.children[0]);
       errorButton.removeEventListener('click', closeErrorMessage);
       overlay.style.display = 'none';
+      body.style.overflow = '';
     };
 
     var addCloseEscErrorMessage = function () {
@@ -217,6 +228,7 @@
     var errorMessage = similarErrorMessage.cloneNode(true);
     document.body.insertBefore(errorMessage, document.body.children[0]);
     overlay.style.display = 'block';
+    body.style.overflow = 'hidden';
 
     var errorButton = document.querySelector('.error__button');
 
@@ -224,6 +236,7 @@
       document.body.removeChild(document.body.children[0]);
       errorButton.removeEventListener('click', closeErrorMessage);
       overlay.style.display = 'none';
+      body.style.overflow = '';
     };
 
     var addCloseEscErrorMessage = function () {
@@ -239,6 +252,61 @@
 
     addCloseEscErrorMessage();
     errorButton.addEventListener('click', closeErrorMessage);
+  };
+
+  //МАСКИ ДЛЯ ВВОДА ТЕЛЕФОНА
+  var checkPhoneNumber = function (element) {
+    $(element).mask('+7 (999) 999 99 99');
+  };
+
+  // ввод телефонов
+  if (phoneInFormAll) {
+    checkPhoneNumber(phoneInFormAll);
+  }
+
+
+  //ПРОВЕРКА ФОРМ
+  // удаление аттрибута required
+  if (inputAll) {
+    $(inputAll).removeAttr('required');
+  }
+
+  // функция для создания массива с данными из формы
+  var getFormData = function (form) {
+    var unindexed_array = $(form).serializeArray();
+    var indexed_array = {};
+
+    $.map(unindexed_array, function (n, i) {
+      indexed_array[n['name']] = n['value'];
+    });
+
+    return indexed_array;
+  };
+
+  // проверка поля на пустоту
+  var checkEmpty = function (form, input, type) {
+    var thisForm = getFormData(form);
+    var value = thisForm[type];
+    if (value === '') {
+      input.style = ERROR_INPUT;
+      return false;
+    } else {
+      input.style = SUCCESS_INPUT;
+      return true;
+    }
+  };
+
+  // проверка поля на галочку
+  var checkMark = function (form, input, type) {
+    var thisForm = getFormData(form);
+    var value = thisForm[type];
+    if (value !== 'on') {
+      input.style = ERROR_INPUT;
+      return false;
+    } else {
+      input.style = '';
+      return true;
+    }
   };
 
 
@@ -278,8 +346,17 @@
   // функция открытия модального окна
   var openPopup = function () {
     overlay.style.display = 'block';
-    nameModalForm.focus();
+    body.style.overflow = 'hidden';
     popup.classList.remove('visually-hidden');
+    nameModalForm.focus();
+
+    nameModalForm.addEventListener('blur', function () {
+      checkEmpty(modalForm, nameModalForm, 'your-name');
+    });
+    phoneModalForm.addEventListener('blur', function () {
+      checkEmpty(modalForm, phoneModalForm, 'your-phone');
+    });
+
     addCloseEscPopup();
     if (buttonClosePopup) {
       buttonClosePopup.addEventListener('click', function () {
@@ -312,9 +389,19 @@
     nameModalForm.style = '';
     phoneModalForm.style = '';
     personalModalForm.style = '';
+    body.style.overflow = '';
     popup.classList.add('visually-hidden');
     removeCloseEscPopup();
     modalForm.removeEventListener('submit', pressModalFormButton);
+  };
+
+  // функция проверки полей модального окна
+  var checkModalForm = function () {
+    if (checkEmpty(modalForm, nameModalForm, 'your-name') && checkEmpty(modalForm, phoneModalForm, 'your-phone') && checkMark(modalForm, personalModalForm, 'personal')) {
+      return true;
+    } else {
+      return false;
+    }
   };
 
   // функция сохранения данных формы модального окна
@@ -325,65 +412,6 @@
     }
   };
 
-
-  //МАСКИ ДЛЯ ВВОДА ТЕЛЕФОНА
-  var checkPhoneNumber = function (element) {
-    $(element).mask('+7 (999) 999 99 99');
-  };
-
-  // ввод телефонов
-  if (phoneInFormAll) {
-    checkPhoneNumber(phoneInFormAll);
-  }
-
-
-  //ПРОВЕРКА ФОРМЫ
-  // удаление аттрибута required
-  if (inputAll) {
-    $(inputAll).removeAttr('required');
-  }
-
-  // функция для создания массива с данными из формы
-  var getFormData = function (form) {
-    var unindexed_array = $(form).serializeArray();
-    var indexed_array = {};
-
-    $.map(unindexed_array, function (n, i) {
-      indexed_array[n['name']] = n['value'];
-    });
-
-    return indexed_array;
-  };
-
-  // функция проверки полей модального окна
-  var checkModalForm = function () {
-    var thisForm = getFormData(modalForm);
-    var nameValue = thisForm['your-name'];
-    var phoneValue = thisForm['your-phone'];
-    var personalValue = thisForm['personal'];
-
-    if (nameValue === '') {
-      nameModalForm.style = ERROR_INPUT;
-      phoneModalForm.style = '';
-      personalModalForm.style = '';
-      return false;
-    } else if (phoneValue === '') {
-      phoneModalForm.style = ERROR_INPUT;
-      nameModalForm.style = '';
-      personalModalForm.style = '';
-      return false;
-    } else if (personalValue !== 'on') {
-      personalModalForm.style = ERROR_INPUT;
-      nameModalForm.style = '';
-      phoneModalForm.style = '';
-      return false;
-    } else {
-      nameModalForm.style = '';
-      phoneModalForm.style = '';
-      personalModalForm.style = '';
-      return true;
-    }
-  };
 
 
   //СКРОЛЛ В ШАПКЕ
@@ -412,23 +440,14 @@
   }
 
   // функция проверки формы "Хочу поехать"
-  var checkCallForm = function () {
-    var thisForm = getFormData(callForm);
-    var phoneValue = thisForm['your-phone'];
-
-    if (phoneValue === '') {
-      phoneCallForm.style = ERROR_INPUT;
-      return false;
-    } else {
-      phoneCallForm.style = '';
-      return true;
-    }
-  };
+  phoneCallForm.addEventListener('blur', function () {
+    checkEmpty(callForm, phoneCallForm, 'your-phone');
+  });
 
   // функция сохранения данных формы "Хочу поехать"
   var pressCallFormButton = function (evt) {
     evt.preventDefault();
-    if (checkCallForm()) {
+    if (checkEmpty(callForm, phoneCallForm, 'your-phone')) {
       save(new FormData(callForm), successHandler, callFormErrorHandler);
     }
   };
@@ -460,9 +479,9 @@
 
     $(questionsAll).click(function () {
       if ($(this).prop('checked') === false) {
-        $(this).next(answersAll).hide();
+        $(this).next().next(answersAll).hide();
       } else {
-        $(this).next(answersAll).fadeIn().show();
+        $(this).next().next(answersAll).fadeIn().show();
 
       }
     });
@@ -527,24 +546,19 @@
     });
   }
 
-  // функция проверки формы "Узнать подробности"
-  var checkDetailsForm = function () {
-    var thisForm = getFormData(detailsForm);
-    var phoneValue = thisForm['your-phone'];
-    var nameValue = thisForm['your-name'];
+  // слушатели и функция проверки формы "Узнать подробности"
+  nameDetailsForm.addEventListener('blur', function () {
+    checkEmpty(detailsForm, nameDetailsForm, 'your-name');
+  });
+  phoneDetailsForm.addEventListener('blur', function () {
+    checkEmpty(detailsForm, phoneDetailsForm, 'your-phone');
+  });
 
-    if (nameValue === '') {
-      nameDetailsForm.style = ERROR_INPUT;
-      phoneDetailsForm.style = '';
-      return false;
-    } else if (phoneValue === '') {
-      phoneDetailsForm.style = ERROR_INPUT;
-      nameDetailsForm.style = '';
-      return false;
-    } else {
-      phoneDetailsForm.style = '';
-      nameDetailsForm.style = '';
+  var checkDetailsForm = function () {
+    if (checkEmpty(detailsForm, nameDetailsForm, 'your-name') && checkEmpty(detailsForm, phoneDetailsForm, 'your-phone')) {
       return true;
+    } else {
+      return false;
     }
   };
 
@@ -657,6 +671,12 @@
         }
       }
     }
+  });
+
+
+  // убираю эффект залипания на кнопках
+  $('button').mouseup(function () {
+    this.blur();
   });
 
 })();

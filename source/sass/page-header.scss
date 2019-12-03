@@ -5,13 +5,11 @@
   background-color: $background-color;
   background-position: center;
   background-repeat: no-repeat;
+  background-size: 1366px 879px;
   background-image: url("../img/header-background--desktop@1x.jpg");
-  /* stylelint-disable */
-  background-image: -webkit-image-set(url("../img/header-background--desktop@1x.webp") 1x);
 
   @media (min-resolution: $retina-dpi), (min-resolution: $retina-dppx) {
     background-image: url("../img/header-background--desktop@2x.jpg");
-    background-image: -webkit-image-set(url("../img/header-background--desktop@2x.webp") 2x);
   }
 }
 
@@ -57,9 +55,9 @@
 
 .page-header__call {
   position: relative;
-  margin-right: 1.4%;
+  margin-right: 2.4%;
   margin-left: auto;
-  padding: 5px;
+  padding: 5px 0;
   font-size: 13px;
   text-transform: uppercase;
   letter-spacing: 0.3px;
@@ -73,12 +71,11 @@
   position: absolute;
   width: 100%;
   height: 2px;
-  left: -6px;
+  left: 0;
   bottom: 4px;
   transform: rotate(180deg);
   background-image: url(../img/icon-border--black.svg);
-  background-repeat: no-repeat;
-  transition: $transition;
+  background-repeat: repeat-x;
 }
 
 .page-header__box {
@@ -142,12 +139,11 @@
   .page-header {
     min-height: 600px;
     background-position-y: 0;
+    background-size: 912px 619px;
     background-image: url("../img/header-background--mobile@1x.jpg");
-    background-image: -webkit-image-set(url("../img/header-background--mobile@1x.webp") 1x);
 
     @media (min-resolution: $retina-dpi), (min-resolution: $retina-dppx) {
       background-image: url("../img/header-background--mobile@2x.jpg");
-      background-image: -webkit-image-set(url("../img/header-background--mobile@2x.webp") 2x);
     }
   }
 
@@ -187,15 +183,14 @@
   }
 
   .page-header__call {
-    margin-right: initial;
+    margin-right: 5px;
     font-size: 12px;
     letter-spacing: 0.4px;
   }
 
   .page-header__call::after {
-    width: 88%;
-    left: 6px;
     bottom: 5px;
+    background-position-x: -5px;
   }
 
   .page-header__box {

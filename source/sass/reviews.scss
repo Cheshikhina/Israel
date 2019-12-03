@@ -27,7 +27,7 @@
   margin: 0 auto;
   margin-bottom: 8px;
   transform: translateX(-1px);
-  text-align: left;
+  text-align: center;
 }
 
 .reviews__inner {
@@ -298,8 +298,8 @@
     @include link-hover;
   }
 
-  .reviews__bth:hover::before,
-  .reviews__bth:focus::before {
+  .reviews__bth:focus::before,
+  .reviews__bth:hover::before {
     background-image: url("../img/icon-vector--yellow.svg");
     opacity: 0.87;
   }
