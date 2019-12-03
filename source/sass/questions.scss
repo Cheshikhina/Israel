@@ -68,7 +68,6 @@
 
 .questions__item::before {
   order: -2;
-  content: "";
   position: relative;
   counter-increment: questionsCounter;
   content: counter(questionsCounter);

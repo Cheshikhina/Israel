@@ -18,8 +18,6 @@
   text-align: left;
 }
 
-
-
 .modal-form__title {
   @include font-subtitle-desktop;
   width: 96%;
@@ -112,6 +110,7 @@
   border-radius: 80px;
   outline: none;
   transition: $transition;
+  -webkit-appearance: none;
 }
 
 .modal-form input::-webkit-input-placeholder {

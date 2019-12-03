@@ -59,10 +59,15 @@
   var counterAllComments = document.querySelector('.reviews__count-all');
   var programsNameLine = document.querySelector('.programs__nav');
   var programsNameContainer = document.querySelector('.programs__nav-box');
+  var tabsInputAll = document.querySelectorAll('.programs__nav-radio');
+  var tabsLabelAll = document.querySelectorAll('.programs__nav-label');
   var indentTabName = 0;
   var arrayTabNameWidth = [];
   var programsNameLineWidth = 0;
   var indexTabName = $(document.querySelector('.programs__nav-radio[checked]')).parent().index();
+  var slideIndex = 0;
+  var initialPoint;
+  var finalPoint;
 
   // //ФУНКЦИЯ "ОЖИВЛЕНИЯ" КАРТЫ
   // var initMap = function () {
@@ -284,11 +289,15 @@
   };
 
   // проверка поля на пустоту
-  var checkEmpty = function (form, input, type) {
+  var checkEmpty = function (form, input, type, isBlur) {
     var thisForm = getFormData(form);
     var value = thisForm[type];
     if (value === '') {
-      input.style = ERROR_INPUT;
+      if (isBlur) {
+        input.style = '';
+      } else {
+        input.style = ERROR_INPUT;
+      }
       return false;
     } else {
       input.style = SUCCESS_INPUT;
@@ -351,10 +360,10 @@
     nameModalForm.focus();
 
     nameModalForm.addEventListener('blur', function () {
-      checkEmpty(modalForm, nameModalForm, 'your-name');
+      checkEmpty(modalForm, nameModalForm, 'your-name', true);
     });
     phoneModalForm.addEventListener('blur', function () {
-      checkEmpty(modalForm, phoneModalForm, 'your-phone');
+      checkEmpty(modalForm, phoneModalForm, 'your-phone', true);
     });
 
     addCloseEscPopup();
@@ -365,7 +374,7 @@
       });
     }
     if (phoneModalForm) {
-      phoneModalForm.addEventListener('focus', function () {
+      phoneModalForm.addEventListener('blur', function () {
         addPhonePlaceholder(modalForm, PlaceholderClass.MODAL);
       });
       phoneModalForm.addEventListener('blur', function () {
@@ -397,7 +406,7 @@
 
   // функция проверки полей модального окна
   var checkModalForm = function () {
-    if (checkEmpty(modalForm, nameModalForm, 'your-name') && checkEmpty(modalForm, phoneModalForm, 'your-phone') && checkMark(modalForm, personalModalForm, 'personal')) {
+    if (checkEmpty(modalForm, nameModalForm, 'your-name', false) && checkEmpty(modalForm, phoneModalForm, 'your-phone', false) && checkMark(modalForm, personalModalForm, 'personal')) {
       return true;
     } else {
       return false;
@@ -411,7 +420,6 @@
       save(new FormData(modalForm), successHandler, modalFormErrorHandler);
     }
   };
-
 
 
   //СКРОЛЛ В ШАПКЕ
@@ -441,13 +449,13 @@
 
   // функция проверки формы "Хочу поехать"
   phoneCallForm.addEventListener('blur', function () {
-    checkEmpty(callForm, phoneCallForm, 'your-phone');
+    checkEmpty(callForm, phoneCallForm, 'your-phone', true);
   });
 
   // функция сохранения данных формы "Хочу поехать"
   var pressCallFormButton = function (evt) {
     evt.preventDefault();
-    if (checkEmpty(callForm, phoneCallForm, 'your-phone')) {
+    if (checkEmpty(callForm, phoneCallForm, 'your-phone', false)) {
       save(new FormData(callForm), successHandler, callFormErrorHandler);
     }
   };
@@ -458,15 +466,47 @@
   }
 
   //ЛОГИКА СЛАЙДЕРА В БЛОКЕ ЖИЗНЬ В ИЗРАИЛЕ
-  // проверка ширины окна при открытии сайта для добавления/удаления кнопок слайдера
+  // проверка ширины окна при открытии сайта для добавления/удаления кнопок слайдера/свайпера
   if (slider) {
     if (document.documentElement.clientWidth < MOBILE_WIDTH) {
+      var inpursSlideNameAll = document.querySelectorAll('.advantages__nav-radio');
       slider.classList.remove('visually-hidden');
+      $(slidesName).eq(slideIndex).children('input').addClass('advantages__nav-radio--js');
+
       if (slidesName && slidesPhoto && ThisElement.SLIDE) {
         $(slidesPhoto).not(ThisElement.SLIDE).hide();
         $(slidesName).click(function () {
+          slideIndex = $(this).index();
           $(slidesPhoto).hide().eq($(this).index()).show();
+          $(slidesName).children('input').removeClass('advantages__nav-radio--js');
+          $(slidesName).eq(slideIndex).children('input').addClass('advantages__nav-radio--js');
         });
+
+        document.querySelector('.advantages__slides').addEventListener('touchstart', function (evt) {
+          evt.preventDefault();
+          evt.stopPropagation();
+          initialPoint = evt.changedTouches[0];
+        }, false);
+        document.querySelector('.advantages__slides').addEventListener('touchend', function (evt) {
+          evt.preventDefault();
+          evt.stopPropagation();
+          finalPoint = evt.changedTouches[0];
+          if (finalPoint.pageX < initialPoint.pageX) {
+            if (slideIndex === inpursSlideNameAll.length - 1) {
+              slideIndex = slideIndex;
+            } else {
+              slideIndex = slideIndex + 1;
+            }
+            $(slidesName).eq(slideIndex).children('input').click();
+          } else {
+            if (slideIndex === 0) {
+              slideIndex = slideIndex;
+            } else {
+              slideIndex = slideIndex - 1;
+            }
+            $(slidesName).eq(slideIndex).children('input').click();
+          }
+        }, false);
       }
     }
   }
@@ -548,14 +588,14 @@
 
   // слушатели и функция проверки формы "Узнать подробности"
   nameDetailsForm.addEventListener('blur', function () {
-    checkEmpty(detailsForm, nameDetailsForm, 'your-name');
+    checkEmpty(detailsForm, nameDetailsForm, 'your-name', true);
   });
   phoneDetailsForm.addEventListener('blur', function () {
-    checkEmpty(detailsForm, phoneDetailsForm, 'your-phone');
+    checkEmpty(detailsForm, phoneDetailsForm, 'your-phone', true);
   });
 
   var checkDetailsForm = function () {
-    if (checkEmpty(detailsForm, nameDetailsForm, 'your-name') && checkEmpty(detailsForm, phoneDetailsForm, 'your-phone')) {
+    if (checkEmpty(detailsForm, nameDetailsForm, 'your-name', false) && checkEmpty(detailsForm, phoneDetailsForm, 'your-phone', false)) {
       return true;
     } else {
       return false;
@@ -577,6 +617,17 @@
 
 
   //ЛОГИКА РАБОТЫ ТАБОВ В БЛОКЕ ПРОГРАММЫ
+  // функция создания уникальных id для пунктов названий программ
+  var getId = function () {
+    $(tabsInputAll).attr('id', function (index) {
+      return 'programs-00' + (index + 1);
+    });
+    $(tabsLabelAll).attr('for', function (index) {
+      return 'programs-00' + (index + 1);
+    });
+  };
+  getId();
+
   // отрисовка выбранного таба
   if (programsDesc && ThisElement.TAB) {
     $(programsDesc).not(ThisElement.TAB).hide();
@@ -677,6 +728,16 @@
   // убираю эффект залипания на кнопках
   $('button').mouseup(function () {
     this.blur();
+  });
+
+  // убираю зумирование на input в ios
+  $(function () {
+    $('input').on('mousedown focusout', function () {
+      $('input').css('font-size', '16px');
+    });
+    $('input').on('focus', function () {
+      $('input').css('font-size', '');
+    });
   });
 
 })();
