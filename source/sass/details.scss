@@ -173,10 +173,10 @@
   background-repeat: no-repeat;
   background-position-x: right;
   background-size: 702px 448px;
-  background-image: url("../img/map--desktop@1x.png");
+  background-image: url("../img/map--desktop1366@1x.png");
 
   @media (min-resolution: $retina-dpi), (min-resolution: $retina-dppx) {
-    background-image: url("../img/map--desktop@2x.png");
+    background-image: url("../img/map--desktop1366@2x.png");
   }
 }
 
@@ -332,6 +332,16 @@
   background-image: url("../img/placeholder.png");
 }
 
+@media (max-width: 1366px) {
+  .details__map {
+    background-image: url("../img/map--desktop@1x.png");
+
+    @media (min-resolution: $retina-dpi), (min-resolution: $retina-dppx) {
+      background-image: url("../img/map--desktop@2x.png");
+    }
+  }
+}
+
 @media (max-width: 1170px) {
   .details {
     padding-bottom: 72px;
@@ -471,6 +481,8 @@
     max-width: 288px;
     margin: 0 auto;
     margin-bottom: 8px;
+    padding-bottom: 17px;
+    font-size: 16px;
   }
 
   .details__form button#details-submit {

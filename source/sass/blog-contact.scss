@@ -8,10 +8,10 @@
   background-position-x: center;
   background-color: $background-color;
   background-size: 1366px 583px;
-  background-image: url("../img/blog--desktop@1x.jpg");
+  background-image: url("../img/blog--desktop1366@1x.jpg");
 
   @media (min-resolution: $retina-dpi), (min-resolution: $retina-dppx) {
-    background-image: url("../img/blog--desktop@2x.jpg");
+    background-image: url("../img/blog--desktop1366@2x.jpg");
   }
 }
 
@@ -83,6 +83,16 @@
   display: none;
 }
 
+@media (max-width: 1366px) {
+  .blog-contact {
+    background-image: url("../img/blog--desktop@1x.jpg");
+
+    @media (min-resolution: $retina-dpi), (min-resolution: $retina-dppx) {
+      background-image: url("../img/blog--desktop@2x.jpg");
+    }
+  }
+}
+
 @media (max-width: 1300px) {
   .blog-contact {
     background-position-x: 45%;
@@ -93,6 +103,7 @@
     padding-right: 10%;
   }
 }
+
 
 @media (max-width: $mobile-width) {
   .blog-contact {
