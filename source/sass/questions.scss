@@ -233,10 +233,15 @@
     }
   }
 
-  .questions__checkbox:hover,
   .questions__checkbox:hover + .questions__label,
   .questions__label:hover {
     cursor: pointer;
-    opacity: 0.67;
+    opacity: 0.87;
+  }
+
+  .questions__checkbox:hover,
+  .questions__checkbox:hover:checked {
+    cursor: pointer;
+    background-image: url("../img/icon-vector--blue-hover.svg");
   }
 }

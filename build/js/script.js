@@ -114,6 +114,9 @@
 
   //успешно отправленная форма
   var successHandler = function () {
+    modalForm.reset();
+    callForm.reset();
+    detailsForm.reset();
     closePopup();
     phoneCallForm.style = '';
     nameDetailsForm.style = '';
@@ -135,22 +138,20 @@
       document.body.removeChild(document.body.children[0]);
       successButton.removeEventListener('click', closeSuccessMessage);
       successButtonClose.removeEventListener('click', closeSuccessMessage);
-      modalForm.reset();
-      callForm.reset();
-      detailsForm.reset();
+      document.removeEventListener('keydown', successMessageCloseEscHandler);
+      overlay.removeEventListener('click', closeSuccessMessage);
     };
 
-    var addCloseEscSuccessMessage = function () {
-      document.addEventListener('keydown', function (evt) {
-        if (evt.keyCode === KeyCode.ESC) {
-          closeSuccessMessage();
-        }
-      });
+    var successMessageCloseEscHandler = function (evt) {
+      if (evt.keyCode === KeyCode.ESC) {
+        closeSuccessMessage();
+      }
     };
 
-    addCloseEscSuccessMessage();
+    document.addEventListener('keydown', successMessageCloseEscHandler);
     successButton.addEventListener('click', closeSuccessMessage);
     successButtonClose.addEventListener('click', closeSuccessMessage);
+    overlay.addEventListener('click', closeSuccessMessage);
   };
 
   // ошибка отправки формы модального окна
@@ -172,21 +173,24 @@
       openPopup();
       document.body.removeChild(document.body.children[0]);
       errorButton.removeEventListener('click', closeErrorMessage);
+      document.removeEventListener('keydown', errorMessageCloseEscHandler);
+      overlay.removeEventListener('click', closeErrorMessage);
     };
 
-    var addCloseEscErrorMessage = function () {
-      document.addEventListener('keydown', function (evt) {
-        if (evt.keyCode === KeyCode.ESC) {
-          document.body.removeChild(document.body.children[0]);
-          overlay.style.display = 'none';
-          errorButton.removeEventListener('click', closeErrorMessage);
-          modalForm.reset();
-        }
-      });
+    var errorMessageCloseEscHandler = function (evt) {
+      if (evt.keyCode === KeyCode.ESC) {
+        overlay.style.display = 'none';
+        document.body.removeChild(document.body.children[0]);
+        errorButton.removeEventListener('click', closeErrorMessage);
+        document.removeEventListener('keydown', errorMessageCloseEscHandler);
+        overlay.removeEventListener('click', closeErrorMessage);
+        modalForm.reset();
+      }
     };
 
-    addCloseEscErrorMessage();
+    document.addEventListener('keydown', errorMessageCloseEscHandler);
     errorButton.addEventListener('click', closeErrorMessage);
+    overlay.addEventListener('click', closeErrorMessage);
   };
 
   // ошибка отправки формы "Хочу поехать"
@@ -203,25 +207,28 @@
     var errorButton = document.querySelector('.error__button');
 
     var closeErrorMessage = function () {
-      document.body.removeChild(document.body.children[0]);
-      errorButton.removeEventListener('click', closeErrorMessage);
       overlay.style.display = 'none';
       body.style.overflow = '';
+      document.body.removeChild(document.body.children[0]);
+      errorButton.removeEventListener('click', closeErrorMessage);
+      document.removeEventListener('keydown', errorMessageCloseEscHandler);
+      overlay.removeEventListener('click', closeErrorMessage);
     };
 
-    var addCloseEscErrorMessage = function () {
-      document.addEventListener('keydown', function (evt) {
-        if (evt.keyCode === KeyCode.ESC) {
-          document.body.removeChild(document.body.children[0]);
-          overlay.style.display = 'none';
-          errorButton.removeEventListener('click', closeErrorMessage);
-          callForm.reset();
-        }
-      });
+    var errorMessageCloseEscHandler = function (evt) {
+      if (evt.keyCode === KeyCode.ESC) {
+        overlay.style.display = 'none';
+        document.body.removeChild(document.body.children[0]);
+        errorButton.removeEventListener('click', closeErrorMessage);
+        document.removeEventListener('keydown', errorMessageCloseEscHandler);
+        overlay.removeEventListener('click', closeErrorMessage);
+        callForm.reset();
+      }
     };
 
-    addCloseEscErrorMessage();
+    document.addEventListener('keydown', errorMessageCloseEscHandler);
     errorButton.addEventListener('click', closeErrorMessage);
+    overlay.addEventListener('click', closeErrorMessage);
   };
 
   // ошибка отправки формы "Узнать подробности"
@@ -238,25 +245,28 @@
     var errorButton = document.querySelector('.error__button');
 
     var closeErrorMessage = function () {
-      document.body.removeChild(document.body.children[0]);
-      errorButton.removeEventListener('click', closeErrorMessage);
       overlay.style.display = 'none';
       body.style.overflow = '';
+      document.body.removeChild(document.body.children[0]);
+      errorButton.removeEventListener('click', closeErrorMessage);
+      document.removeEventListener('keydown', errorMessageCloseEscHandler);
+      overlay.removeEventListener('click', closeErrorMessage);
     };
 
-    var addCloseEscErrorMessage = function () {
-      document.addEventListener('keydown', function (evt) {
-        if (evt.keyCode === KeyCode.ESC) {
-          document.body.removeChild(document.body.children[0]);
-          overlay.style.display = 'none';
-          errorButton.removeEventListener('click', closeErrorMessage);
-          detailsForm.reset();
-        }
-      });
+    var errorMessageCloseEscHandler = function (evt) {
+      if (evt.keyCode === KeyCode.ESC) {
+        document.body.removeChild(document.body.children[0]);
+        overlay.style.display = 'none';
+        errorButton.removeEventListener('click', closeErrorMessage);
+        document.removeEventListener('keydown', errorMessageCloseEscHandler);
+        overlay.removeEventListener('click', closeErrorMessage);
+        detailsForm.reset();
+      }
     };
 
-    addCloseEscErrorMessage();
+    document.addEventListener('keydown', errorMessageCloseEscHandler);
     errorButton.addEventListener('click', closeErrorMessage);
+    overlay.addEventListener('click', closeErrorMessage);
   };
 
   //МАСКИ ДЛЯ ВВОДА ТЕЛЕФОНА
@@ -352,6 +362,12 @@
     }
   };
 
+  // функция удаления модального окна
+  var clickOutPopupHandler = function () {
+    closePopup();
+    modalForm.reset();
+  };
+
   // функция открытия модального окна
   var openPopup = function () {
     overlay.style.display = 'block';
@@ -374,14 +390,16 @@
       });
     }
     if (phoneModalForm) {
-      phoneModalForm.addEventListener('blur', function () {
+      phoneModalForm.addEventListener('focus', function () {
         addPhonePlaceholder(modalForm, PlaceholderClass.MODAL);
       });
       phoneModalForm.addEventListener('blur', function () {
         removePhonePlaceholder(modalForm, PlaceholderClass.MODAL);
       });
     }
+
     modalForm.addEventListener('submit', pressModalFormButton);
+    overlay.addEventListener('click', clickOutPopupHandler);
   };
 
   // слушатель ссылки на модальное окно
@@ -395,13 +413,14 @@
   // функция закрытия модального окна
   var closePopup = function () {
     overlay.style.display = 'none';
+    body.style.overflow = '';
     nameModalForm.style = '';
     phoneModalForm.style = '';
     personalModalForm.style = '';
-    body.style.overflow = '';
     popup.classList.add('visually-hidden');
     removeCloseEscPopup();
     modalForm.removeEventListener('submit', pressModalFormButton);
+    overlay.removeEventListener('click', clickOutPopupHandler);
   };
 
   // функция проверки полей модального окна
@@ -732,12 +751,14 @@
 
   // убираю зумирование на input в ios
   $(function () {
-    $('input').on('mousedown focusout', function () {
-      $('input').css('font-size', '16px');
-    });
-    $('input').on('focus', function () {
-      $('input').css('font-size', '');
-    });
+    if (document.documentElement.clientWidth < MOBILE_WIDTH) {
+      $('input').on('mousedown focusout', function () {
+        $('input').css('font-size', '16px');
+      });
+      $('input').on('focus', function () {
+        $('input').css('font-size', '');
+      });
+    }
   });
 
 })();
